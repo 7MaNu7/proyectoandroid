@@ -29,6 +29,7 @@ public class TablonAnuncios extends ActionBarActivity {
 
        //etid = (EditText)findViewByID(R.et_id);
         Connection conn = DBConnection.getInstance().getConnection();
+        
     }
 
 

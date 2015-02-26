@@ -36,7 +36,7 @@ public class DBConnection {
         return connection;
     }
 
-    public DBConnection getInstance(){
+    public static DBConnection getInstance(){
         if(instance == null)
             instance = new DBConnection();
         return instance;
