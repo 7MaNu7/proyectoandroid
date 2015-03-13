@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Nuevo anuncio"
+        android:id="@+id/textViewNuevo"
+        android:textSize="40dp"
+        android:layout_marginTop="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Inserte el título aquí"
+        android:id="@+id/textViewTitulo"
+        android:textSize="20dp"
+        android:layout_marginTop="49dp"
+        android:layout_gravity="left|right|top|center"
+        android:layout_below="@+id/textViewNuevo"
+        android:layout_alignLeft="@+id/textViewNuevo"
+        android:layout_alignStart="@+id/textViewNuevo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Escriba el lugar del encuentro"
+        android:id="@+id/textViewLugar"
+        android:textSize="20dp"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/spinnerCategorias"
+        android:layout_alignLeft="@+id/spinnerCategorias"
+        android:layout_alignStart="@+id/spinnerCategorias" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerCategorias"
+        android:clickable="true"
+        android:visibility="visible"
+        android:layout_below="@+id/textViewTitulo"
+        android:layout_alignLeft="@+id/textViewTitulo"
+        android:layout_alignStart="@+id/textViewTitulo"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Número de personas"
+        android:id="@+id/textViewNPersonas"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textViewLugar"
+        android:layout_alignLeft="@+id/textViewLugar"
+        android:layout_alignStart="@+id/textViewNPersonas" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Descripción del evento: Buscamos gente para un partido de futbol sala en Almería..."
+        android:id="@+id/textViewDescripcion"
+        android:textSize="20dp"
+        android:layout_below="@+id/calendarView1"
+        android:layout_alignLeft="@+id/calendarView1"
+        android:layout_alignStart="@+id/calendarView1"
+        android:layout_marginTop="31dp"
+        android:layout_alignRight="@+id/textViewNuevo"
+        android:layout_alignEnd="@+id/textViewNuevo" />
+
+    <CalendarView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calendarView1"
+        android:layout_below="@+id/textViewNPersonas"
+        android:layout_alignLeft="@+id/textViewNPersonas"
+        android:layout_alignStart="@+id/textViewNPersonas"
+        android:layout_marginTop="29dp" />
+
+</RelativeLayout>
