@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/LinearLayoutMenu"
+        android:layout_marginBottom="420dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Anuncios"
+            android:id="@+id/buttonAnuncios"
+            style="@style/Base.Theme.AppCompat.Dialog"
+            android:textColor="#ffffffff"
+            android:background="#ff0fb0ff"
+            android:singleLine="true"
+            android:layout_weight="0.25" />
+
+        <Button
+            style="@style/Base.Theme.AppCompat.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:id="@+id/buttonPerfil"
+            android:textColor="#ffffffff"
+            android:background="#ff0fb0ff"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"
+            android:layout_weight="0.25" />
+
+        <Button
+            style="@style/Base.Theme.AppCompat.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Salir"
+            android:id="@+id/button"
+            android:layout_weight="0.21"
+            android:textColor="#ffffffff"
+            android:background="#ff0fb0ff"
+            android:singleLine="true"
+            android:longClickable="false" />
+
+    </LinearLayout>
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayoutFiltros">
+
+        <Button
+            style="@style/Base.Theme.AppCompat.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Todos"
+            android:id="@+id/buttonTodos"
+            android:textColor="#ffffffff"
+            android:background="#ff0fb0ff"
+            android:singleLine="true"
+            android:layout_weight="0.25" />
+
+        <Button
+            style="@style/Base.Theme.AppCompat.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonPorCategoria"
+            android:textColor="#ffffffff"
+            android:background="#ff0fb0ff"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"
+            android:layout_weight="0.25" />
+
+        <Button
+            style="@style/Base.Theme.AppCompat.Dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Por lugar"
+            android:id="@+id/buttonPorLugar"
+            android:layout_weight="0.21"
+            android:textColor="#ffffffff"
+            android:background="#ff0fb0ff"
+            android:singleLine="true"
+            android:longClickable="false" />
+    </LinearLayout>
+
+</LinearLayout>
