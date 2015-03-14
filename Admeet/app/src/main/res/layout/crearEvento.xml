@@ -27,8 +27,7 @@
             android:background="#ff0fb0ff"
             android:singleLine="true"
             android:layout_weight="0.25"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textSize="20dp" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -41,8 +40,7 @@
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:layout_weight="0.25"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textSize="20dp" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -55,8 +53,7 @@
             android:background="#ff0fb0ff"
             android:singleLine="true"
             android:longClickable="false"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textSize="20dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -107,7 +104,7 @@
             android:layout_height="139dp"
             android:id="@+id/calendarView"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:clickable="false" />
 
         <TextView
@@ -127,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Descripción del anuncio. Ejemplo: Partido de Futbol sala con árbitro, comida y bebida gratis al terminar."
+            android:text="Descripción del anuncio.                                          Ejemplo: Partido de Futbol sala con árbitro, comida y bebida gratis al terminar. Ejemplo dando ejemplo para la descripción, por ejemplo una larga esto, ya esta."
             android:id="@+id/textViewDescripcion"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
@@ -147,7 +144,7 @@
             android:singleLine="true"
             android:textSize="20dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
 </RelativeLayout>
