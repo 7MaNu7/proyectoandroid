@@ -22,13 +22,14 @@
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Anuncios"
+            android:text="Eventos"
             android:id="@+id/buttonAnuncios"
             android:textColor="#ffffffff"
             android:background="#ff0fb0ff"
             android:singleLine="true"
             android:layout_weight="0.25"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -41,7 +42,8 @@
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:layout_weight="0.25"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -54,7 +56,8 @@
             android:background="#ff0fb0ff"
             android:singleLine="true"
             android:longClickable="false"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <SearchView
@@ -83,16 +86,10 @@
             android:text="Todos"
             android:id="@+id/buttonTodos"
             android:textColor="#ff0d0d0d"
-            android:background="#ff9cb5ff"
+            android:background="#ff8dd7ff"
             android:singleLine="true"
             android:layout_weight="0.25"
             android:textSize="15dp" />
-
-        <TimePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/timePicker"
-            android:layout_weight="0.25" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -101,7 +98,7 @@
             android:text="Por categoria"
             android:id="@+id/buttonPorCategoria"
             android:textColor="#ff0d0d0d"
-            android:background="#ffd3efff"
+            android:background="#ff8dd7ff"
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:layout_weight="0.25"
@@ -115,7 +112,7 @@
             android:id="@+id/buttonPorLugar"
             android:layout_weight="0.21"
             android:textColor="#ff0d0d0d"
-            android:background="#ffd3efff"
+            android:background="#ff8dd7ff"
             android:singleLine="true"
             android:longClickable="false"
             android:textSize="15dp" />

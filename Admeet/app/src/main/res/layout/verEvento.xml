@@ -26,7 +26,8 @@
             android:background="#ff0fb0ff"
             android:singleLine="true"
             android:layout_weight="0.25"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -39,7 +40,8 @@
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:layout_weight="0.25"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -52,7 +54,8 @@
             android:background="#ff0fb0ff"
             android:singleLine="true"
             android:longClickable="false"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -87,14 +90,14 @@
                 android:layout_height="fill_parent">
 
                 <TextView
-                    android:layout_width="5dp"
+                    android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Lugar:"
                     android:id="@+id/textViewTituloLugar"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginRight="20dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="15dp"
@@ -106,12 +109,10 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Almeria, Roquetas de Mar Polideportivo"
                     android:id="@+id/textViewLugar"
-                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:layout_column="19" />
             </TableRow>
 
@@ -139,7 +140,6 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="15/03/2015"
                     android:id="@+id/textView3"
-                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
@@ -174,7 +174,6 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="3/20"
                     android:id="@+id/textViewNPersonas"
-                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
@@ -207,7 +206,6 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Deportes Futbol"
                     android:id="@+id/textView2"
-                    android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
@@ -225,7 +223,7 @@
             android:text="Descripción del evento:"
             android:id="@+id/textViewTituloDescripcion"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
@@ -236,10 +234,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Partido de Futbol sala con árbitro, comida y bebida gratis al terminar. Hora de inicio: 17.00 Y eso y lo otro y mira que descripción más detallada que pone la gente, bueno, está todo claro ya, bien, así de largo para el ejemplo."
+            android:text="Partido de Futbol sala con árbitro, comida y bebida gratis al terminar. Hora de inicio: 17.00 Y eso y lo otro y mira que descripción más detallada que pone la gente, bueno, está todo claro ya, bien, así de largo para el ejemplo. Mas ejemplo, mas ejemplo, mas ejemplo."
             android:id="@+id/textViewDescripcion"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
@@ -247,7 +245,8 @@
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp">
 
             <Button
                 style="@style/Base.Theme.AppCompat.Dialog"
@@ -278,6 +277,16 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="100dp"
                 android:layout_marginLeft="100dp" />
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"></TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            </TableRow>
         </TableLayout>
 
     </LinearLayout>
