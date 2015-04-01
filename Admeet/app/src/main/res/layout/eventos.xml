@@ -49,7 +49,7 @@
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Salir"
+            android:text="Filtros"
             android:id="@+id/button"
             android:layout_weight="0.21"
             android:textColor="#ffffffff"
@@ -75,7 +75,7 @@
         android:layout_below="@+id/searchView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/LinearLayoutAnuncios"
+        android:id="@+id/Linear2"
         android:layout_marginBottom="430dp">
 
         <Button
@@ -94,7 +94,7 @@
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Por categoria"
+            android:text="Míos"
             android:id="@+id/buttonPorCategoria"
             android:textColor="#ff0d0d0d"
             android:background="#ff8dd7ff"
@@ -107,7 +107,7 @@
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Por lugar"
+            android:text="Asisto"
             android:id="@+id/buttonPorLugar"
             android:layout_weight="0.21"
             android:textColor="#ff0d0d0d"
@@ -121,7 +121,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gridView"
-        android:layout_alignTop="@+id/LinearLayoutAnuncios"
+        android:layout_alignTop="@+id/Linear2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="41dp" />

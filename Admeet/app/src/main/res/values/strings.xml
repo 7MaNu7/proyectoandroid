@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="buttonTodos">Todos</string>
     <string name="buttonPorLugar">Por lugar</string>
+    <string name="title_activity_eventos">Eventos</string>
 
 </resources>

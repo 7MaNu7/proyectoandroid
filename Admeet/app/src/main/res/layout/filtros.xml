@@ -4,14 +4,13 @@
     android:layout_height="match_parent"
     android:weightSum="1"
     android:orientation="vertical"
-    android:background="#ffffffff"
-    android:id="@+id/relative">
+    android:background="#ffffffff">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linear"
+        android:id="@+id/linearLayout"
         android:layout_marginBottom="520dp"
         android:layout_row="1"
         android:layout_column="9"
@@ -43,22 +42,31 @@
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:layout_weight="0.25"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textSize="20dp" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Filtros"
-            android:id="@+id/buttonF"
+            android:id="@+id/button"
             android:layout_weight="0.21"
             android:textColor="#ffffffff"
             android:background="#ff0fb0ff"
             android:singleLine="true"
             android:longClickable="false"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </LinearLayout>
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -68,30 +76,16 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/Linear2"
-        android:layout_marginBottom="490dp"
-        android:layout_marginTop="40dp">
+        android:layout_marginBottom="430dp">
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Datos"
-            android:id="@+id/buttonDatos"
+            android:text="Todos"
+            android:id="@+id/buttonTodos"
             android:textColor="#ff0d0d0d"
-            android:background="#ffc3fff5"
-            android:singleLine="true"
-            android:layout_weight="0.25"
-            android:textSize="15dp" />
-
-        <Button
-            style="@style/Base.Theme.AppCompat.Dialog"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Ha creado"
-            android:id="@+id/buttonEventosCreados"
-            android:textColor="#ff0d0d0d"
-            android:background="#ffc3fff5"
-            android:layout_gravity="center_horizontal"
+            android:background="#ff8dd7ff"
             android:singleLine="true"
             android:layout_weight="0.25"
             android:textSize="15dp"
@@ -100,75 +94,37 @@
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria"
+            android:id="@+id/buttonPorCategoria"
+            android:textColor="#ff0d0d0d"
+            android:background="#ff8dd7ff"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"
+            android:layout_weight="0.25"
+            android:textSize="15dp" />
+
+        <Button
+            style="@style/Base.Theme.AppCompat.Dialog"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Mis datos"
-            android:id="@+id/buttonEventosAsistidos"
+            android:text="Ciudad"
+            android:id="@+id/buttonPorLugar"
             android:layout_weight="0.21"
             android:textColor="#ff0d0d0d"
-            android:background="#ffc3fff5"
+            android:background="#ff8dd7ff"
             android:singleLine="true"
             android:longClickable="false"
             android:textSize="15dp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridView"
         android:layout_alignTop="@+id/Linear2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="36dp"
-        android:id="@+id/linearrr"
-        android:focusable="true">
-
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:id="@+id/tabla">
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/fila1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jose Perez Miño"
-                    android:id="@+id/textViewNombre"
-                    android:textSize="25dp"
-                    android:textColor="#ff060606"
-                    android:layout_column="0"
-                    android:layout_marginLeft="30dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="8.3"
-                    android:id="@+id/textViewRating"
-                    android:textSize="50dp"
-                    android:textColor="#ff060606"
-                    android:layout_column="1"
-                    android:layout_marginLeft="90dp"
-                    android:layout_marginTop="10dp" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/fila2">
-
-            </TableRow>
-
-        </TableLayout>
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="425dp"
-            android:id="@+id/gridview" />
-
-    </LinearLayout>
+        android:layout_marginTop="41dp" />
 
 </RelativeLayout>

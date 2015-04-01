@@ -5,7 +5,7 @@
     android:weightSum="1"
     android:orientation="vertical"
     android:background="#ffffffff"
-    android:id="@+id/">
+    android:id="@+id/relative">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -50,7 +50,7 @@
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Salir"
+            android:text="Filtros"
             android:id="@+id/button"
             android:layout_weight="0.21"
             android:textColor="#ffffffff"
@@ -67,7 +67,7 @@
         android:layout_below="@+id/searchView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/LinearLayoutAnuncios"
+        android:id="@+id/Linear2"
         android:layout_marginBottom="490dp"
         android:layout_marginTop="40dp">
 
@@ -88,7 +88,7 @@
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="A creado"
+            android:text="Ha creado"
             android:id="@+id/buttonEventosCreados"
             android:textColor="#ff0d0d0d"
             android:background="#ffc3fff5"
@@ -115,11 +115,11 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignTop="@+id/LinearLayoutAnuncios"
+        android:layout_alignTop="@+id/Linear2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="36dp"
-        android:id="@+id/">
+        android:id="@+id/linear">
 
         <TableLayout
             android:layout_width="match_parent"
