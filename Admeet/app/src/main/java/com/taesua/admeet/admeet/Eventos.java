@@ -8,15 +8,26 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.ConferenceRequest;
+import com.appspot.ad_meet.conference.ConferenceRequestInitializer;
+import com.appspot.ad_meet.conference.ConferenceScopes;
+import com.appspot.ad_meet.conference.model.Announcement;
+import com.appspot.ad_meet.conference.model.ConferenceForm;
+import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
+import com.appspot.ad_meet.conference.model.Filter;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.json.gson.GsonFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Eventos extends ActionBarActivity {
 
     private Conference conferencia;
     private ListView eventos;
+    private ConferenceScopes conferenciareq;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +35,42 @@ public class Eventos extends ActionBarActivity {
         setContentView(R.layout.activity_eventos);
 
         try {
-           ArrayList a =  new ArrayList();
-           eventos = (ListView)findViewById(R.id.listview);
-           String eve[] = new String[conferencia.getConferencesCreated().size()];
-           a.add( conferencia.getConferencesCreated().getAlt());
-           for(int i=0;i<conferencia.getConferencesCreated().size();i++)
-               eve[i]=conferencia.getConferencesCreated().getAlt();
-           ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, eve);
+
+            conferencia = new Conference(AndroidHttp.newCompatibleTransport(), new GsonFactory(), null);
+            List<com.appspot.ad_meet.conference.model.Conference> listaeventos;
+            ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
+            String eve[];
+
+            eventos = (ListView)findViewById(R.id.listviewev);
+
+            Conference.QueryConferences c;
+            System.out.println("EEEEEEEEEEEEEEEEEEEEEE2");
+            Filter filter = new Filter();
+            ArrayList filtros = new ArrayList();
+            filtros.add(filter);
+            conferenceQueryForm.setFilters(filtros);
+
+            c =  conferencia.queryConferences(conferenceQueryForm);
+            System.out.println("EEE"+c.getAlt());
+            System.out.println("EEEEEEEEEEEEEEEEEEEEEE3");
+            listaeventos = c.execute().getItems();
+            System.out.println("EEEEEEEEEEEEEEEEEEEEEE4");
+            int tam = listaeventos.size();
+            eve = new String[tam];
+            System.out.println("TAMAÑO:::::" + tam);
+
+            for(int i=0;i<tam;i++)
+                eve[i]=listaeventos.get(i).getName();
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, eve);
             eventos.setAdapter(adaptador);
 
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA333");
+            eventos.setAdapter(adaptador);
+            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA444");
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            //e.printStackTrace();
+            System.out.println("ERROoooooR: "+e.getMessage());
         }
 
 
