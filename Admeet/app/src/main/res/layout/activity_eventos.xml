@@ -127,6 +127,7 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:layout_height="540dp"
         android:id="@+id/listviewev"
         android:layout_alignParentEnd="false"
-        android:layout_marginTop="130dp" />
+        android:layout_marginTop="130dp"
+        android:backgroundTint="#ff0a0a0a" />
 
 </RelativeLayout>

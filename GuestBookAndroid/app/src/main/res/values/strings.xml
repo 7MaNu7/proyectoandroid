@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Guest Book</string>
+    <string name="send">Enviar</string>
+    <string name="delete">Borrar</string>
+
+</resources>

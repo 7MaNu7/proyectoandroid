@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\libs\google-http-client-android-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d4c790c63bcdd9a34f6080c968c70d8af0f2cd2f">
+        <dex dex="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\build\intermediates\pre-dexed\debug\google-http-client-android-1.18.0-rc-ccc0c2bc90cde97abefa88f77d1a2612fa2e6cb5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Encarna\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.1\2e66da15851f9f5b5079228f856c2f090ba98c38\gson-2.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
+        <dex dex="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\build\intermediates\pre-dexed\debug\gson-2.1-c06dadccd14ba9fce4d116ea7f07c0ed84905d44.jar" />
+    </item>
+    <item
+        jar="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\libs\google-http-client-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="041f593dcc111f46f32676e9f6856430f1294ddf">
+        <dex dex="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\build\intermediates\pre-dexed\debug\google-http-client-1.18.0-rc-80f11da92e5ed7f6e37d3892c34add4462392551.jar" />
+    </item>
+    <item
+        jar="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\libs\google-api-client-android-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4f30a5725d24b30b35dfeb0278a29233904e19c1">
+        <dex dex="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\build\intermediates\pre-dexed\debug\google-api-client-android-1.18.0-rc-fb58339082ab444d7fe174effa9911ed0e705e3f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\libs\google-api-client-1.18.0-rc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="15feacc39aa29e06a63bf9041c6e5898f06bade9">
+        <dex dex="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\build\intermediates\pre-dexed\debug\google-api-client-1.18.0-rc-45791aa29aeadee0571f564c196242b7b6218e58.jar" />
+    </item>
+    <item
+        jar="C:\Users\Encarna\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client\1.19.0\cdca49ad0977c040f603478aa2e16b2775c8fec6\google-http-client-1.19.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
+        <dex dex="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\build\intermediates\pre-dexed\debug\google-http-client-1.19.0-45f7d080131b046603e624fa906e45b7f718736a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Encarna\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-gson\1.19.0\b3cdefb990d5212bb2a130525b20e2c44aeffc4c\google-http-client-gson-1.19.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
+        <dex dex="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\build\intermediates\pre-dexed\debug\google-http-client-gson-1.19.0-7f07f5dbc62d4d47847c18aa28cff6bcb9c2e169.jar" />
+    </item>
+    <item
+        jar="C:\Users\Encarna\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\1.3.9\40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf\jsr305-1.3.9.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="C:\Users\Encarna\Documents\Documentoos\Universidad\3Curso\TAES\BitBucketApp\GuestBookAndroid\app\build\intermediates\pre-dexed\debug\jsr305-1.3.9-b7d701fcc99ffdea696d0803bb9d473e49fa7eae.jar" />
+    </item>
+
+</items>
