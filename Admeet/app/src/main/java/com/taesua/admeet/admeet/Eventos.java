@@ -2,13 +2,17 @@ package com.taesua.admeet.admeet;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.appspot.ad_meet.conference.Conference;
@@ -50,6 +54,29 @@ public class Eventos extends ActionBarActivity {
 
         GetMessage getMessage = new GetMessage();
         getMessage.execute();
+
+        System.out.println("Hecho execute");
+
+        eventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView <?> parent, View view, int position,
+                                    long id) {
+                com.appspot.ad_meet.conference.model.Conference evento;
+                evento = listaeventos.get(position);
+                Long idevento = evento.getId();
+                Intent intent = new Intent(Eventos.this, Evento.class);
+                intent.putExtra("name", evento.getName());
+                intent.putExtra("city", evento.getCity());
+                intent.putExtra("description", evento.getDescription());
+                intent.putExtra("fecha", evento.getStartDate());
+                intent.putExtra("asientos", evento.getSeatsAvailable()+"/"+evento.getMaxAttendees());
+                String categorias="";
+                for(int i=0;i<evento.getTopics().size();i++)
+                    categorias+=" " + evento.getTopics().get(i);
+                intent.putExtra("categorias", categorias);
+                startActivity(intent);
+            }
+        });
     }
 
     private class GetMessage extends AsyncTask<Void, Void, ConferenceCollection>
@@ -100,6 +127,8 @@ public class Eventos extends ActionBarActivity {
 
         }
     }
+
+
 
 
     @Override

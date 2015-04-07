@@ -7,5 +7,6 @@
     <string name="buttonTodos">Todos</string>
     <string name="buttonPorLugar">Por lugar</string>
     <string name="title_activity_eventos">Eventos</string>
+    <string name="title_activity_evento">Evento</string>
 
 </resources>
