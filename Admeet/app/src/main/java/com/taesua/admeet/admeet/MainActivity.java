@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
 public class MainActivity extends ActionBarActivity {
 
     private static final String LOG_TAG = "MainActivity";
@@ -16,10 +17,10 @@ public class MainActivity extends ActionBarActivity {
      */
     private static final int ACTIVITY_RESULT_FROM_ACCOUNT_SELECTION = 2222;
 
-    //private AuthorizationCheckTask mAuthTask;
+  //  private AuthorizationCheckTask mAuthTask;
     private String mEmailAccount;
 
- //   private ConferenceListFragment mConferenceListFragment;
+   // private ConferenceListFragment mConferenceListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
