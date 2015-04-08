@@ -16,13 +16,11 @@ tools:context="com.taesua.admeet.admeet.Eventos">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/linearLayout"
-    android:layout_marginBottom="520dp"
     android:layout_row="1"
     android:layout_column="9"
     android:layout_alignParentLeft="true"
-    android:layout_marginLeft="0dp"
     android:layout_alignParentTop="true"
-    android:layout_marginTop="0dp">
+    android:layout_alignParentEnd="true">
 
     <Button
         style="@style/Base.Theme.AppCompat.Dialog"
@@ -62,33 +60,24 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:singleLine="true"
         android:longClickable="false"
         android:textSize="20dp" />
+
 </LinearLayout>
 
-<SearchView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/searchView"
-    android:layout_alignParentTop="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginTop="49dp" />
-
-<LinearLayout
+    <LinearLayout
     android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_below="@+id/searchView"
+    android:layout_height="40dp"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:id="@+id/Linear2"
-    android:layout_marginBottom="430dp">
+        android:layout_marginTop="90dp">
 
     <Button
         style="@style/Base.Theme.AppCompat.Dialog"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Todos"
-        android:id="@+id/buttonTodos"
+        android:id="@+id/buttontodos"
         android:textColor="#ff0d0d0d"
         android:background="#ff8dd7ff"
         android:singleLine="true"
@@ -100,7 +89,7 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Míos"
-        android:id="@+id/buttonPorCategoria"
+        android:id="@+id/buttonmios"
         android:textColor="#ff0d0d0d"
         android:background="#ff8dd7ff"
         android:layout_gravity="center_horizontal"
@@ -113,7 +102,7 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Asisto"
-        android:id="@+id/buttonPorLugar"
+        android:id="@+id/buttonasisto"
         android:layout_weight="0.21"
         android:textColor="#ff0d0d0d"
         android:background="#ff8dd7ff"
@@ -122,13 +111,13 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:textSize="15dp" />
 </LinearLayout>
 
-<GridView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/gridView"
-    android:layout_alignTop="@+id/Linear2"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginTop="41dp" />
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listviewev"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:layout_alignParentBottom="true"
+        android:headerDividersEnabled="false" />
 
 </RelativeLayout>
