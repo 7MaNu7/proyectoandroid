@@ -1,12 +1,11 @@
 package com.taesua.admeet.admeet;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,19 +15,11 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.appspot.ad_meet.conference.Conference;
-import com.appspot.ad_meet.conference.ConferenceRequest;
-import com.appspot.ad_meet.conference.ConferenceRequestInitializer;
-import com.appspot.ad_meet.conference.ConferenceScopes;
-import com.appspot.ad_meet.conference.model.Announcement;
 import com.appspot.ad_meet.conference.model.ConferenceCollection;
-import com.appspot.ad_meet.conference.model.ConferenceForm;
 import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
-import com.appspot.ad_meet.conference.model.Filter;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.json.gson.GsonFactory;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -45,17 +36,17 @@ public class Eventos extends ActionBarActivity {
         setContentView(R.layout.activity_eventos);
 
         this.context = this;
+        final Button botontodos = (Button) findViewById(R.id.buttontodos);
+        final Button botonmios = (Button) findViewById(R.id.buttonmios);
+        final Button botonasisto = (Button) findViewById(R.id.buttonasisto);
         eventos = (ListView)findViewById(R.id.listviewev);
 
         Conference.Builder builder = new Conference.Builder(
                 AndroidHttp.newCompatibleTransport(), new GsonFactory(), null);
-        //builder.setApplicationName("ad-meet");
         conferenciaendpoint = builder.build();
 
-        GetMessage getMessage = new GetMessage();
+        GetEventos getMessage = new GetEventos();
         getMessage.execute();
-
-        System.out.println("Hecho execute");
 
         eventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,11 +68,107 @@ public class Eventos extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+
+        //Accion del boton
+        botonmios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                botonmios.setTextColor( Color.parseColor("#FFFFFF"));
+                botontodos.setTextColor( Color.parseColor("#000000"));
+                botonasisto.setTextColor( Color.parseColor("#000000"));
+
+                GetEventosMios getEventosMios = new GetEventosMios();
+                getEventosMios.execute();
+            }
+        });
+
+        //Accion del boton
+        botonasisto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                botonasisto.setTextColor( Color.parseColor("#FFFFFF"));
+                botonmios.setTextColor( Color.parseColor("#000000"));
+                botontodos.setTextColor( Color.parseColor("#000000"));
+
+                GetEventosAtendidos getEventos = new GetEventosAtendidos();
+                getEventos.execute();
+            }
+        });
+
+        //Accion del boton
+        botontodos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                botontodos.setTextColor( Color.parseColor("#FFFFFF"));
+                botonmios.setTextColor( Color.parseColor("#000000"));
+                botonasisto.setTextColor( Color.parseColor("#000000"));
+
+                GetEventos getEventos = new GetEventos();
+                getEventos.execute();
+            }
+        });
+
+
     }
 
-    private class GetMessage extends AsyncTask<Void, Void, ConferenceCollection>
+    /**
+     * Ver todos los eventos
+     */
+    private class GetEventos extends AsyncTask<Void, Void, ConferenceCollection>
     {
-        public GetMessage() { }
+        public GetEventos() { }
+
+        @Override
+        protected ConferenceCollection doInBackground(Void ... unused)
+        {
+            ConferenceCollection messages = null;
+            try
+            {
+                System.out.println("HA ENTRADO-----------------");
+                ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
+                Conference.QueryConferences create = conferenciaendpoint.queryConferences(conferenceQueryForm);
+                messages = create.execute();
+                /*Filter filter = new Filter();
+                filter.setField("CITY");
+                filter.setOperator("EQ");
+                filter.setValue("London");
+                ArrayList filtros = new ArrayList();
+                filtros.add(filter);
+                // conferenceQueryForm.setFilters(filtros);*/
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
+            return messages;
+        }
+
+        @Override
+        protected void onPostExecute(ConferenceCollection result)
+        {
+            listaeventos = result.getItems();
+            int tam = listaeventos.size();
+            String nombres[] = new String[tam];
+            String otro[] = new String[tam];
+
+            for(int i=0;i<tam;i++) {
+                nombres[i] = listaeventos.get(i).getName();
+                otro[i] = listaeventos.get(i).getDescription();
+            }
+
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
+            eventos.setAdapter(adaptador);
+
+        }
+    }
+
+    /**
+     * Para obtener los eventos del usuario
+     */
+    private class GetEventosMios extends AsyncTask<Void, Void, ConferenceCollection>
+    {
+        public GetEventosMios() { }
 
         @Override
         protected ConferenceCollection doInBackground(Void ... unused)
@@ -129,6 +216,57 @@ public class Eventos extends ActionBarActivity {
     }
 
 
+    /**
+     * Para obtener los eventos que el usuario a atendido
+     */
+    private class GetEventosAtendidos extends AsyncTask<Void, Void, ConferenceCollection>
+    {
+        public GetEventosAtendidos() { }
+
+        @Override
+        protected ConferenceCollection doInBackground(Void ... unused)
+        {
+            ConferenceCollection messages = null;
+            try
+            {
+                System.out.println("HA ENTRADO-----------------");
+                ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
+                Conference.QueryConferences create = conferenciaendpoint.queryConferences(conferenceQueryForm);
+                messages = create.execute();
+                /*Filter filter = new Filter();
+                filter.setField("CITY");
+                filter.setOperator("EQ");
+                filter.setValue("London");
+                ArrayList filtros = new ArrayList();
+                filtros.add(filter);
+                // conferenceQueryForm.setFilters(filtros);*/
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
+            return messages;
+        }
+
+        @Override
+        protected void onPostExecute(ConferenceCollection result)
+        {
+            listaeventos = result.getItems();
+            int tam = listaeventos.size();
+            String nombres[] = new String[tam];
+            String otro[] = new String[tam];
+
+            for(int i=0;i<tam;i++) {
+                nombres[i] = listaeventos.get(i).getName();
+                otro[i] = listaeventos.get(i).getDescription();
+            }
+
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
+            eventos.setAdapter(adaptador);
+
+        }
+    }
 
 
     @Override
