@@ -88,41 +88,38 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Todos"
-        android:id="@+id/buttontodos"
+        android:id="@+id/buttonTodos"
         android:textColor="#ff0d0d0d"
         android:background="#ff8dd7ff"
         android:singleLine="true"
         android:layout_weight="0.25"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        android:textSize="15dp" />
 
     <Button
         style="@style/Base.Theme.AppCompat.Dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Míos"
-        android:id="@+id/buttonmios"
+        android:id="@+id/buttonPorCategoria"
         android:textColor="#ff0d0d0d"
-        android:background="@android:color/background_light"
+        android:background="#ff8dd7ff"
         android:layout_gravity="center_horizontal"
         android:singleLine="true"
         android:layout_weight="0.25"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        android:textSize="15dp" />
 
     <Button
         style="@style/Base.Theme.AppCompat.Dialog"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Asisto"
-        android:id="@+id/buttonasisto"
+        android:id="@+id/buttonPorLugar"
         android:layout_weight="0.21"
         android:textColor="#ff0d0d0d"
         android:background="#ff8dd7ff"
         android:singleLine="true"
         android:longClickable="false"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        android:textSize="15dp" />
 </LinearLayout>
 
     <ListView

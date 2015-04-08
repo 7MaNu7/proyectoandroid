@@ -51,14 +51,4 @@ dependencies {
     compile files('libs/google-http-client-jdo-1.18.0-rc-sources.jar')
     compile files('libs/google-oauth-client-servlet-1.18.0-rc-sources.jar')
     compile files('libs/gson-2.1.jar')
-    compile 'com.google.android.gms:play-services:6.5.87'
-    compile 'com.google.android.gms:play-services-wearable:6.5.87'
-    compile 'com.google.android:support-v4:r7'
-    compile 'com.google.android:support-v4:r7'
-    compile 'com.googlecode.googleplus:google-plus-java-api:0.0.3'
-    compile 'com.google.android:support-v4:r7'
-    compile 'com.google.android:support-v4:r7'
-    compile 'com.google.android:support-v4:r7'
-    compile 'com.google.android.gms:play-services:7.0.0'
-    compile 'com.google.android:support-v4:r7'
 }
