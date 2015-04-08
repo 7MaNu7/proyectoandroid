@@ -59,7 +59,10 @@ public class Eventos extends ActionBarActivity {
                 intent.putExtra("name", evento.getName());
                 intent.putExtra("city", evento.getCity());
                 intent.putExtra("description", evento.getDescription());
-                intent.putExtra("fecha", evento.getStartDate());
+                //intent.putExtra("fecha", evento.getStartDate());
+                String t = evento.getStartDate().toString();
+                String[] trozos = t.split("T");
+                intent.putExtra("fecha",trozos[0]);
                 intent.putExtra("asientos", evento.getSeatsAvailable()+"/"+evento.getMaxAttendees());
                 String categorias="";
                 for(int i=0;i<evento.getTopics().size();i++)
