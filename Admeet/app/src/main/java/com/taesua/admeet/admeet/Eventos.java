@@ -15,15 +15,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import conference.Conference;
 import conference.model.ConferenceCollection;
 import conference.model.ConferenceQueryForm;
 import conference.model.Filter;
+
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.json.gson.GsonFactory;
+
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.prefs.Preferences;
 
 
 public class Eventos extends ActionBarActivity {
@@ -55,24 +59,17 @@ public class Eventos extends ActionBarActivity {
         //if(this.getIntent().getExtras().size()>0)
         if(this.getIntent().getExtras()!=null)
         {
-                            /*Filter filter = new Filter();
-                filter.setField("CITY");
-                filter.setOperator("EQ");
-                filter.setValue("London");
-                ArrayList filtros = new ArrayList();
-                filtros.add(filter);
-                // conferenceQueryForm.setFilters(filtros);*/
-            Filter filter = new Filter();
-            filter.setField(this.getIntent().getExtras().getString("field"));
-
-
-            //CUIDAO OJO !!!!!!!!!!!!!!!!!!!!!!!!!!
-            filter.setOperator(this.getIntent().getExtras().getString("operator"));
-
-
-            filter.setValue(this.getIntent().getExtras().getString("value"));
             ArrayList filtros = new ArrayList();
-            filtros.add(filter);
+            int tam = this.getIntent().getExtras().size()/3;
+            for(int i=0;i<tam;i++) {
+                Filter filter = new Filter();
+                filter.setField(this.getIntent().getExtras().getString("field" + i));
+
+                //CUIDAO OJO !!!!!!!!!!!!!!!!!!!!!!!!!!
+                filter.setOperator(this.getIntent().getExtras().getString("operator" + i));
+                filter.setValue(this.getIntent().getExtras().getString("value" + i));
+                filtros.add(filter);
+            }
             query.setFilters(filtros);
         }
 
@@ -158,6 +155,11 @@ public class Eventos extends ActionBarActivity {
             }
         });
 
+
+
+
+
+
         /*
         // Inside your Activity class onCreate method
         //settings = getSharedPreferences(Context.MODE_PRIVATE);
@@ -182,6 +184,7 @@ public class Eventos extends ActionBarActivity {
 
     }
 
+    // setSelectedAccountName definition
     private void setSelectedAccountName(String accountName) {
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(PREF_ACCOUNT_NAME, accountName);
@@ -206,6 +209,9 @@ public class Eventos extends ActionBarActivity {
                // ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
                 //Eventos.get.getIntent();
                 //if(this.getIntent())
+
+
+
                 Conference.QueryConferences create = ConferenceUtils.getEventos(query);
                 messages = create.execute();
                 /*Filter filter = new Filter();
@@ -229,7 +235,8 @@ public class Eventos extends ActionBarActivity {
         {
             int tam=0;
 
-            listaeventos = result.getItems();
+            if(result!=null)
+                listaeventos = result.getItems();
             if(listaeventos!=null)
                 tam = listaeventos.size();
 
@@ -260,8 +267,13 @@ public class Eventos extends ActionBarActivity {
             ConferenceCollection messages = null;
             try
             {
+                System.out.println("HA ENTRADO EVENTOS MIOS-----------------");
+
                 Conference.GetConferencesCreated create = ConferenceUtils.getEventosMios();
                 messages = create.execute();
+
+
+
                 /*Filter filter = new Filter();
                 filter.setField("CITY");
                 filter.setOperator("EQ");
@@ -282,8 +294,8 @@ public class Eventos extends ActionBarActivity {
         protected void onPostExecute(ConferenceCollection result)
         {
             int tam=0;
-
-            listaeventos = result.getItems();
+            if(result!=null)
+                listaeventos = result.getItems();
             if(listaeventos!=null)
                 tam = listaeventos.size();
 
@@ -294,6 +306,7 @@ public class Eventos extends ActionBarActivity {
                 nombres[i] = listaeventos.get(i).getName();
                 otro[i] = listaeventos.get(i).getDescription();
             }
+
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
             eventos.setAdapter(adaptador);
 
@@ -314,6 +327,7 @@ public class Eventos extends ActionBarActivity {
             ConferenceCollection messages = null;
             try
             {
+                System.out.println("HA ENTRADO-----------------");
                 ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
                 Conference.GetConferencesToAttend create = ConferenceUtils.getEventosAsisto();
                 messages = create.execute();
@@ -337,6 +351,7 @@ public class Eventos extends ActionBarActivity {
         protected void onPostExecute(ConferenceCollection result)
         {
             int tam=0;
+
             if(result!=null)
                 listaeventos = result.getItems();
             if(listaeventos!=null)

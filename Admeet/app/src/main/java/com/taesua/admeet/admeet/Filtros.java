@@ -20,6 +20,9 @@ import java.util.List;
  */
 public class Filtros extends ActionBarActivity {
 
+    private ArrayList<String> fields = new ArrayList<String>();
+    private ArrayList<String> operators = new ArrayList<String>();
+    private ArrayList<String> values = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +32,11 @@ public class Filtros extends ActionBarActivity {
         final Spinner spinnerField = (Spinner) findViewById(R.id.field);
         final Spinner spinnerOperador = (Spinner) findViewById(R.id.operator);
         final TextView smalltext = (TextView) findViewById(R.id.textView2);
+        final TextView filtrosStack = (TextView) findViewById(R.id.textFiltros);
         final EditText value = (EditText) findViewById(R.id.textoValue);
         final Button aplicar = (Button) findViewById(R.id.buttonFilter);
 
+        filtrosStack.setText("Has creado los siguientes filtros:\n");
 
         spinnerOperador.setVisibility(View.INVISIBLE);
         smalltext.setVisibility(View.INVISIBLE);
@@ -65,7 +70,25 @@ public class Filtros extends ActionBarActivity {
         spinnerOperador.setAdapter(dataAdapterOp);
 
 
+        findViewById(R.id.buttonAcabarFiltros).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                if(fields.size()>0)
+                {
+                    Intent intent = new Intent(Filtros.this,Eventos.class);
 
+                    for(int i=0;i<fields.size();i++) {
+                        intent.putExtra("field" + i,fields.get(i));
+                        intent.putExtra("operator" + i,operators.get(i));
+                        intent.putExtra("value" + i,values.get(i));
+                    }
+                    startActivity(intent);
+                }
+                else
+                    startActivity(new Intent(Filtros.this,Eventos.class));
+            }
+        });
 
 
 
@@ -98,15 +121,44 @@ public class Filtros extends ActionBarActivity {
                                 aplicar.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        Intent intent = new Intent(Filtros.this,Eventos.class);
 
+                                        fields.add(spinnerField.getSelectedItem().toString());
+                                        operators.add(spinnerOperador.getSelectedItem().toString());
+                                        values.add(value.getText().toString());
+
+                                        filtrosStack.append("{" + spinnerField.getSelectedItem().toString() +
+                                                 " " + spinnerOperador.getSelectedItem().toString() +
+                                                " " +value.getText().toString() + "}\n");
+
+
+                                        spinnerField.setVisibility(View.VISIBLE);
+                                        spinnerField.setSelection(0);
+
+                                        spinnerOperador.setVisibility(View.INVISIBLE);
+                                        spinnerOperador.setSelection(0);
+
+                                        value.setVisibility(View.INVISIBLE);
+                                        //value.clearComposingText();
+                                        value.getText().clear();
+
+                                        smalltext.setVisibility(View.INVISIBLE);
+
+                                        aplicar.setVisibility(View.INVISIBLE);
+
+
+
+
+
+                                                                                /*
+                                        Intent intent = new Intent(Filtros.this,Eventos.class);
 
                                         //intent.putExtra("field",listfield.);
                                         intent.putExtra("field",spinnerField.getSelectedItem().toString());
                                         intent.putExtra("operator",spinnerOperador.getSelectedItem().toString());
                                         intent.putExtra("value",value.getText().toString());
+                                        */
 
-                                        startActivity(intent);
+                                        //startActivity(intent);
                                     }
                                 });
 

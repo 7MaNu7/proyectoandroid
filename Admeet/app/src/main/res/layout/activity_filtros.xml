@@ -52,7 +52,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aplicar filtro"
+        android:text="Añadir filtro"
         android:id="@+id/buttonFilter"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.11" />
@@ -63,6 +63,25 @@
         android:layout_height="wrap_content"
         android:text="Volver a eventos sin aplicar"
         android:id="@+id/volver_sin"
-        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/buttonAcabarFiltros"
+        android:layout_alignStart="@+id/buttonAcabarFiltros" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicar todos los filtros"
+        android:id="@+id/buttonAcabarFiltros"
+        android:layout_above="@+id/volver_sin"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textFiltros"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignRight="@+id/volver_sin"
+        android:layout_alignEnd="@+id/volver_sin"
+        android:layout_alignLeft="@+id/buttonAcabarFiltros"
+        android:layout_alignStart="@+id/buttonAcabarFiltros" />
 </RelativeLayout>
