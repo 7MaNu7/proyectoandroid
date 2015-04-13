@@ -1,48 +1,66 @@
 package com.taesua.admeet.admeet;
-
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
+import conference.Conference;
+import conference.model.ConferenceCollection;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.plus.PlusClient;
+import com.google.android.gms.auth.GoogleAuthUtil;
+import com.google.android.gms.common.AccountPicker;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+import com.google.api.client.json.gson.GsonFactory;
 
-public class MainActivity extends /*ActionBar*/Activity implements View.OnClickListener,
-        GooglePlayServicesClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
-    private static final int REQUEST_CODE_RESOLVE_ERR = 9000;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-    private ProgressDialog mConnectionProgressDialog;
-    private PlusClient mPlusClient;
-    private ConnectionResult mConnectionResult;
 
-    private static final String TAG = "MainActivity";
+public class MainActivity extends ActionBarActivity {
+
+    /*
+    private static final int REQUEST_ACCOUNT_PICKER = 2;
+    private SharedPreferences settings;
+    private String accountName;
+    private GoogleAccountCredential credential;
+    */
+
+    private static final String LOG_TAG = "MainActivity";
+
+    /**
+     * Activity result indicating a return from the Google account selection intent.
+     */
+    private static final int ACTIVITY_RESULT_FROM_ACCOUNT_SELECTION = 2222;
+
+    private AuthorizationCheckTask mAuthTask;
+    private String mEmailAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //mPlusClient = new PlusClient.Builder(this, this, this).setVisibleActivities("http://schemas.google.com/AddActivity", "http://schemas.google.com/BuyActivity").build();
-        mPlusClient = new PlusClient.Builder(this, this, this).setActions(
-                "http://schemas.google.com/AddActivity", "http://schemas.google.com/BuyActivity")
-                .setScopes("PLUS_LOGIN") // Space separated list of scopes
-                .build();
-
-        // Se tiene que mostrar esta barra de progreso si no se resuelve el fallo de conexión.
-        mConnectionProgressDialog = new ProgressDialog(this);
-        mConnectionProgressDialog.setMessage("Signing in...");
+        mEmailAccount = Utils.getEmailAccount(this);
 
         //Instanciar elemento
         Button b = (Button) findViewById(R.id.buttonLogin);
@@ -51,105 +69,111 @@ public class MainActivity extends /*ActionBar*/Activity implements View.OnClickL
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Eventos.class);
-
-                try {
-                    String accountName = mPlusClient.getAccountName();
-                    System.out.println("Este es; " + accountName + " el email");
-                }
-                catch(Exception e)
-                {
-                    System.out.println("ERROR mail: " + e.getMessage());
-                }//mi try
-
+                //System.out.println("EL SCOPE ES " + credential.getScope());
+                //System.out.println("LA CUENTA SELECCIONADA ES " + credential.getSelectedAccountName());
                 startActivity(intent);
             }
         });
-    }
+
+        /*
+        //INSTANCIAMOS EL CREDENTIAL
+        settings = getSharedPreferences("AdMeet", 0);
+
+        credential = GoogleAccountCredential.usingAudience(MainActivity.this,Ids.AUDIENCE);
 
 
-
-    @Override
-    protected void onStart() {
-        System.out.println("---ON START!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        super.onStart();
-        try {
-            mPlusClient.connect();
+                //INVOCAMOS SETACCOUNTNAME. SI NO HAY UN VALOR PARA LA KEY ACCOUNT_NAME, SALDRA LA SELECCION
+                setAccountName(settings.getString("ACCOUNT_NAME", null));
+        if (credential.getSelectedAccountName() != null) {
+            // Already signed in, begin app!
+            Toast.makeText(getBaseContext(), "Logged in with : " + credential.getSelectedAccountName(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getBaseContext(), GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext()),Toast.LENGTH_SHORT).show();
+        } else {
+            // Not signed in, show login window or request an account.
+            chooseAccount();
         }
-        catch(Exception e)
-        {
-            System.out.println("ERROR conect: " + e.getMessage());
-        }
+        */
     }
 
-    @Override
-    protected void onStop() {
-        System.out.println("---ON STOP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        super.onStop();
-        mPlusClient.disconnect();
+
+
+    /*
+    // setAccountName definition
+    private void setAccountName(String accountName) {
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("ACCOUNT_NAME", accountName);
+        editor.commit();
+        //editor.apply();
+        credential.setSelectedAccountName(accountName);
+        this.accountName = accountName;
     }
+    */
+
 
     @Override
-    public void onConnectionFailed(ConnectionResult result) {
-        System.out.println("---ON CONNECTIONFAILED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        if (result.hasResolution()) {
-            try {
-                result.startResolutionForResult(this, REQUEST_CODE_RESOLVE_ERR);
-            } catch (IntentSender.SendIntentException e) {
-                try {
-                    mPlusClient.connect();
-                }
-                catch(Exception e1)
-                {
-                    System.out.println("ERROR conect: " + e1.getMessage());
-                }//mi try
-            }
-        }
-        // Guarda el resultado y resuelve el fallo de conexión con el clic de un usuario.
-        mConnectionResult = result;
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int responseCode, Intent intent) {
-        System.out.println("---ON ACTIVITY RESULT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        if (requestCode == REQUEST_CODE_RESOLVE_ERR && responseCode == RESULT_OK) {
-            mConnectionResult = null;
-            try {
-                mPlusClient.connect();
-            }
-            catch(Exception e)
-            {
-                System.out.println("ERROR conect: " + e.getMessage());
-            }//mi try
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mAuthTask != null) {
+            mAuthTask.cancel(true);
+            mAuthTask = null;
         }
     }
 
+    protected void onResume() {
+        super.onResume();
+
+        if (null != mEmailAccount) {
+            performAuthCheck(mEmailAccount);
+        } else {
+            selectAccount();
+        }
+    }
+    private void selectAccount() {
+        Account[] accounts = Utils.getGoogleAccounts(this);
+        int numOfAccount = accounts.length;
+        switch (numOfAccount) {
+            case 0:
+                // No accounts registered, nothing to do.
+                Toast.makeText(this, R.string.toast_no_google_accounts_registered,
+                        Toast.LENGTH_LONG).show();
+                break;
+            case 1:
+                mEmailAccount = accounts[0].name;
+                performAuthCheck(mEmailAccount);
+                break;
+            default:
+                // More than one Google Account is present, a chooser is necessary.
+                // Invoke an {@code Intent} to allow the user to select a Google account.
+                Intent accountSelector = AccountPicker.newChooseAccountIntent(null, null,
+                        new String[]{GoogleAuthUtil.GOOGLE_ACCOUNT_TYPE}, false,
+                        getString(R.string.select_account_for_access), null, null, null);
+                startActivityForResult(accountSelector, ACTIVITY_RESULT_FROM_ACCOUNT_SELECTION);
+        }
+    }
+
+    private void performAuthCheck(String email) {
+        // Cancel previously running tasks.
+        if (mAuthTask != null) {
+            mAuthTask.cancel(true);
+        }
+
+        // Start task to check authorization.
+        mAuthTask = new AuthorizationCheckTask();
+        mAuthTask.execute(email);
+    }
+
     @Override
-    public void onConnected(Bundle bundle) {
-        System.out.println("---ON CONNECTED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        String accountName = mPlusClient.getAccountName();
-        Toast.makeText(this, accountName + " is connected.", Toast.LENGTH_LONG).show();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == ACTIVITY_RESULT_FROM_ACCOUNT_SELECTION && resultCode == RESULT_OK) {
+            // This path indicates the account selection activity resulted in the user selecting a
+            // Google account and clicking OK.
+            mEmailAccount = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+        } else {
+            finish();
+        }
     }
-
-    //@Override
-    public void onConnected() {
-        System.out.println("---ON CONNECTED 2 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        String accountName = mPlusClient.getAccountName();
-        Toast.makeText(this, accountName + " is connected.", Toast.LENGTH_LONG).show();
-    }
-
-    /*   @Override
-       public void onConnected(Bundle bundle) {
-
-       }
-   */
-    @Override
-    public void onDisconnected() {
-        Log.d(TAG, "disconnected");
-    }
-
-
-
-
 
 
     @Override
@@ -173,9 +197,148 @@ public class MainActivity extends /*ActionBar*/Activity implements View.OnClickL
 
         return super.onOptionsItemSelected(item);
     }
+    /*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
     @Override
-    public void onClick(View v) {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_clear_account:
+                new AlertDialog.Builder(MainActivity.this).setTitle(null)
+                        .setMessage(getString(R.string.clear_account_message))
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                Utils.saveEmailAccount(MainActivity.this, null);
+                                dialog.cancel();
+                                finish();
+                            }
+                        })
+                        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        })
+                        .create()
+                        .show();
 
+                break;
+            case R.id.action_reload:
+                mConferenceListFragment.reload();
+                break;
+        }
+        return true;
     }
+    /*
+*/
+
+    /*
+    //AL SELECCIONAR LLAMA A ONACTIVITYRESULT
+    void chooseAccount() {
+        startActivityForResult(credential.newChooseAccountIntent(),
+                REQUEST_ACCOUNT_PICKER);
+    }
+*/
+
+
+    /*
+
+    //TIENE SELECCIONADO UNA CUENTA, LLAMARA A SETACCOUNTNAME PARA GUARDAR EN LA KEY ACCOUNT NAME LA CUENTA
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_ACCOUNT_PICKER:
+                if (data != null && data.getExtras() != null) {
+                    String accountName =
+                            data.getExtras().getString(
+                                    AccountManager.KEY_ACCOUNT_NAME);
+                    if (accountName != null) {
+                        setAccountName(accountName);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("ACCOUNT_NAME", accountName);
+                        editor.commit();
+                        //editor.apply();
+                        // User is authorized.
+                    }
+                }
+                break;
+        }
+    }
+*/
+
+    private class AuthorizationCheckTask extends AsyncTask<String, Integer, Boolean> {
+
+        private final static boolean SUCCESS = true;
+        private final static boolean FAILURE = false;
+        private Exception mException;
+
+        @Override
+        protected Boolean doInBackground(String... emailAccounts) {
+            Log.i(LOG_TAG, "Background task started.");
+
+            if (!Utils.checkGooglePlayServicesAvailable(MainActivity.this)) {
+                publishProgress(R.string.gms_not_available);
+                return FAILURE;
+            }
+
+            String emailAccount = emailAccounts[0];
+            // Ensure only one task is running at a time.
+            mAuthTask = this;
+
+            // Ensure an email was selected.
+            if (TextUtils.isEmpty(emailAccount)) {
+                publishProgress(R.string.toast_no_google_account_selected);
+                return FAILURE;
+            }
+
+            mEmailAccount = emailAccount;
+            Utils.saveEmailAccount(MainActivity.this, emailAccount);
+
+            return SUCCESS;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... stringIds) {
+            // Toast only the most recent.
+            Integer stringId = stringIds[0];
+            Toast.makeText(MainActivity.this, getString(stringId), Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            mAuthTask = this;
+        }
+
+        @Override
+        protected void onPostExecute(Boolean success) {
+            if (success) {
+                // Authorization check successful, get conferences.
+                ConferenceUtils.build(MainActivity.this, mEmailAccount);
+                //getConferencesForList();
+            } else {
+                // Authorization check unsuccessful.
+                mEmailAccount = null;
+                if (mException != null) {
+                    Utils.displayNetworkErrorMessage(MainActivity.this);
+                }
+            }
+            mAuthTask = null;
+        }
+
+        @Override
+        protected void onCancelled() {
+            mAuthTask = null;
+        }
+    }
+
+
 }

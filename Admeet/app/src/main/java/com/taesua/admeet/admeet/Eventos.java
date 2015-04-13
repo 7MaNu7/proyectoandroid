@@ -2,6 +2,7 @@ package com.taesua.admeet.admeet;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,21 +15,30 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.appspot.ad_meet.conference.Conference;
-import com.appspot.ad_meet.conference.model.ConferenceCollection;
-import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
-import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.json.gson.GsonFactory;
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import conference.Conference;
+import conference.model.ConferenceCollection;
+import conference.model.ConferenceQueryForm;
+import conference.model.Filter;
 
 
 public class Eventos extends ActionBarActivity {
 
+    private String accountName;
+    private static String PREF_ACCOUNT_NAME = "accountName";
     private Context context;
     private Conference conferenciaendpoint;
     private ListView eventos;
-    private List<com.appspot.ad_meet.conference.model.Conference> listaeventos;
+    private List<conference.model.Conference> listaeventos = new ArrayList();
+
+    SharedPreferences settings;
+    GoogleAccountCredential credential;
+
+    ConferenceQueryForm query = new ConferenceQueryForm();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +51,35 @@ public class Eventos extends ActionBarActivity {
         final Button botonasisto = (Button) findViewById(R.id.buttonasisto);
         eventos = (ListView)findViewById(R.id.listviewev);
 
-        Conference.Builder builder = new Conference.Builder(
-                AndroidHttp.newCompatibleTransport(), new GsonFactory(), null);
-        conferenciaendpoint = builder.build();
 
+        //if(this.getIntent().getExtras().size()>0)
+        if(this.getIntent().getExtras()!=null)
+        {
+                            /*Filter filter = new Filter();
+                filter.setField("CITY");
+                filter.setOperator("EQ");
+                filter.setValue("London");
+                ArrayList filtros = new ArrayList();
+                filtros.add(filter);
+                // conferenceQueryForm.setFilters(filtros);*/
+            Filter filter = new Filter();
+            filter.setField(this.getIntent().getExtras().getString("field"));
+
+
+            //CUIDAO OJO !!!!!!!!!!!!!!!!!!!!!!!!!!
+            filter.setOperator(this.getIntent().getExtras().getString("operator"));
+
+
+            filter.setValue(this.getIntent().getExtras().getString("value"));
+            ArrayList filtros = new ArrayList();
+            filtros.add(filter);
+            query.setFilters(filtros);
+        }
+
+
+        botontodos.setTextColor( Color.parseColor("#FFFFFF")); //seleccionado pro defecto TODOS al principio
+
+        //GetEventos getMessage = new GetEventos();
         GetEventos getMessage = new GetEventos();
         getMessage.execute();
 
@@ -52,7 +87,7 @@ public class Eventos extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView <?> parent, View view, int position,
                                     long id) {
-                com.appspot.ad_meet.conference.model.Conference evento;
+                conference.model.Conference evento;
                 evento = listaeventos.get(position);
                 Long idevento = evento.getId();
                 Intent intent = new Intent(Eventos.this, Evento.class);
@@ -68,6 +103,8 @@ public class Eventos extends ActionBarActivity {
                 for(int i=0;i<evento.getTopics().size();i++)
                     categorias+=" " + evento.getTopics().get(i);
                 intent.putExtra("categorias", categorias);
+
+                intent.putExtra("websafeKey",evento.getWebsafeKey());
                 startActivity(intent);
             }
         });
@@ -112,6 +149,45 @@ public class Eventos extends ActionBarActivity {
         });
 
 
+        //PARA IR A FILTERS
+        findViewById(R.id.buttonFilters).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Eventos.this,Filtros.class);
+                startActivity(ji);
+            }
+        });
+
+        /*
+        // Inside your Activity class onCreate method
+        //settings = getSharedPreferences(Context.MODE_PRIVATE);
+        settings = getPreferences(Context.MODE_PRIVATE);
+        credential = GoogleAccountCredential.usingAudience(this,
+                Ids.AUDIENCE);
+        setSelectedAccountName(PREF_ACCOUNT_NAME);
+
+        Conference.Builder endpointBuilder = new Conference.Builder(AndroidHttp.newCompatibleTransport(),
+                new GsonFactory(), credential);
+        //endpoint = CloudEndpointUtils.updateBuilder(endpointBuilder).build();
+        conferenciaendpoint = endpointBuilder.build();
+
+        if (credential.getSelectedAccountName() != null) {
+            System.out.println("LOGEADO");
+        } else {
+            // Not signed in, show login window or request an account.
+            System.out.println("NO LOGEADO");
+        }
+
+        */
+
+    }
+
+    private void setSelectedAccountName(String accountName) {
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(PREF_ACCOUNT_NAME, accountName);
+        editor.commit();
+        credential.setSelectedAccountName(accountName);
+        this.accountName = accountName;
     }
 
     /**
@@ -127,9 +203,10 @@ public class Eventos extends ActionBarActivity {
             ConferenceCollection messages = null;
             try
             {
-                System.out.println("HA ENTRADO-----------------");
-                ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
-                Conference.QueryConferences create = conferenciaendpoint.queryConferences(conferenceQueryForm);
+               // ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
+                //Eventos.get.getIntent();
+                //if(this.getIntent())
+                Conference.QueryConferences create = ConferenceUtils.getEventos(query);
                 messages = create.execute();
                 /*Filter filter = new Filter();
                 filter.setField("CITY");
@@ -150,8 +227,12 @@ public class Eventos extends ActionBarActivity {
         @Override
         protected void onPostExecute(ConferenceCollection result)
         {
+            int tam=0;
+
             listaeventos = result.getItems();
-            int tam = listaeventos.size();
+            if(listaeventos!=null)
+                tam = listaeventos.size();
+
             String nombres[] = new String[tam];
             String otro[] = new String[tam];
 
@@ -179,9 +260,7 @@ public class Eventos extends ActionBarActivity {
             ConferenceCollection messages = null;
             try
             {
-                System.out.println("HA ENTRADO-----------------");
-                ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
-                Conference.QueryConferences create = conferenciaendpoint.queryConferences(conferenceQueryForm);
+                Conference.GetConferencesCreated create = ConferenceUtils.getEventosMios();
                 messages = create.execute();
                 /*Filter filter = new Filter();
                 filter.setField("CITY");
@@ -202,8 +281,12 @@ public class Eventos extends ActionBarActivity {
         @Override
         protected void onPostExecute(ConferenceCollection result)
         {
+            int tam=0;
+
             listaeventos = result.getItems();
-            int tam = listaeventos.size();
+            if(listaeventos!=null)
+                tam = listaeventos.size();
+
             String nombres[] = new String[tam];
             String otro[] = new String[tam];
 
@@ -211,7 +294,6 @@ public class Eventos extends ActionBarActivity {
                 nombres[i] = listaeventos.get(i).getName();
                 otro[i] = listaeventos.get(i).getDescription();
             }
-
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
             eventos.setAdapter(adaptador);
 
@@ -232,9 +314,8 @@ public class Eventos extends ActionBarActivity {
             ConferenceCollection messages = null;
             try
             {
-                System.out.println("HA ENTRADO-----------------");
                 ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
-                Conference.QueryConferences create = conferenciaendpoint.queryConferences(conferenceQueryForm);
+                Conference.GetConferencesToAttend create = ConferenceUtils.getEventosAsisto();
                 messages = create.execute();
                 /*Filter filter = new Filter();
                 filter.setField("CITY");
@@ -255,8 +336,12 @@ public class Eventos extends ActionBarActivity {
         @Override
         protected void onPostExecute(ConferenceCollection result)
         {
-            listaeventos = result.getItems();
-            int tam = listaeventos.size();
+            int tam=0;
+            if(result!=null)
+                listaeventos = result.getItems();
+            if(listaeventos!=null)
+                tam = listaeventos.size();
+
             String nombres[] = new String[tam];
             String otro[] = new String[tam];
 
@@ -267,6 +352,7 @@ public class Eventos extends ActionBarActivity {
 
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
             eventos.setAdapter(adaptador);
+
 
         }
     }

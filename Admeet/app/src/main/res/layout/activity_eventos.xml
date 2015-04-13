@@ -53,7 +53,7 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Filtros"
-        android:id="@+id/button"
+        android:id="@+id/buttonFilters"
         android:layout_weight="0.21"
         android:textColor="#ffffffff"
         android:background="#ff0fb0ff"
@@ -119,6 +119,7 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:layout_marginTop="140dp"
         android:layout_alignParentBottom="true"
         android:headerDividersEnabled="false"
+        android:background="#ff8dd7ff"
         android:clickable="true" />
 
 </RelativeLayout>

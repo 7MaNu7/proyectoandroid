@@ -8,5 +8,27 @@
     <string name="buttonPorLugar">Por lugar</string>
     <string name="title_activity_eventos">Eventos</string>
     <string name="title_activity_evento">Evento</string>
+    <string name="title_activity_filtros">Filtros</string>
+    <string name="close">Cerrar</string>
+    <string name="api_error_title">Error</string>
+    <string name="api_error_message">Error de servidor, la app se cerrará. Inténtalo más tarde.</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancelar</string>
+    <string name="no_conferences">No se encuentran eventos</string>
+    <string name="action_clear_account">Borrar cuenta guardada</string>
+    <string name="city">Ciudad: %1$s</string>
+    <string name="seats_max">Max asistentes: %1$d</string>
+    <string name="seats_available">Plazas disponibles: %1$d</string>
+    <string name="register">Registrarse</string>
+    <string name="unregister">Anular registro</string>
+    <string name="toast_no_google_account_selected">Ninguna cuenta de Google seleccionada</string>
+    <string name="toast_exception_checking_authorization">Excepción comprobando autorización</string>
+    <string name="toast_no_google_accounts_registered">Ninguna cuenta de Google registrada</string>
+    <string name="toast_only_one_google_account_registered">Tu única cuenta de Google ha sido seleccionada</string>
+    <string name="toast_you_must_sign_in_for_this_action">Esta acción requiere registro.</string>
+    <string name="select_account_for_access">Selecciona la cuenta para entrar a la aplicación</string>
+    <string name="gms_not_available">Google Play no está disponible</string>
+    <string name="clear_account_message">¿Estás seguro? la aplicación se cerrará.</string>
+    <string name="reload">Recargar</string>
 
 </resources>

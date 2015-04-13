@@ -9,9 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import conference.Conference;
+
 
 public class Evento extends ActionBarActivity {
 
+    private String websafeKey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +22,6 @@ public class Evento extends ActionBarActivity {
 
         //com.appspot.ad_meet.conference.model.Conference evento;
         //evento = (com.appspot.ad_meet.conference.model.Conference) this.getIntent().getExtras().get("eventoselec");
-
         TextView t;
         t = (TextView)findViewById(R.id.textviewnombre);
         t.setText(this.getIntent().getExtras().getString("name"));
@@ -34,6 +36,9 @@ public class Evento extends ActionBarActivity {
         t = (TextView)findViewById(R.id.textViewcategoria);
         t.setText(this.getIntent().getExtras().getString("categorias"));
 
+        websafeKey = this.getIntent().getExtras().getString("websafeKey");
+        System.out.println("SU KEY ES " + websafeKey);
+
         //Instanciar elemento
         Button b = (Button) findViewById(R.id.buttonEvento);
         //Accion del boton
@@ -44,6 +49,16 @@ public class Evento extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+
+
+        //APUNTARSE
+        findViewById(R.id.buttonApuntarse).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               //
+            }
+        });
+
 
     }
 

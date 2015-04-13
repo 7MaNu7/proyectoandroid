@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:background="#ffffffff"
+
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.taesua.admeet.admeet.Filtros">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linearLayout"
+    android:layout_row="1"
+    android:layout_column="9"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true">
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/field"
+        android:layout_weight="0.11"
+        android:spinnerMode="dropdown" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/operator"
+        android:layout_weight="0.11"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Introduce un valor:"
+        android:id="@+id/textView2"
+        android:layout_weight="0.11" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textoValue"
+        android:layout_weight="0.11" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicar filtro"
+        android:id="@+id/buttonFilter"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.11" />
+</LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver a eventos sin aplicar"
+        android:id="@+id/volver_sin"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
