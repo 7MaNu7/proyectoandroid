@@ -40,6 +40,14 @@
             android:name=".Filtros"
             android:label="@string/title_activity_filtros" >
         </activity>
+        <activity
+            android:name=".Perfil"
+            android:label="@string/title_activity_perfil" >
+        </activity>
+        <activity
+            android:name=".EditarPerfil"
+            android:label="@string/title_activity_editar_perfil" >
+            </activity>
     </application>
 
 

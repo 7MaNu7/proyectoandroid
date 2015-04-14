@@ -1,5 +1,6 @@
 package com.taesua.admeet.admeet;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import conference.Conference;
 import conference.model.ConferenceCollection;
@@ -146,6 +148,12 @@ public class Eventos extends ActionBarActivity {
         });
 
 
+
+        //BOTON EVENTOS, MARCARLO
+        Button anuncios = (Button)findViewById(R.id.buttonAnuncios);
+        anuncios.setTextColor(Color.parseColor("#000000"));
+
+
         //PARA IR A FILTERS
         findViewById(R.id.buttonFilters).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,6 +209,15 @@ public class Eventos extends ActionBarActivity {
         public GetEventos() { }
 
         @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            //Display success message to user
+            if(query.getFilters()!=null) {
+                Toast.makeText(getBaseContext(), "Se han aplicado correctamente los filtros.",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+        @Override
         protected ConferenceCollection doInBackground(Void ... unused)
         {
             ConferenceCollection messages = null;
@@ -250,6 +267,8 @@ public class Eventos extends ActionBarActivity {
 
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
             eventos.setAdapter(adaptador);
+
+
 
         }
     }

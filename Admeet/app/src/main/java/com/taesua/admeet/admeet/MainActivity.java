@@ -75,6 +75,15 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        findViewById(R.id.buttonPerfil).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Perfil.class);
+                startActivity(intent);
+            }
+
+        });
+
         /*
         //INSTANCIAMOS EL CREDENTIAL
         settings = getSharedPreferences("AdMeet", 0);

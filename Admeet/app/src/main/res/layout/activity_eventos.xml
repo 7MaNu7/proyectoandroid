@@ -52,8 +52,8 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         style="@style/Base.Theme.AppCompat.Dialog"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Filtros"
-        android:id="@+id/buttonFilters"
+        android:text="Publicar"
+        android:id="@+id/buttonPublicar"
         android:layout_weight="0.21"
         android:textColor="#ffffffff"
         android:background="#ff0fb0ff"
@@ -70,7 +70,7 @@ tools:context="com.taesua.admeet.admeet.Eventos">
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
     android:id="@+id/Linear2"
-        android:layout_marginTop="90dp">
+    android:layout_marginTop="105dp">
 
     <Button
         style="@style/Base.Theme.AppCompat.Dialog"
@@ -116,10 +116,21 @@ tools:context="com.taesua.admeet.admeet.Eventos">
         android:layout_height="wrap_content"
         android:id="@+id/listviewev"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="160dp"
         android:layout_alignParentBottom="true"
         android:headerDividersEnabled="false"
         android:background="#ff8dd7ff"
         android:clickable="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filtrar eventos"
+        android:id="@+id/buttonFilters"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

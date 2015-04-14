@@ -23,6 +23,7 @@ import java.io.IOException;
 import conference.Conference;
 import conference.model.ConferenceCollection;
 import conference.model.ConferenceQueryForm;
+import conference.model.ProfileForm;
 
 
 /**
@@ -63,6 +64,14 @@ public class ConferenceUtils {
 
     public static Conference.RegisterForConference registerForConference(String websafe) throws IOException {
         return sApiServiceHandler.registerForConference(websafe);
+    }
+
+    public static Conference.GetProfile getProfile() throws IOException {
+        return sApiServiceHandler.getProfile();
+    }
+
+    public static Conference.SaveProfile saveProfile(ProfileForm form) throws IOException {
+        return sApiServiceHandler.saveProfile(form);
     }
     /*
     public static List<DecoratedConference> getConferences()

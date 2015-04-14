@@ -51,6 +51,29 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VER PERFIL"
+                android:id="@+id/buttonPerfil"
+                android:background="#ff8dd7ff"
+                android:textColor="#fff9f9ff"
+                style="@style/Base.Theme.AppCompat.Dialog"
+                android:textSize="20dp"
+                android:singleLine="true"
+                android:layout_above="@+id/buttonSignUp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button5"
+                android:layout_gravity="center_horizontal" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>
