@@ -65,73 +65,67 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="50dp">
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Título del anuncio"
-            android:id="@+id/textViewTitulo"
+            android:id="@+id/editTextTitulo"
             android:layout_marginLeft="100dp"
             android:layout_marginTop="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:text="KAKA" />
+
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:id="@+id/spinnerCategoria"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginLeft="15dp"
             android:longClickable="false"
             android:nestedScrollingEnabled="false"
             android:spinnerMode="dropdown" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Lugar del evento"
-            android:id="@+id/textViewLugar"
+            android:id="@+id/editTextLugar"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="30dp"
-            android:clickable="false"
-            android:focusableInTouchMode="false"
             android:textSize="15dp"
-            android:textIsSelectable="false" />
+            android:text="LUGAR" />
 
         <CalendarView
             android:layout_width="240dp"
             android:layout_height="139dp"
             android:id="@+id/calendarView"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:clickable="false" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Número de personas"
-            android:id="@+id/textViewNPersonas"
+            android:id="@+id/editTextNPersonas"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="30dp"
-            android:clickable="false"
-            android:focusableInTouchMode="false"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:text="PRSONAS" />
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Descripción del anuncio.                                          Ejemplo: Partido de Futbol sala con árbitro, comida y bebida gratis al terminar. Ejemplo dando ejemplo para la descripción, por ejemplo una larga esto, ya esta."
-            android:id="@+id/textViewDescripcion"
+            android:id="@+id/editTextDescripcion"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="0dp"
             android:layout_marginRight="30dp"
-            android:clickable="false"
-            android:focusableInTouchMode="false"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:text="DESC" />
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -144,7 +138,7 @@
             android:singleLine="true"
             android:textSize="20dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="0dp" />
 
     </LinearLayout>
 </RelativeLayout>
