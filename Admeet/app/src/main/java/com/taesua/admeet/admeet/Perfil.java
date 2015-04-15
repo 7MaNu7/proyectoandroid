@@ -3,7 +3,6 @@ package com.taesua.admeet.admeet;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -31,15 +30,8 @@ public class Perfil extends ActionBarActivity {
         setContentView(R.layout.activity_perfil);
 
 
-
-        //BOTON PERFIL, MARCARLO
-        Button perfil = (Button)findViewById(R.id.buttonPerfil);
-        perfil.setTypeface(null, Typeface.BOLD);
-
         //BOTON VOLVER A EVENTOS
         Button b = (Button) findViewById(R.id.buttonAnuncios);
-        b.setTypeface(null,Typeface.NORMAL);
-
         //Accion del boton
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,22 +55,12 @@ public class Perfil extends ActionBarActivity {
             }
         });
 
-        //BOTON PERFIL,MARCARLO EN BOLD
         Button p = (Button) findViewById(R.id.buttonPerfil);
-        p.setTypeface(null, Typeface.BOLD);
+        p.setTextColor(Color.parseColor("#000000"));
 
         nombre = (TextView) findViewById(R.id.textViewNombre);
         ciudad = (TextView) findViewById(R.id.textViewCiudad);
         tlf = (TextView) findViewById(R.id.textViewTlf);
-
-        //PARA IR A PUBLICAR
-        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ji = new Intent(Perfil.this,CrearEvento.class);
-                startActivity(ji);
-            }
-        });
 
 
 

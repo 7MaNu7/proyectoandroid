@@ -59,23 +59,6 @@ public class Evento extends ActionBarActivity {
             }
         });
 
-        //PARA IR A PERFIL
-        findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ji = new Intent(Evento.this,Perfil.class);
-                startActivity(ji);
-            }
-        });
-
-        //PARA IR A PUBLICAR
-        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent ji = new Intent(Evento.this,CrearEvento.class);
-                startActivity(ji);
-            }
-        });
 
     }
 

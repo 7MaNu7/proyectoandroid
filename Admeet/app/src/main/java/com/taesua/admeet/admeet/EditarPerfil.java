@@ -31,7 +31,7 @@ public class EditarPerfil extends ActionBarActivity {
 
         System.out.println("HA ENTRADO EN EDITARPERFIL!!!!!!!!!!!!!!!!!!!");
         //BOTON VOLVER A EVENTOS
-        Button b = (Button) findViewById(R.id.button2);
+        Button b = (Button) findViewById(R.id.buttonAnuncios);
         //Accion del boton
         b.setOnClickListener(new View.OnClickListener() {
             @Override
