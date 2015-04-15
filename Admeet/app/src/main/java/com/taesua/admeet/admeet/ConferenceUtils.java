@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import conference.Conference;
 import conference.model.ConferenceCollection;
+import conference.model.ConferenceForm;
 import conference.model.ConferenceQueryForm;
 import conference.model.ProfileForm;
 
@@ -62,7 +63,7 @@ public class ConferenceUtils {
         return sApiServiceHandler.getConferencesToAttend();
     }
 
-    public static Conference.RegisterForConference registerForConference(String websafe) throws IOException {
+    public static Conference.RegisterForConference registrarseEvento(String websafe) throws IOException {
         return sApiServiceHandler.registerForConference(websafe);
     }
 
@@ -72,6 +73,10 @@ public class ConferenceUtils {
 
     public static Conference.SaveProfile saveProfile(ProfileForm form) throws IOException {
         return sApiServiceHandler.saveProfile(form);
+    }
+
+    public static Conference.CreateConference crearEvento(ConferenceForm form) throws IOException {
+        return sApiServiceHandler.createConference(form);
     }
     /*
     public static List<DecoratedConference> getConferences()
