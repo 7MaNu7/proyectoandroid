@@ -45,7 +45,6 @@ public class CrearEvento extends ActionBarActivity {
         n_personas = (EditText)findViewById(R.id.editTextNPersonas);
         descripcion = (EditText)findViewById(R.id.editTextDescripcion);
 
-
         final List<String> listcategorias = new ArrayList<String>();
         listcategorias.add("Deportes");
         listcategorias.add("Juegos de mesa");

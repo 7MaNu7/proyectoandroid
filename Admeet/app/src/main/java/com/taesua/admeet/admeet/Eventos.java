@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -151,7 +152,7 @@ public class Eventos extends ActionBarActivity {
 
         //BOTON EVENTOS, MARCARLO
         Button anuncios = (Button)findViewById(R.id.buttonAnuncios);
-        anuncios.setTextColor(Color.parseColor("#000000"));
+        anuncios.setTypeface(null, Typeface.BOLD);
 
 
         //PARA IR A FILTERS
@@ -163,6 +164,23 @@ public class Eventos extends ActionBarActivity {
             }
         });
 
+        //PARA IR A PERFIL
+        findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Eventos.this,Perfil.class);
+                startActivity(ji);
+            }
+        });
+
+        //PARA IR A PUBLICAR
+        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Eventos.this,CrearEvento.class);
+                startActivity(ji);
+            }
+        });
 
 
 

@@ -11,6 +11,7 @@
     <string name="title_activity_filtros">Filtros</string>
     <string name="title_activity_perfil">Perfil</string>
     <string name="title_activity_editar_perfil">Editar perfil</string>
+    <string name="title_activity_crear_evento">Publicar evento</string>
     <string name="close">Cerrar</string>
     <string name="api_error_title">Error</string>
     <string name="api_error_message">Error de servidor, la app se cerrará. Inténtalo más tarde.</string>
