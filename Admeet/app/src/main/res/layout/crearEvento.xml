@@ -7,7 +7,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/linearLayout2"
         android:layout_marginBottom="520dp"
         android:layout_row="1"
@@ -24,7 +24,7 @@
             android:text="Eventos"
             android:id="@+id/buttonAnuncios"
             android:textColor="#ffffffff"
-            android:background="#ff0fb0ff"
+            android:background="#83b5dd"
             android:singleLine="true"
             android:layout_weight="0.25"
             android:textSize="20dp" />
@@ -32,11 +32,11 @@
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Perfil"
             android:id="@+id/buttonPerfil"
             android:textColor="#ffffffff"
-            android:background="#ff0fb0ff"
+            android:background="#83b5dd"
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:layout_weight="0.25"
@@ -50,94 +50,101 @@
             android:id="@+id/buttonPublicar"
             android:layout_weight="0.21"
             android:textColor="#ffffffff"
-            android:background="#ff0fb0ff"
+            android:background="#83b5dd"
             android:singleLine="true"
             android:longClickable="false"
             android:textSize="20dp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="50dp">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView2" >
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Título del anuncio"
-            android:id="@+id/editTextTitulo"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="0dp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="50dp">
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:id="@+id/spinnerCategoria"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="15dp"
-            android:longClickable="false"
-            android:nestedScrollingEnabled="false"
-            android:spinnerMode="dropdown" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Título del anuncio"
+                android:id="@+id/editTextTitulo"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="0dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Lugar del evento"
-            android:id="@+id/editTextLugar"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="0dp"
-            android:textSize="15dp"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:id="@+id/spinnerCategoria"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="15dp"
+                android:longClickable="false"
+                android:nestedScrollingEnabled="false"
+                android:spinnerMode="dropdown" />
 
-        <CalendarView
-            android:layout_width="240dp"
-            android:layout_height="139dp"
-            android:id="@+id/calendarView"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="0dp"
-            android:clickable="false" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Lugar del evento"
+                android:id="@+id/editTextLugar"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="0dp"
+                android:textSize="15dp"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Número de personas"
-            android:id="@+id/editTextNPersonas"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:textSize="15dp" />
+            <CalendarView
+                android:layout_width="240dp"
+                android:layout_height="139dp"
+                android:id="@+id/calendarView"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="10dp"
+                android:clickable="false"
+                android:layout_marginRight="70dp" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Descripción"
-            android:id="@+id/editTextDescripcion"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="30dp"
-            android:textSize="15dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Número de personas"
+                android:id="@+id/editTextNPersonas"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:textSize="15dp" />
 
-        <Button
-            style="@style/Base.Theme.AppCompat.Dialog"
-            android:layout_width="179dp"
-            android:layout_height="30dp"
-            android:text="Añadir anuncio"
-            android:id="@+id/buttonAnadirAnuncio"
-            android:textColor="#ffffffff"
-            android:background="#ffff5158"
-            android:singleLine="true"
-            android:textSize="20dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Descripción"
+                android:id="@+id/editTextDescripcion"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:textSize="15dp" />
 
-    </LinearLayout>
+            <Button
+                style="@style/Base.Theme.AppCompat.Dialog"
+                android:layout_width="220dp"
+                android:layout_height="35dp"
+                android:text="Añadir anuncio"
+                android:id="@+id/buttonAnadirAnuncio"
+                android:textColor="#ffffffff"
+                android:background="@drawable/roundcorner"
+                android:singleLine="true"
+                android:textSize="20dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

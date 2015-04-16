@@ -9,7 +9,7 @@
     <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="45dp"
+    android:layout_height="50dp"
     android:id="@+id/linear1"
     android:layout_marginBottom="520dp"
     android:layout_row="1"
@@ -26,7 +26,7 @@
         android:text="Eventos"
         android:id="@+id/buttonEvento"
         android:textColor="#ffffffff"
-        android:background="#ff0fb0ff"
+        android:background="#83b5dd"
         android:singleLine="true"
         android:layout_weight="0.25"
         android:textSize="20dp" />
@@ -34,11 +34,11 @@
     <Button
         style="@style/Base.Theme.AppCompat.Dialog"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:text="Perfil"
         android:id="@+id/buttonPerfil"
         android:textColor="#ffffffff"
-        android:background="#ff0fb0ff"
+        android:background="#83b5dd"
         android:layout_gravity="center_horizontal"
         android:singleLine="true"
         android:layout_weight="0.25"
@@ -52,7 +52,7 @@
         android:id="@+id/buttonPublicar"
         android:layout_weight="0.21"
         android:textColor="#ffffffff"
-        android:background="#ff0fb0ff"
+        android:background="#83b5dd"
         android:singleLine="true"
         android:longClickable="false"
         android:textSize="20dp" />
@@ -81,7 +81,7 @@
             android:text="Partido de Futbol"
             android:id="@+id/textviewnombre"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="50dp"
             android:typeface="monospace"
             android:textStyle="bold"
@@ -238,7 +238,7 @@
             android:text="Descripción del evento:"
             android:id="@+id/textview2"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
@@ -265,34 +265,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
-            android:id="@+id/tabla3">
+            android:id="@+id/tabla3"
+            android:baselineAligned="false">
 
             <Button
-                style="@style/Base.Theme.AppCompat.Dialog"
-                android:layout_width="179dp"
-                android:layout_height="30dp"
+                style="@android:style/Widget.Spinner"
+                android:layout_width="220dp"
+                android:layout_height="35dp"
                 android:text="Apuntarse +"
                 android:id="@+id/buttonApuntarse"
                 android:textColor="#ffffffff"
-                android:background="#ffff5158"
+                android:background="@drawable/roundcorner"
                 android:singleLine="true"
                 android:textSize="20dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
                 android:layout_marginRight="100dp"
-                android:layout_marginLeft="100dp" />
+                android:layout_marginLeft="100dp"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
 
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/fila31"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/fila32">
-
-            </TableRow>
         </TableLayout>
 
     </LinearLayout>
