@@ -128,7 +128,7 @@
         android:layout_height="35dp"
         android:text="Guardar cambios"
         android:id="@+id/buttonSaveProf"
-        android:background="#b491c3ec"
+        android:background="@drawable/roundcorner"
         android:textColor="#ffffffff"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

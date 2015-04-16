@@ -20,8 +20,6 @@ import java.util.List;
 
 import conference.Conference;
 import conference.model.ConferenceForm;
-import conference.model.Profile;
-import conference.model.ProfileForm;
 
 
 public class CrearEvento extends ActionBarActivity {
@@ -36,7 +34,7 @@ public class CrearEvento extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.crearevento);
+        setContentView(R.layout.crear_evento);
 
         titulo = (EditText)findViewById(R.id.editTextTitulo);
         categoria = (Spinner)findViewById(R.id.spinnerCategoria);
