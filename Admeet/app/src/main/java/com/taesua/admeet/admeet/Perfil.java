@@ -25,6 +25,13 @@ public class Perfil extends ActionBarActivity {
     private TextView nombre;
     private TextView ciudad;
     private TextView tlf;
+    private TextView id;
+
+    private TextView textNombre;
+    private TextView textCiudad;
+    private TextView textTlf;
+    private Button editar_perfil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +59,8 @@ public class Perfil extends ActionBarActivity {
 
 
         //BOTON EDITAR PERFIL
-        Button e = (Button) findViewById(R.id.buttonEditarPerfil);
-        e.setOnClickListener(new View.OnClickListener() {
+        editar_perfil = (Button) findViewById(R.id.buttonEditarPerfil);
+        editar_perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Perfil.this, EditarPerfil.class);
@@ -63,6 +70,16 @@ public class Perfil extends ActionBarActivity {
                 startActivity(intent);
             }
         });
+        editar_perfil.setVisibility(View.INVISIBLE);
+
+        textNombre = (TextView) findViewById(R.id.textNombre);
+        textCiudad = (TextView) findViewById(R.id.textCiudad);
+        textTlf = (TextView) findViewById(R.id.textTlf);
+
+        textNombre.setVisibility(View.INVISIBLE);
+        textCiudad.setVisibility(View.INVISIBLE);
+        textTlf.setVisibility(View.INVISIBLE);
+
 
 
 
@@ -72,6 +89,8 @@ public class Perfil extends ActionBarActivity {
         nombre = (TextView) findViewById(R.id.textViewNombre);
         ciudad = (TextView) findViewById(R.id.textViewCiudad);
         tlf = (TextView) findViewById(R.id.textViewTlf);
+        id = (TextView) findViewById(R.id.textViewNombreID);
+        id.setText("");
 
 
         //PARA IR A PUBLICAR
@@ -146,29 +165,16 @@ public class Perfil extends ActionBarActivity {
             nombre.setText(result.getDisplayName());
             ciudad.setText(result.getCiudad());
             tlf.setText(result.getTelefono());
+            id.setText(result.getMainEmail());
 
             //Display success message to user
             Toast.makeText(getBaseContext(), "Información de perfil cargada correctamente",
                     Toast.LENGTH_SHORT).show();
-            /*
-            int tam=0;
 
-            if(result!=null)
-                listaeventos = result.getItems();
-            if(listaeventos!=null)
-                tam = listaeventos.size();
-
-            String nombres[] = new String[tam];
-            String otro[] = new String[tam];
-
-            for(int i=0;i<tam;i++) {
-                nombres[i] = listaeventos.get(i).getName();
-                otro[i] = listaeventos.get(i).getDescription();
-            }
-
-            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
-            eventos.setAdapter(adaptador);
-            */
+            textNombre.setVisibility(View.VISIBLE);
+            textCiudad.setVisibility(View.VISIBLE);
+            textTlf.setVisibility(View.VISIBLE);
+            editar_perfil.setVisibility(View.VISIBLE);
 
         }
     }

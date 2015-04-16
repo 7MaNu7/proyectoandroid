@@ -67,6 +67,10 @@ public class ConferenceUtils {
         return sApiServiceHandler.registerForConference(websafe);
     }
 
+    public static Conference.UnregisterFromConference desregistrarseEvento(String websafe) throws IOException {
+        return sApiServiceHandler.unregisterFromConference(websafe);
+    }
+
     public static Conference.GetProfile getProfile() throws IOException {
         return sApiServiceHandler.getProfile();
     }
