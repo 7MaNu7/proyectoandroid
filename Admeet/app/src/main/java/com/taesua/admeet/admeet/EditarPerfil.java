@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,10 +50,21 @@ public class EditarPerfil extends ActionBarActivity {
         s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GuardarPerfil guardarPerfil = (GuardarPerfil) new GuardarPerfil().execute();
-                Intent intent = new Intent(EditarPerfil.this, Perfil.class);
-                intent.putExtra("editado",true);
-                startActivity(intent);
+                if(nombre.getText().toString().equals(""))
+                {
+                    /*
+                    Toast.makeText(getBaseContext(), "¡No se puede dejar vacío el campo de nombre!",
+                            Toast.LENGTH_SHORT).show();
+                    */
+
+                    nombre.setError("¡No se puede dejar vacío el campo de nombre!");
+                }
+                else {
+                    GuardarPerfil guardarPerfil = (GuardarPerfil) new GuardarPerfil().execute();
+                    Intent intent = new Intent(EditarPerfil.this, Perfil.class);
+                    intent.putExtra("editado", true);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -67,6 +79,8 @@ public class EditarPerfil extends ActionBarActivity {
         nombre.setText(this.getIntent().getExtras().getString("nombre"));
         ciudad.setText(this.getIntent().getExtras().getString("ciudad"));
         tlf.setText(this.getIntent().getExtras().getString("tlf"));
+
+        tlf.setInputType(InputType.TYPE_CLASS_NUMBER);
 
 
 
