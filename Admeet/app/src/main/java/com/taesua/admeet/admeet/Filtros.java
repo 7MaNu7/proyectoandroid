@@ -124,38 +124,50 @@ public class Filtros extends ActionBarActivity {
         aplicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                fields.add(spinnerField.getSelectedItem().toString());
-                String s = spinnerOperador.getSelectedItem().toString();
-                String res = "";
-
-                switch(s) {
-                    case "=": res="EQ";
-                        break;
-                    case "<": res="LT";
-                        break;
-                    case ">": res="GT";
-                        break;
-                    case "<=": res="LTEQ";
-                        break;
-                    case ">=": res="GTEQ";
-                        break;
-                    case "!=": res="NE";
-                        break;
+                if (value.getText().toString().equals("")) //si esta vacio, validar
+                {
+                    value.setError("¡No se puede dejar vacío el campo de valor!");
                 }
+                else
+                {
+                    fields.add(spinnerField.getSelectedItem().toString());
+                    String s = spinnerOperador.getSelectedItem().toString();
+                    String res = "";
 
-                operators.add(res);
+                    switch (s) {
+                        case "=":
+                            res = "EQ";
+                            break;
+                        case "<":
+                            res = "LT";
+                            break;
+                        case ">":
+                            res = "GT";
+                            break;
+                        case "<=":
+                            res = "LTEQ";
+                            break;
+                        case ">=":
+                            res = "GTEQ";
+                            break;
+                        case "!=":
+                            res = "NE";
+                            break;
+                    }
 
-                values.add(value.getText().toString());
+                    operators.add(res);
 
-                filtrosStack.append("{" + spinnerField.getSelectedItem().toString() +
-                        " " + spinnerOperador.getSelectedItem().toString() +
-                        " " +value.getText().toString() + "}\n");
+                    values.add(value.getText().toString());
 
-                spinnerField.setSelection(0);
-                spinnerOperador.setSelection(0);
-                value.getText().clear();
-                acabar.setVisibility(View.VISIBLE);
+                    filtrosStack.append("{" + spinnerField.getSelectedItem().toString() +
+                            " " + spinnerOperador.getSelectedItem().toString() +
+                            " " + value.getText().toString() + "}\n");
+
+                    spinnerField.setSelection(0);
+                    spinnerOperador.setSelection(0);
+                    value.getText().clear();
+                    acabar.setVisibility(View.VISIBLE);
+                }
             }
         });
     }
