@@ -2,19 +2,16 @@ package com.taesua.admeet.admeet;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import conference.Conference;
-import conference.model.ConferenceCollection;
 import conference.model.Profile;
 
 /**
@@ -37,12 +34,9 @@ public class Perfil extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-
         //BOTON PERFIL, MARCARLO
         Button perfil = (Button)findViewById(R.id.buttonPerfil);
         perfil.setTypeface(null, Typeface.BOLD);
-
-
 
         //BOTON VOLVER A EVENTOS
         Button b = (Button) findViewById(R.id.buttonAnuncios);
@@ -56,7 +50,6 @@ public class Perfil extends ActionBarActivity {
                 startActivity(intent);
             }
         });
-
 
         //BOTON EDITAR PERFIL
         editar_perfil = (Button) findViewById(R.id.buttonEditarPerfil);
@@ -135,11 +128,8 @@ public class Perfil extends ActionBarActivity {
                 //Eventos.get.getIntent();
                 //if(this.getIntent())
 
-
-
                 //Conference.QueryConferences create = ConferenceUtils.getEventos(query);
                 Conference.GetProfile prof = ConferenceUtils.getProfile();
-
                 perfil = prof.execute();
                 /*Filter filter = new Filter();
                 filter.setField("CITY");
@@ -162,11 +152,19 @@ public class Perfil extends ActionBarActivity {
         {
             //Clear the progress dialog and the fields
             pd.dismiss();
-            nombre.setText(result.getDisplayName());
-            ciudad.setText(result.getCiudad());
-            tlf.setText(result.getTelefono());
-            id.setText(result.getMainEmail());
 
+            if(result==null)
+            {
+                nombre.setText("No especificado");
+                ciudad.setText("No especificado");
+                ciudad.setText("No especificado");
+            }
+            else {
+                nombre.setText(result.getDisplayName());
+                ciudad.setText(result.getCiudad());
+                ciudad.setText(result.getTelefono());
+                id.setText(result.getMainEmail());
+            }
             //Display success message to user
             Toast.makeText(getBaseContext(), "Información de perfil cargada correctamente",
                     Toast.LENGTH_SHORT).show();

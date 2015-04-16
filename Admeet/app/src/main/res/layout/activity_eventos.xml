@@ -11,7 +11,7 @@ android:layout_height="match_parent"
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="55dp"
     android:id="@+id/linearLayout"
     android:layout_row="1"
     android:layout_column="9"

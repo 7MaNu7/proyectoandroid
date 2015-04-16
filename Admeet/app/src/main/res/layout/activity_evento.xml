@@ -9,7 +9,7 @@
     <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="55dp"
     android:id="@+id/linear1"
     android:layout_marginBottom="520dp"
     android:layout_row="1"
@@ -272,11 +272,11 @@
             <Button
                 style="@android:style/Widget.Spinner"
                 android:layout_width="220dp"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:text="Apuntarse +"
                 android:id="@+id/buttonApuntarse"
                 android:textColor="#ffffffff"
-                android:background="@drawable/roundcorner"
+                android:background="@drawable/roundcornerorange"
                 android:singleLine="true"
                 android:textSize="20dp"
                 android:layout_gravity="center"
