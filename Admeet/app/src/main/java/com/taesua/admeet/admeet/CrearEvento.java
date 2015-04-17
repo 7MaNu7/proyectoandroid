@@ -92,6 +92,33 @@ public class CrearEvento extends ActionBarActivity {
         });
 
 
+        //PARA IR A EVENTOS
+        findViewById(R.id.buttonAnuncios).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(CrearEvento.this, Eventos.class);
+                startActivity(ji);
+            }
+        });
+
+        //PARA IR A PERFIL
+        findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(CrearEvento.this, Perfil.class);
+                startActivity(ji);
+            }
+        });
+
+        //PARA IR A PUBLICAR
+        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(CrearEvento.this, CrearEvento.class);
+                startActivity(ji);
+            }
+        });
+
     }
 
 

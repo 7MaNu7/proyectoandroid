@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:id="@+id/RelativeLayoutLogin"
-    android:background="@drawable/imagen4">
+    android:background="@drawable/imagen2">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -30,15 +30,15 @@
             android:layout_below="@+id/buttonLogin"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="310dp"
             android:id="@+id/linear">
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:text="Ver eventos"
                 android:id="@+id/buttonLogin"
-                android:background="@drawable/roundcornerorange"
+                android:background="@drawable/roundcornerblue"
                 android:textColor="#000000"
                 style="@style/Base.Theme.AppCompat.Dialog"
                 android:textSize="20dp"
@@ -47,15 +47,15 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp" />
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp" />
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:text="Ver perfil"
                 android:id="@+id/buttonPerfil"
-                android:background="@drawable/roundcornerorange"
+                android:background="@drawable/roundcornerblue"
                 android:textColor="#000000"
                 style="@style/Base.Theme.AppCompat.Dialog"
                 android:textSize="20dp"
@@ -63,17 +63,17 @@
                 android:layout_above="@+id/buttonSignUp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:layout_marginTop="20dp" />
 
             <Button
                 style="@style/Base.Theme.AppCompat.Dialog"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:text="Ver perfil"
                 android:id="@+id/buttoncrearevento"
-                android:background="@drawable/roundcornerorange"
+                android:background="@drawable/roundcornerblue"
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:singleLine="true"
@@ -81,8 +81,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp" />
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp" />
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"

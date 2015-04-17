@@ -120,12 +120,12 @@
         style="@style/Base.Theme.AppCompat.Dialog"
         android:singleLine="true"
         android:background="@drawable/roundcornerorange"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp" />
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" />
 </LinearLayout>
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scrollView3" >
 
@@ -143,14 +143,16 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/textFiltros"
                 android:layout_below="@+id/linearLayout"
                 android:layout_alignRight="@+id/volver_sin"
                 android:layout_alignEnd="@+id/volver_sin"
                 android:layout_alignLeft="@+id/buttonAcabarFiltros"
                 android:layout_alignStart="@+id/buttonAcabarFiltros"
-                android:gravity="center" />
+                android:gravity="center"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp" />
 
             <Button
                 android:layout_width="300dp"
@@ -164,7 +166,7 @@
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:layout_marginLeft="40dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="40dp" />
 
             <Button
                 android:layout_width="300dp"
@@ -179,7 +181,7 @@
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:layout_marginLeft="40dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="40dp" />
 
         </LinearLayout>
     </ScrollView>

@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -32,10 +31,7 @@ public class Filtros extends ActionBarActivity {
 
 
         final Spinner spinnerField = (Spinner) findViewById(R.id.field);
-
-
-
-                    final Spinner spinnerOperador = (Spinner) findViewById(R.id.operator);
+        final Spinner spinnerOperador = (Spinner) findViewById(R.id.operator);
         final TextView smalltext = (TextView) findViewById(R.id.textView2);
         final TextView filtrosStack = (TextView) findViewById(R.id.textFiltros);
         final EditText value = (EditText) findViewById(R.id.textoValue);
@@ -170,5 +166,35 @@ public class Filtros extends ActionBarActivity {
                 }
             }
         });
+
+
+        //PARA IR A EVENTOS
+        findViewById(R.id.buttonAnuncios).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Filtros.this, Eventos.class);
+                startActivity(ji);
+            }
+        });
+
+        //PARA IR A PERFIL
+        findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Filtros.this, Perfil.class);
+                startActivity(ji);
+            }
+        });
+
+        //PARA IR A PUBLICAR
+        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Filtros.this, CrearEvento.class);
+                startActivity(ji);
+            }
+        });
+
+
     }
 }

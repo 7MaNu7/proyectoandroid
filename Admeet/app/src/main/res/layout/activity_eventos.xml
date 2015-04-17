@@ -67,7 +67,7 @@ android:layout_height="match_parent"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="false"
     android:id="@+id/Linear2"
-    android:layout_marginTop="91dp">
+    android:layout_marginTop="95dp">
 
     <Button
         style="@style/Base.Theme.AppCompat.Dialog"
@@ -76,7 +76,7 @@ android:layout_height="match_parent"
         android:text="Todos"
         android:id="@+id/buttontodos"
         android:textColor="#ff0d0d0d"
-        android:background="#83b5dd"
+        android:background="@drawable/bordeblancoazulseleccionado"
         android:singleLine="true"
         android:layout_weight="0.25"
         android:textSize="15dp" />
@@ -113,7 +113,7 @@ android:layout_height="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listviewev"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="129dp"
+        android:layout_marginTop="132dp"
         android:layout_alignParentBottom="true"
         android:headerDividersEnabled="false"
         android:background="#fffff9fc"

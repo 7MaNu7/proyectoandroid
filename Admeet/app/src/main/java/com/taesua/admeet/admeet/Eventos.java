@@ -1,11 +1,11 @@
 package com.taesua.admeet.admeet;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -18,19 +18,15 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import conference.Conference;
 import conference.model.ConferenceCollection;
 import conference.model.ConferenceQueryForm;
 import conference.model.Filter;
-
-import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.api.client.json.gson.GsonFactory;
-
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.prefs.Preferences;
 
 
 public class Eventos extends ActionBarActivity {
@@ -41,6 +37,8 @@ public class Eventos extends ActionBarActivity {
     private Conference conferenciaendpoint;
     private ListView eventos;
     private List<conference.model.Conference> listaeventos = new ArrayList();
+    private Drawable estiloselec = null;
+    private Drawable estilonoselec = null;
 
     SharedPreferences settings;
     GoogleAccountCredential credential;
@@ -52,12 +50,18 @@ public class Eventos extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventos);
 
+        final Button buttonPerfil = (Button) findViewById(R.id.buttonPerfil);
+        final Button buttonAnuncios = (Button) findViewById(R.id.buttonPerfil);
+        final Button buttonPublicar = (Button) findViewById(R.id.buttonPublicar);
+
         this.context = this;
         final Button botontodos = (Button) findViewById(R.id.buttontodos);
         final Button botonmios = (Button) findViewById(R.id.buttonmios);
         final Button botonasisto = (Button) findViewById(R.id.buttonasisto);
         eventos = (ListView)findViewById(R.id.listviewev);
 
+        estiloselec = botontodos.getBackground();
+        estilonoselec = botonmios.getBackground();
 
         //if(this.getIntent().getExtras().size()>0)
         if(this.getIntent().getExtras()!=null)
@@ -109,39 +113,48 @@ public class Eventos extends ActionBarActivity {
             }
         });
 
-        //Accion del boton
+        //Accion del boton mios
         botonmios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                botonmios.setTextColor( Color.parseColor("#FFFFFF"));
+                botonmios.setTextColor( Color.parseColor("#000000"));
                 botontodos.setTextColor( Color.parseColor("#000000"));
                 botonasisto.setTextColor( Color.parseColor("#000000"));
+                botontodos.setBackground(estilonoselec);
+                botonmios.setBackground(estiloselec);
+                botonasisto.setBackground(estilonoselec);
 
                 GetEventosMios getEventosMios = new GetEventosMios();
                 getEventosMios.execute();
             }
         });
 
-        //Accion del boton
+        //Accion del boton asisto
         botonasisto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                botonasisto.setTextColor( Color.parseColor("#FFFFFF"));
+                botonasisto.setTextColor( Color.parseColor("#000000"));
                 botonmios.setTextColor( Color.parseColor("#000000"));
                 botontodos.setTextColor( Color.parseColor("#000000"));
+                botontodos.setBackground(estilonoselec);
+                botonmios.setBackground(estilonoselec);
+                botonasisto.setBackground(estiloselec);
 
                 GetEventosAtendidos getEventos = new GetEventosAtendidos();
                 getEventos.execute();
             }
         });
 
-        //Accion del boton
+        //Accion del boton todos
         botontodos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                botontodos.setTextColor( Color.parseColor("#FFFFFF"));
+                botontodos.setTextColor( Color.parseColor("#000000"));
                 botonmios.setTextColor( Color.parseColor("#000000"));
                 botonasisto.setTextColor( Color.parseColor("#000000"));
+                botontodos.setBackground(estiloselec);
+                botonmios.setBackground(estilonoselec);
+                botonasisto.setBackground(estilonoselec);
 
                 GetEventos getEventos = new GetEventos();
                 getEventos.execute();
