@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.text.InputType;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -45,10 +46,11 @@ public class CrearEvento extends ActionBarActivity {
 
         final List<String> listcategorias = new ArrayList<String>();
         listcategorias.add("Deportes");
-        listcategorias.add("Juegos de mesa");
-        listcategorias.add("Cine");
-        listcategorias.add("Teatro");
+        listcategorias.add("Cultura");
+        listcategorias.add("Fiesta");
+        listcategorias.add("Otros");
 
+        n_personas.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         ArrayAdapter<String> dataAdapterfield = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listcategorias);
@@ -85,6 +87,25 @@ public class CrearEvento extends ActionBarActivity {
         findViewById(R.id.buttonAnadirAnuncio).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (titulo.getText().toString().equals("")) //si esta vacio, validar
+                {
+                    titulo.setError("¡No se puede dejar vacío el campo de título!");
+                    return;
+                }
+
+                if(lugar.getText().toString().equals(""))
+                {
+                    lugar.setError("¡No se puede dejar vacío el campo del lugar!");
+                    return;
+                }
+
+                if(n_personas.getText().toString().equals(""))
+                {
+                    n_personas.setError("¡No se puede dejar el número de asistentes vacío!");
+                    return;
+                }
+
+
                 PublicarEvento publicarEvento = (PublicarEvento) new PublicarEvento().execute();
                 Intent intent = new Intent(CrearEvento.this,Eventos.class);
                 startActivity(intent);
