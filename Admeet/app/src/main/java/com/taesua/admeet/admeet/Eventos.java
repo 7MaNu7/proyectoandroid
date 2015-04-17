@@ -296,7 +296,7 @@ public class Eventos extends ActionBarActivity {
                 otro[i] = listaeventos.get(i).getDescription();
             }
 
-            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), R.layout.mytextview, nombres);
             eventos.setAdapter(adaptador);
 
 
@@ -357,7 +357,7 @@ public class Eventos extends ActionBarActivity {
                 otro[i] = listaeventos.get(i).getDescription();
             }
 
-            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), R.layout.mytextview, nombres);
             eventos.setAdapter(adaptador);
 
         }
@@ -415,7 +415,7 @@ public class Eventos extends ActionBarActivity {
                 otro[i] = listaeventos.get(i).getDescription();
             }
 
-            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_multiple_choice, nombres);
+            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), R.layout.mytextview, nombres);
             eventos.setAdapter(adaptador);
 
 

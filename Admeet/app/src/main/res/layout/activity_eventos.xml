@@ -117,7 +117,7 @@ android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:headerDividersEnabled="false"
         android:clickable="true"
-        style="@android:style/Widget.AbsListView" />
+        android:cacheColorHint="#000000" />
 
     <Button
         android:layout_width="match_parent"
