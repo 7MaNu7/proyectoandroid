@@ -69,7 +69,8 @@
         android:layout_column="0"
         android:layout_marginLeft="25dp"
         android:textSize="30dp"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="30dp" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -93,14 +94,18 @@
                 android:id="@+id/textNombre"
                 android:layout_column="0"
                 android:layout_marginLeft="25dp"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:layout_marginTop="30dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/textViewNombre"
-                android:layout_column="18" />
+                android:layout_column="18"
+                android:textSize="20dp"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="30dp" />
         </TableRow>
 
         <TableRow
@@ -124,7 +129,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/textViewCiudad"
-                android:layout_column="18" />
+                android:layout_column="18"
+                android:textSize="20dp" />
         </TableRow>
 
         <TableRow
@@ -147,7 +153,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/textViewTlf"
-                android:layout_column="18" />
+                android:layout_column="18"
+                android:textSize="20dp" />
         </TableRow>
 
     </TableLayout>

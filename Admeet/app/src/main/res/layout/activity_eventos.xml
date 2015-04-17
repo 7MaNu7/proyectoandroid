@@ -116,9 +116,8 @@ android:layout_height="match_parent"
         android:layout_marginTop="132dp"
         android:layout_alignParentBottom="true"
         android:headerDividersEnabled="false"
-        android:background="#fffff9fc"
         android:clickable="true"
-        style="@style/Base.TextAppearance.AppCompat.Display4" />
+        style="@android:style/Widget.AbsListView" />
 
     <Button
         android:layout_width="match_parent"

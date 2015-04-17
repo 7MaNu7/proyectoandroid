@@ -1,13 +1,7 @@
 package com.taesua.admeet.admeet;
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -19,21 +13,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
-import conference.Conference;
-import conference.model.ConferenceCollection;
 
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
-import com.google.api.client.extensions.android.http.AndroidHttp;
-import com.google.api.client.extensions.android.json.AndroidJsonFactory;
-import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
-import com.google.api.client.json.gson.GsonFactory;
-
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -73,6 +55,15 @@ public class MainActivity extends ActionBarActivity {
                 //System.out.println("LA CUENTA SELECCIONADA ES " + credential.getSelectedAccountName());
                 startActivity(intent);
             }
+        });
+
+        findViewById(R.id.buttonCrearEvento).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CrearEvento.class);
+                startActivity(intent);
+            }
+
         });
 
         findViewById(R.id.buttonPerfil).setOnClickListener(new OnClickListener() {
