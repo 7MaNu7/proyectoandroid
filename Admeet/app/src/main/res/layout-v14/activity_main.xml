@@ -2,15 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/RelativeLayoutLogin"
-    android:background="@drawable/imagen2">
+    android:id="@+id/RelativeLayoutLogin">
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:id="@+id/relativelayoutprincipal">
+        android:id="@+id/relativelayoutprincipal"
+        android:background="#FFFFFF">
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,7 +21,8 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="61dp"
-            android:textColor="#000000" />
+            android:textColor="#83b5dd"
+            android:autoText="false" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -30,16 +31,16 @@
             android:layout_below="@+id/buttonLogin"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="310dp"
+            android:layout_marginTop="190dp"
             android:id="@+id/linear">
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="70dp"
                 android:text="Ver eventos"
                 android:id="@+id/buttonLogin"
                 android:background="@drawable/roundcornerblue"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 style="@style/Base.Theme.AppCompat.Dialog"
                 android:textSize="20dp"
                 android:singleLine="true"
@@ -52,11 +53,11 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="70dp"
                 android:text="Crear evento"
                 android:id="@+id/buttonCrearEvento"
                 android:background="@drawable/roundcornerblue"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 style="@style/Base.Theme.AppCompat.Dialog"
                 android:textSize="20dp"
                 android:singleLine="true"
@@ -70,11 +71,11 @@
             <Button
                 style="@style/Base.Theme.AppCompat.Dialog"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="70dp"
                 android:text="Ver perfil"
                 android:id="@+id/buttonPerfil"
                 android:background="@drawable/roundcornerblue"
-                android:textColor="#000000"
+                android:textColor="#FFFFFF"
                 android:textSize="20dp"
                 android:singleLine="true"
                 android:layout_above="@+id/buttonSignUp"

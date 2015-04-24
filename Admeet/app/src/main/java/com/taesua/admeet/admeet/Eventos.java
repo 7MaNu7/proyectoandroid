@@ -13,9 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
@@ -63,7 +64,6 @@ public class Eventos extends ActionBarActivity {
         estiloselec = botontodos.getBackground();
         estilonoselec = botonmios.getBackground();
 
-        //if(this.getIntent().getExtras().size()>0)
         if(this.getIntent().getExtras()!=null)
         {
             ArrayList filtros = new ArrayList();
@@ -80,12 +80,18 @@ public class Eventos extends ActionBarActivity {
             query.setFilters(filtros);
         }
 
+        /**
+         * Mostrar todos los eventos al iniciar esta activity
+         */
+        botontodos.setTextColor( Color.parseColor("#000000"));
+        botonmios.setTextColor( Color.parseColor("#000000"));
+        botonasisto.setTextColor( Color.parseColor("#000000"));
+        botontodos.setBackground(estiloselec);
+        botonmios.setBackground(estilonoselec);
+        botonasisto.setBackground(estilonoselec);
 
-        botontodos.setTextColor( Color.parseColor("#FFFFFF")); //seleccionado pro defecto TODOS al principio
-
-        //GetEventos getMessage = new GetEventos();
-        GetEventos getMessage = new GetEventos();
-        getMessage.execute();
+        GetEventos getEventos = new GetEventos();
+        getEventos.execute();
 
         eventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -254,21 +260,8 @@ public class Eventos extends ActionBarActivity {
             ConferenceCollection messages = null;
             try
             {
-               // ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
-                //Eventos.get.getIntent();
-                //if(this.getIntent())
-
-
-
                 Conference.QueryConferences create = ConferenceUtils.getEventos(query);
                 messages = create.execute();
-                /*Filter filter = new Filter();
-                filter.setField("CITY");
-                filter.setOperator("EQ");
-                filter.setValue("London");
-                ArrayList filtros = new ArrayList();
-                filtros.add(filter);
-                // conferenceQueryForm.setFilters(filtros);*/
             }
             catch (Exception e)
             {
@@ -289,18 +282,22 @@ public class Eventos extends ActionBarActivity {
                 tam = listaeventos.size();
 
             String nombres[] = new String[tam];
-            String otro[] = new String[tam];
+            String categorias[] = new String[tam];
 
             for(int i=0;i<tam;i++) {
                 nombres[i] = listaeventos.get(i).getName();
-                otro[i] = listaeventos.get(i).getDescription();
+                categorias[i] = listaeventos.get(i).getTopics().get(0);
             }
 
-            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), R.layout.mytextview, nombres);
-            eventos.setAdapter(adaptador);
-
-
-
+            ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
+            TextView nombre = (TextView) findViewById(R.id.tvContent);
+            TextView numCelda = (TextView) findViewById(R.id.tvField);
+            EventosAdapter adapter;
+            // Inicializamos el adapter.
+            adapter = new EventosAdapter(Eventos.this, nombres, categorias);
+            // Asignamos el Adapter al ListView, en este punto hacemos que el
+            // ListView muestre los datos que queremos.
+            eventos.setAdapter(adapter);
         }
     }
 
@@ -321,16 +318,6 @@ public class Eventos extends ActionBarActivity {
 
                 Conference.GetConferencesCreated create = ConferenceUtils.getEventosMios();
                 messages = create.execute();
-
-
-
-                /*Filter filter = new Filter();
-                filter.setField("CITY");
-                filter.setOperator("EQ");
-                filter.setValue("London");
-                ArrayList filtros = new ArrayList();
-                filtros.add(filter);
-                // conferenceQueryForm.setFilters(filtros);*/
             }
             catch (Exception e)
             {
@@ -350,15 +337,22 @@ public class Eventos extends ActionBarActivity {
                 tam = listaeventos.size();
 
             String nombres[] = new String[tam];
-            String otro[] = new String[tam];
+            String categorias[] = new String[tam];
 
             for(int i=0;i<tam;i++) {
                 nombres[i] = listaeventos.get(i).getName();
-                otro[i] = listaeventos.get(i).getDescription();
+                categorias[i] = listaeventos.get(i).getTopics().get(0);
             }
 
-            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), R.layout.mytextview, nombres);
-            eventos.setAdapter(adaptador);
+            ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
+            TextView nombre = (TextView) findViewById(R.id.tvContent);
+            TextView numCelda = (TextView) findViewById(R.id.tvField);
+            EventosAdapter adapter;
+            // Inicializamos el adapter.
+            adapter = new EventosAdapter(Eventos.this, nombres, categorias);
+            // Asignamos el Adapter al ListView, en este punto hacemos que el
+            // ListView muestre los datos que queremos.
+            eventos.setAdapter(adapter);
 
         }
     }
@@ -381,13 +375,6 @@ public class Eventos extends ActionBarActivity {
                 ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
                 Conference.GetConferencesToAttend create = ConferenceUtils.getEventosAsisto();
                 messages = create.execute();
-                /*Filter filter = new Filter();
-                filter.setField("CITY");
-                filter.setOperator("EQ");
-                filter.setValue("London");
-                ArrayList filtros = new ArrayList();
-                filtros.add(filter);
-                // conferenceQueryForm.setFilters(filtros);*/
             }
             catch (Exception e)
             {
@@ -408,22 +395,25 @@ public class Eventos extends ActionBarActivity {
                 tam = listaeventos.size();
 
             String nombres[] = new String[tam];
-            String otro[] = new String[tam];
+            String categorias[] = new String[tam];
 
             for(int i=0;i<tam;i++) {
                 nombres[i] = listaeventos.get(i).getName();
-                otro[i] = listaeventos.get(i).getDescription();
+                categorias[i] = listaeventos.get(i).getTopics().get(0);
             }
 
-            ArrayAdapter<String> adaptador = new ArrayAdapter<String>(getApplicationContext(), R.layout.mytextview, nombres);
-            eventos.setAdapter(adaptador);
-
+            ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
+            TextView nombre = (TextView) findViewById(R.id.tvContent);
+            TextView numCelda = (TextView) findViewById(R.id.tvField);
+            EventosAdapter adapter;
+            // Inicializamos el adapter.
+            adapter = new EventosAdapter(Eventos.this, nombres, categorias);
+            // Asignamos el Adapter al ListView, en este punto hacemos que el
+            // ListView muestre los datos que queremos.
+            eventos.setAdapter(adapter);
 
         }
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

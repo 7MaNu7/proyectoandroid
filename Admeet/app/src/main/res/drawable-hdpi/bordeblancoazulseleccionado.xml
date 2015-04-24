@@ -5,17 +5,9 @@
         android:left="-5dp"
         android:top="-5dp">
         <shape android:shape="rectangle">
-            <solid android:color="#83b5dd">
-
-            </solid>
-
-            <stroke android:width="3dp" android:color="#ffffff">
-
-            </stroke>
+            <solid android:color="#83b5dd"></solid>
+            <stroke android:width="3dp" android:color="#ffffff"></stroke>
             <corners android:radius="5dp" ></corners>
         </shape>
     </item>
 </layer-list>
-
-    <!-- un azulito mas peque #b491c3ec -->
-
