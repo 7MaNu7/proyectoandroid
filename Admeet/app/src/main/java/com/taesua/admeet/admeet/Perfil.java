@@ -73,9 +73,6 @@ public class Perfil extends ActionBarActivity {
         textCiudad.setVisibility(View.INVISIBLE);
         textTlf.setVisibility(View.INVISIBLE);
 
-
-
-
         Button p = (Button) findViewById(R.id.buttonPerfil);
         p.setTypeface(null, Typeface.BOLD);
 
@@ -94,10 +91,6 @@ public class Perfil extends ActionBarActivity {
                 startActivity(ji);
             }
         });
-
-
-
-
 
         GetPerfil getperfil = (GetPerfil) new GetPerfil().execute();
     }
@@ -124,20 +117,8 @@ public class Perfil extends ActionBarActivity {
             Profile perfil = null;
             try
             {
-                // ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
-                //Eventos.get.getIntent();
-                //if(this.getIntent())
-
-                //Conference.QueryConferences create = ConferenceUtils.getEventos(query);
                 Conference.GetProfile prof = ConferenceUtils.getProfile();
                 perfil = prof.execute();
-                /*Filter filter = new Filter();
-                filter.setField("CITY");
-                filter.setOperator("EQ");
-                filter.setValue("London");
-                ArrayList filtros = new ArrayList();
-                filtros.add(filter);
-                // conferenceQueryForm.setFilters(filtros);*/
             }
             catch (Exception e)
             {

@@ -60,80 +60,180 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="PacoLuanMora"
+        android:id="@+id/textViewNombreNick"
+        android:layout_column="0"
+        android:textSize="30dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp" />
+
+    <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/linearLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:id="@+id/linearLayout3"
-        android:layout_marginBottom="75dp">
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="220dp"
+        android:id="@+id/tableLayout">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Nombre"
-            android:id="@+id/textViewName"
-            android:textSize="20dp"
-            android:layout_marginLeft="25dp" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/Tabla">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextName"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Nombre"
+                android:id="@+id/textViewNom"
+                android:textSize="15dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Ciudad"
-            android:id="@+id/textViewCity"
-            android:layout_marginTop="30dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="25dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextName"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_column="9"
+                android:layout_marginTop="10dp" />
+        </TableRow>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextCity"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Teléfono"
-            android:id="@+id/textViewPhone"
-            android:layout_marginTop="30dp"
-            android:textSize="20dp"
-            android:textIsSelectable="true"
-            android:layout_marginLeft="25dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Ciudad"
+                android:id="@+id/textView6"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp"
+                android:layout_marginLeft="50dp" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editTextPhone"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextCity"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_column="9"
+                android:layout_marginTop="10dp" />
+        </TableRow>
 
-    </LinearLayout>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Teléfono"
+                android:id="@+id/textView6"
+                android:layout_marginTop="10dp"
+                android:textSize="15dp"
+                android:textIsSelectable="true"
+                android:layout_marginLeft="50dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextPhone"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_column="9"
+                android:layout_marginTop="10dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"></TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </TableRow>
+
+    </TableLayout>
 
     <Button
+        style="@style/Base.Theme.AppCompat.Dialog"
         android:layout_width="220dp"
         android:layout_height="40dp"
         android:text="Guardar cambios"
         android:id="@+id/buttonSaveProf"
-        android:background="@drawable/roundcornerorange"
+        android:background="@drawable/roundcornerblue"
         android:textColor="#ffffffff"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        style="@style/Base.Theme.AppCompat.Dialog"
         android:layout_alignWithParentIfMissing="false"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_column="9"
+        android:layout_alignTop="@+id/tableLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="168dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Eventos recientes:"
+        android:id="@+id/textViewRecientes"
+        android:layout_marginTop="62dp"
+        android:textSize="15dp"
+        android:textIsSelectable="true"
+        android:layout_alignTop="@+id/buttonSaveProf"
+        android:layout_alignLeft="@+id/textViewNombreNick"
+        android:layout_alignStart="@+id/textViewNombreNick"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginBottom="10dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView3"
+        android:layout_below="@+id/textViewRecientes"
+        android:layout_alignLeft="@+id/textViewNombreNick"
+        android:layout_alignStart="@+id/textViewNombreNick"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp" />
+
 </RelativeLayout>

@@ -8,21 +8,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.api.client.util.DateTime;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import conference.Conference;
 import conference.model.ConferenceCollection;
-import conference.model.ConferenceForm;
 import conference.model.WrappedBoolean;
 
 
@@ -48,8 +41,32 @@ public class Evento extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento);
 
-        //com.appspot.ad_meet.conference.model.Conference evento;
-        //evento = (com.appspot.ad_meet.conference.model.Conference) this.getIntent().getExtras().get("eventoselec");
+        //PARA IR A PERFIL
+        findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Evento.this,Perfil.class);
+                startActivity(ji);
+            }
+        });
+
+        //PARA IR A PUBLICAR
+        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Evento.this,CrearEvento.class);
+                startActivity(ji);
+            }
+        });
+
+        //PARA IR A EVENTOS
+        findViewById(R.id.buttonEvento).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ji = new Intent(Evento.this,Eventos.class);
+                startActivity(ji);
+            }
+        });
 
         t1 = (TextView)findViewById(R.id.textviewnombre);
         t1.setText(this.getIntent().getExtras().getString("name"));
@@ -90,6 +107,12 @@ public class Evento extends ActionBarActivity {
         t11 = (TextView)findViewById(R.id.textViewTituloNPersonas);
         t11.setVisibility(View.INVISIBLE);
 
+        TextView t12 = (TextView)findViewById(R.id.textViewCreador);
+        if(this.getIntent().getExtras().getString("creador").contains("@"))
+            t12.setText(this.getIntent().getExtras().getString("creador").split("T")[0]);
+        else
+            t12.setText(this.getIntent().getExtras().getString("creador"));
+        t12.setVisibility(View.INVISIBLE);
 
         websafeKey = this.getIntent().getExtras().getString("websafeKey");
         System.out.println("SU KEY ES " + websafeKey);
@@ -100,18 +123,8 @@ public class Evento extends ActionBarActivity {
 
         Button b = (Button) findViewById(R.id.buttonApuntarse);
         b.setVisibility(View.INVISIBLE);
-        /*
-        for(conference.model.Conference c:conferencias_atendidas)
-        {
-            System.out.println("LA C ES " + c.getWebsafeKey());
-            if(c.getWebsafeKey().equals(websafeKey)) //ya atiende a esta conferencia, puede desapuntarse
-            {
-                System.out.println("YA ATIENDE A ESTA CONFERENCIA, PODRA DESAPUNTARSE");
-                asiste=true;
-                break;
-            }
-        }
-*/
+
+
         //Instanciar elemento
         Button c = (Button) findViewById(R.id.buttonEvento);
         //Accion del boton

@@ -27,16 +27,14 @@ public class EventosAdapter extends ArrayAdapter {
     private Context context;
     private ArrayList<EventosClase> datos;
 
-    public EventosAdapter(Context context, String[] datos, String[] categorias) {
+    public EventosAdapter(Context context, String[] datos, String[] categorias, Integer[] asis, Integer[] maxasis, String[] fecha) {
         super(context, R.layout.listview_item, datos);
-        //Guardamos parametros en variables
-        this.context = context;
 
+
+        this.context = context;
         ArrayList<EventosClase> datos1 = new ArrayList<EventosClase>();
         for(int i=0;i<datos.length;i++)
-        {
-            datos1.add(i, new EventosClase(datos[i],categorias[i]));
-        }
+            datos1.add(i, new EventosClase(datos[i],categorias[i], asis[i], maxasis[i], fecha[i]));
 
         this.datos = datos1;
     }
@@ -56,24 +54,24 @@ public class EventosAdapter extends ArrayAdapter {
         imagen.setImageResource(datos.get(position).getDrawableImageID());
         System.out.println("ESTOS SON LOS ID DE LAS IMAGENES");
         System.out.println(":::::::::::::::::"+datos.get(position).getDrawableImageID()+"::::::::::::::::::::::::");
-        //imagen.setImageResource(R.drawable.imagen4);
-       // ImageView imageView = new ImageView(this);
-        //imageView.setImageBitmap(getRoundedCornerBitmap(.getDrawable(R.id.image), true));
-       // imagen.setImageBitmap(getRoundedCornerBitmap(this.getResources().getDrawable(R.id.image), true), true));
 
-
-
-        // Recogemos el TextView para mostrar el nombre y establecemos el
-        // nombre.
+        // Recogemos el TextView para mostrar el nombre y establecemos el nombre
         TextView nombre = (TextView) item.findViewById(R.id.tvContent);
         nombre.setText(datos.get(position).getCategoria());//getNombre());
+
+        //Mostramos los asistentes y la capacidad máxima
+        TextView asistentes = (TextView) item.findViewById(R.id.textViewPersonas);
+        String asistentesdemax = datos.get(position).getAsistentes() + "/" + datos.get(position).getMaxAsistentes();
+        asistentes.setText(asistentesdemax);
+
+        //Mostramos la fecha
+        TextView fecha = (TextView) item.findViewById(R.id.textViewFecha);
+        fecha.setText(datos.get(position).getFecha());
 
         // Recogemos el TextView para mostrar el número de celda y lo
         // establecemos.
         TextView numCelda = (TextView) item.findViewById(R.id.tvField);
         numCelda.setText(datos.get(position).getNombre());//(String.valueOf(position));
-
-
 
         // Devolvemos la vista para que se muestre en el ListView.
         return item;

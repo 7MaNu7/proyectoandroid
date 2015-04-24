@@ -1,6 +1,5 @@
 package com.taesua.admeet.admeet;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import conference.Conference;
 import conference.model.Profile;
@@ -21,9 +19,12 @@ import conference.model.ProfileForm;
  * Created by Hector on 14/04/2015.
  */
 public class EditarPerfil extends ActionBarActivity {
+
     private EditText nombre;
+    private TextView nombreNick;
     private EditText ciudad;
     private EditText tlf;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,11 +53,6 @@ public class EditarPerfil extends ActionBarActivity {
             public void onClick(View v) {
                 if(nombre.getText().toString().equals(""))
                 {
-                    /*
-                    Toast.makeText(getBaseContext(), "¡No se puede dejar vacío el campo de nombre!",
-                            Toast.LENGTH_SHORT).show();
-                    */
-
                     nombre.setError("¡No se puede dejar vacío el campo de nombre!");
                 }
                 else {
@@ -71,11 +67,12 @@ public class EditarPerfil extends ActionBarActivity {
         Button p = (Button) findViewById(R.id.buttonPerfil);
         p.setTextColor(Color.parseColor("#000000"));
 
+        nombreNick = (TextView) findViewById(R.id.textViewNombreNick);
         nombre = (EditText) findViewById(R.id.editTextName);
         ciudad = (EditText) findViewById(R.id.editTextCity);
         tlf = (EditText) findViewById(R.id.editTextPhone);
 
-
+//        nombreNick.setText(this.getIntent().getExtras().getString("nombre"));
         nombre.setText(this.getIntent().getExtras().getString("nombre"));
         ciudad.setText(this.getIntent().getExtras().getString("ciudad"));
         tlf.setText(this.getIntent().getExtras().getString("tlf"));
@@ -104,7 +101,6 @@ public class EditarPerfil extends ActionBarActivity {
             Profile perfil = null;
             try
             {
-
                 ProfileForm form = new ProfileForm();
                 form.setDisplayName(nombre.getText().toString());
                 form.setCiudad(ciudad.getText().toString());

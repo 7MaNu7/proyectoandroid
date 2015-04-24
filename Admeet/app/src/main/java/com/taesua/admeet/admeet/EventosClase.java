@@ -6,13 +6,25 @@ package com.taesua.admeet.admeet;
 public class EventosClase {
     private String nombre;
     private String categoria;
+    private String fecha;
     private int drawableImageID;
+    private Integer asistentes;
+    private Integer maxasistentes;
 
-    public EventosClase(String nombre, String categoria) {
+    public EventosClase(String nombre, String categoria, Integer asis, Integer maxasis, String fecha) {
         this.nombre = nombre;
         this.categoria = categoria;
         setImagenPorCategoria();
+        this.asistentes = asis;
+        this.maxasistentes = maxasis;
+        this.fecha = fecha;
     }
+
+    public String getFecha() { return fecha; }
+
+    public Integer getAsistentes() { return asistentes; }
+
+    public Integer getMaxAsistentes() { return maxasistentes; }
 
     public String getNombre() {
         return nombre;
@@ -42,9 +54,9 @@ public class EventosClase {
     {
         System.out.println("ESTA ES LA CATEGORIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         System.out.println("::::::::::::::::::::::"+categoria+"::::::::::::::::::");
-        if(categoria=="Deportes")
+        if(categoria.equals("Deportes"))
             this.drawableImageID = R.drawable.imagen1;
-        else if(categoria=="Fiesta")
+        else if(categoria.equals("Fiesta"))
             this.drawableImageID = R.drawable.imagen2;
         else
             this.drawableImageID = R.drawable.imagen4;

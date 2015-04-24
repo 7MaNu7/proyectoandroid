@@ -34,4 +34,25 @@
         android:text="TextView"
         android:layout_marginLeft="30dp" />
 
+    <TextView
+        android:id="@+id/textViewPersonas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asistentes"
+        android:layout_alignBottom="@+id/tvContent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/textViewFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fecha"
+        android:layout_below="@+id/tvField"
+        android:layout_alignLeft="@+id/tvField"
+        android:layout_alignStart="@+id/tvField"
+        android:layout_marginTop="7dp"
+        android:textSize="12dp" />
+
 </RelativeLayout>

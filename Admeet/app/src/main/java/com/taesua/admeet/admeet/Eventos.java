@@ -54,15 +54,37 @@ public class Eventos extends ActionBarActivity {
         final Button buttonPerfil = (Button) findViewById(R.id.buttonPerfil);
         final Button buttonAnuncios = (Button) findViewById(R.id.buttonPerfil);
         final Button buttonPublicar = (Button) findViewById(R.id.buttonPublicar);
-
-        this.context = this;
         final Button botontodos = (Button) findViewById(R.id.buttontodos);
         final Button botonmios = (Button) findViewById(R.id.buttonmios);
         final Button botonasisto = (Button) findViewById(R.id.buttonasisto);
         eventos = (ListView)findViewById(R.id.listviewev);
 
+        //Definimos los estilos guardandolos primero
         estiloselec = botontodos.getBackground();
-        estilonoselec = botonmios.getBackground();
+        estilonoselec = botonasisto.getBackground();
+
+        /**
+         * Mostrar todos los eventos al iniciar esta activity
+         */
+        botontodos.setTextColor( Color.parseColor("#000000"));
+        botonmios.setTextColor( Color.parseColor("#000000"));
+        botonasisto.setTextColor( Color.parseColor("#000000"));
+        botontodos.setBackground(estiloselec);
+        botonmios.setBackground(estilonoselec);
+        botonasisto.setBackground(estilonoselec);
+
+        GetEventos getEventos = new GetEventos();
+        getEventos.execute();
+
+        botontodos.setTextColor( Color.parseColor("#000000"));
+        botonmios.setTextColor( Color.parseColor("#000000"));
+        botonasisto.setTextColor( Color.parseColor("#000000"));
+        botontodos.setBackground(estiloselec);
+        botonmios.setBackground(estilonoselec);
+        botonasisto.setBackground(estilonoselec);
+
+        GetEventos getEventos1 = new GetEventos();
+        getEventos1.execute();
 
         if(this.getIntent().getExtras()!=null)
         {
@@ -79,19 +101,6 @@ public class Eventos extends ActionBarActivity {
             }
             query.setFilters(filtros);
         }
-
-        /**
-         * Mostrar todos los eventos al iniciar esta activity
-         */
-        botontodos.setTextColor( Color.parseColor("#000000"));
-        botonmios.setTextColor( Color.parseColor("#000000"));
-        botonasisto.setTextColor( Color.parseColor("#000000"));
-        botontodos.setBackground(estiloselec);
-        botonmios.setBackground(estilonoselec);
-        botonasisto.setBackground(estilonoselec);
-
-        GetEventos getEventos = new GetEventos();
-        getEventos.execute();
 
         eventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -113,8 +122,8 @@ public class Eventos extends ActionBarActivity {
                 for(int i=0;i<evento.getTopics().size();i++)
                     categorias+=" " + evento.getTopics().get(i);
                 intent.putExtra("categorias", categorias);
-
                 intent.putExtra("websafeKey",evento.getWebsafeKey());
+                intent.putExtra("creador", evento.getOrganizerDisplayName());
                 startActivity(intent);
             }
         });
@@ -187,7 +196,7 @@ public class Eventos extends ActionBarActivity {
         findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Eventos.this,Perfil.class);
+                Intent ji = new Intent(Eventos.this,EditarPerfil.class);
                 startActivity(ji);
             }
         });
@@ -200,33 +209,6 @@ public class Eventos extends ActionBarActivity {
                 startActivity(ji);
             }
         });
-
-
-
-
-
-        /*
-        // Inside your Activity class onCreate method
-        //settings = getSharedPreferences(Context.MODE_PRIVATE);
-        settings = getPreferences(Context.MODE_PRIVATE);
-        credential = GoogleAccountCredential.usingAudience(this,
-                Ids.AUDIENCE);
-        setSelectedAccountName(PREF_ACCOUNT_NAME);
-
-        Conference.Builder endpointBuilder = new Conference.Builder(AndroidHttp.newCompatibleTransport(),
-                new GsonFactory(), credential);
-        //endpoint = CloudEndpointUtils.updateBuilder(endpointBuilder).build();
-        conferenciaendpoint = endpointBuilder.build();
-
-        if (credential.getSelectedAccountName() != null) {
-            System.out.println("LOGEADO");
-        } else {
-            // Not signed in, show login window or request an account.
-            System.out.println("NO LOGEADO");
-        }
-
-        */
-
     }
 
     // setSelectedAccountName definition
@@ -281,23 +263,7 @@ public class Eventos extends ActionBarActivity {
             if(listaeventos!=null)
                 tam = listaeventos.size();
 
-            String nombres[] = new String[tam];
-            String categorias[] = new String[tam];
-
-            for(int i=0;i<tam;i++) {
-                nombres[i] = listaeventos.get(i).getName();
-                categorias[i] = listaeventos.get(i).getTopics().get(0);
-            }
-
-            ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
-            TextView nombre = (TextView) findViewById(R.id.tvContent);
-            TextView numCelda = (TextView) findViewById(R.id.tvField);
-            EventosAdapter adapter;
-            // Inicializamos el adapter.
-            adapter = new EventosAdapter(Eventos.this, nombres, categorias);
-            // Asignamos el Adapter al ListView, en este punto hacemos que el
-            // ListView muestre los datos que queremos.
-            eventos.setAdapter(adapter);
+            rellenaListView(listaeventos, tam);
         }
     }
 
@@ -314,8 +280,6 @@ public class Eventos extends ActionBarActivity {
             ConferenceCollection messages = null;
             try
             {
-                System.out.println("HA ENTRADO EVENTOS MIOS-----------------");
-
                 Conference.GetConferencesCreated create = ConferenceUtils.getEventosMios();
                 messages = create.execute();
             }
@@ -336,27 +300,10 @@ public class Eventos extends ActionBarActivity {
             if(listaeventos!=null)
                 tam = listaeventos.size();
 
-            String nombres[] = new String[tam];
-            String categorias[] = new String[tam];
-
-            for(int i=0;i<tam;i++) {
-                nombres[i] = listaeventos.get(i).getName();
-                categorias[i] = listaeventos.get(i).getTopics().get(0);
-            }
-
-            ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
-            TextView nombre = (TextView) findViewById(R.id.tvContent);
-            TextView numCelda = (TextView) findViewById(R.id.tvField);
-            EventosAdapter adapter;
-            // Inicializamos el adapter.
-            adapter = new EventosAdapter(Eventos.this, nombres, categorias);
-            // Asignamos el Adapter al ListView, en este punto hacemos que el
-            // ListView muestre los datos que queremos.
-            eventos.setAdapter(adapter);
+            rellenaListView(listaeventos, tam);
 
         }
     }
-
 
     /**
      * Para obtener los eventos que el usuario a atendido
@@ -371,7 +318,6 @@ public class Eventos extends ActionBarActivity {
             ConferenceCollection messages = null;
             try
             {
-                System.out.println("HA ENTRADO-----------------");
                 ConferenceQueryForm conferenceQueryForm = new ConferenceQueryForm();
                 Conference.GetConferencesToAttend create = ConferenceUtils.getEventosAsisto();
                 messages = create.execute();
@@ -394,26 +340,39 @@ public class Eventos extends ActionBarActivity {
             if(listaeventos!=null)
                 tam = listaeventos.size();
 
-            String nombres[] = new String[tam];
-            String categorias[] = new String[tam];
-
-            for(int i=0;i<tam;i++) {
-                nombres[i] = listaeventos.get(i).getName();
-                categorias[i] = listaeventos.get(i).getTopics().get(0);
-            }
-
-            ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
-            TextView nombre = (TextView) findViewById(R.id.tvContent);
-            TextView numCelda = (TextView) findViewById(R.id.tvField);
-            EventosAdapter adapter;
-            // Inicializamos el adapter.
-            adapter = new EventosAdapter(Eventos.this, nombres, categorias);
-            // Asignamos el Adapter al ListView, en este punto hacemos que el
-            // ListView muestre los datos que queremos.
-            eventos.setAdapter(adapter);
-
+            rellenaListView(listaeventos, tam);
         }
     }
+
+    public void rellenaListView(List<conference.model.Conference> listaeventos, int tam)  {
+        String nombres[] = new String[tam];
+        String categorias[] = new String[tam];
+        String fecha[] = new String[tam];
+        Integer asis[] = new Integer[tam];
+        Integer maxasis[] = new Integer[tam];
+
+        for(int i=0;i<tam;i++) {
+            nombres[i] = listaeventos.get(i).getName();
+            categorias[i] = listaeventos.get(i).getTopics().get(0);
+            asis[i] = (listaeventos.get(i).getMaxAttendees()-listaeventos.get(i).getSeatsAvailable());
+            maxasis[i] = listaeventos.get(i).getMaxAttendees();
+            fecha[i] = listaeventos.get(i).getStartDate().toString().split("T")[0];
+        }
+
+        ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
+        TextView nombre = (TextView) findViewById(R.id.tvContent);
+        TextView numCelda = (TextView) findViewById(R.id.tvField);
+        EventosAdapter adapter;
+        // Inicializamos el adapter.
+        adapter = new EventosAdapter(Eventos.this, nombres, categorias, asis, maxasis, fecha);
+        // Asignamos el Adapter al ListView, en este punto hacemos que el
+        // ListView muestre los datos que queremos.
+        eventos.setAdapter(adapter);
+    }
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
