@@ -1,5 +1,6 @@
 package com.taesua.admeet.admeet;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,9 +80,9 @@ public class EditarPerfil extends ActionBarActivity {
                 }
                 else {
                     GuardarPerfil guardarPerfil = (GuardarPerfil) new GuardarPerfil().execute();
-                    Intent intent = new Intent(EditarPerfil.this, Perfil.class);
-                    intent.putExtra("editado", true);
-                    startActivity(intent);
+                    //Intent intent = new Intent(EditarPerfil.this, Perfil.class);
+                    //intent.putExtra("editado", true);
+                    //startActivity(intent);
                 }
             }
         });
@@ -93,16 +95,84 @@ public class EditarPerfil extends ActionBarActivity {
         ciudad = (EditText) findViewById(R.id.editTextCity);
         tlf = (EditText) findViewById(R.id.editTextPhone);
 
+        /*
 //        nombreNick.setText(this.getIntent().getExtras().getString("nombre"));
         nombre.setText(this.getIntent().getExtras().getString("nombre"));
         ciudad.setText(this.getIntent().getExtras().getString("ciudad"));
         tlf.setText(this.getIntent().getExtras().getString("tlf"));
-
+*/
         tlf.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        GetPerfil getperfil = (GetPerfil) new GetPerfil().execute();
     }
 
     /**
-     * Ver todos los eventos
+     * Get datos de perfil
+     */
+    private class GetPerfil extends AsyncTask<Void, Void,Profile>
+    {
+        private ProgressDialog pd;
+
+        public GetPerfil() { }
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+            pd = new ProgressDialog(EditarPerfil.this);
+            pd.setMessage("Cargando información de perfil...");
+            pd.show();
+        }
+        @Override
+        protected Profile doInBackground(Void ... unused)
+        {
+            Profile perfil = null;
+            try
+            {
+                Conference.GetProfile prof = ConferenceUtils.getProfile();
+                perfil = prof.execute();
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
+            return perfil;
+        }
+
+        @Override
+        protected void onPostExecute(Profile result)
+        {
+            //Clear the progress dialog and the fields
+            pd.dismiss();
+
+            if(result==null)
+            {
+                nombre.setText("No especificado");
+                ciudad.setText("No especificado");
+                tlf.setText("No especificado");
+            }
+            else {
+                nombre.setText(result.getDisplayName());
+                ciudad.setText(result.getCiudad());
+                tlf.setText(result.getTelefono());
+                //id.setText(result.getMainEmail());
+            }
+            //Display success message to user
+            Toast.makeText(getBaseContext(), "Información de perfil cargada correctamente",
+                    Toast.LENGTH_SHORT).show();
+
+            /*
+            nombre.setVisibility(View.VISIBLE);
+            textCiudad.setVisibility(View.VISIBLE);
+            textTlf.setVisibility(View.VISIBLE);
+            editar_perfil.setVisibility(View.VISIBLE);+
+            */
+
+        }
+    }
+
+    /**
+     * Guardar perfil
      */
     private class GuardarPerfil extends AsyncTask<Void, Void,Profile>
     {
@@ -137,6 +207,8 @@ public class EditarPerfil extends ActionBarActivity {
         @Override
         protected void onPostExecute(Profile result)
         {
+            Toast.makeText(getBaseContext(), "Información de perfil guardada correctamente",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -187,7 +187,8 @@ public class Filtros extends ActionBarActivity {
         findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Filtros.this, Perfil.class);
+                //Intent ji = new Intent(Filtros.this, Perfil.class);
+                Intent ji = new Intent(Filtros.this, EditarPerfil.class);
                 startActivity(ji);
             }
         });

@@ -52,7 +52,8 @@ public class Evento extends ActionBarActivity {
         findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Evento.this,Perfil.class);
+                //Intent ji = new Intent(Evento.this,Perfil.class);
+                Intent ji = new Intent(Evento.this,EditarPerfil.class);
                 startActivity(ji);
             }
         });

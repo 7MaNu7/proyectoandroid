@@ -69,7 +69,8 @@ public class MainActivity extends ActionBarActivity {
         findViewById(R.id.buttonPerfil).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Perfil.class);
+                //Intent intent = new Intent(MainActivity.this, Perfil.class);
+                Intent intent = new Intent(MainActivity.this, EditarPerfil.class);
                 startActivity(intent);
             }
 
