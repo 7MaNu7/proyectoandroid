@@ -1,6 +1,8 @@
 package com.taesua.admeet.admeet;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -53,8 +55,10 @@ public class Evento extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //Intent ji = new Intent(Evento.this,Perfil.class);
-                Intent ji = new Intent(Evento.this,EditarPerfil.class);
-                startActivity(ji);
+                Intent intent = new Intent(Evento.this, EditarPerfil.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -62,8 +66,10 @@ public class Evento extends ActionBarActivity {
         findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Evento.this,CrearEvento.class);
-                startActivity(ji);
+                Intent intent = new Intent(Evento.this, CrearEvento.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -71,8 +77,10 @@ public class Evento extends ActionBarActivity {
         findViewById(R.id.buttonEvento).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Evento.this,Eventos.class);
-                startActivity(ji);
+                Intent intent = new Intent(Evento.this,Eventos.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -140,12 +148,31 @@ public class Evento extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Evento.this, Eventos.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
         });
 
 
 
+    }
+
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Cerrando AdMeet")
+                .setMessage("¿Estás seguro de que quieres cerrar la aplicación?")
+                .setPositiveButton("Sí", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .create().show();
     }
 
 
@@ -290,7 +317,9 @@ public class Evento extends ActionBarActivity {
                         apuntarse.execute();
 
                         Intent intent = new Intent(Evento.this, Eventos.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                        finish();
                     }
                 });
             }
@@ -318,7 +347,9 @@ public class Evento extends ActionBarActivity {
                             Desapuntarse desapuntarse = new Desapuntarse();
                             desapuntarse.execute();
                             Intent intent = new Intent(Evento.this, Eventos.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
+                            finish();
                         }
                     });
                 }
@@ -333,7 +364,9 @@ public class Evento extends ActionBarActivity {
                             apuntarse.execute();
 
                             Intent intent = new Intent(Evento.this, Eventos.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
+                            finish();
                         }
                     });
                 }

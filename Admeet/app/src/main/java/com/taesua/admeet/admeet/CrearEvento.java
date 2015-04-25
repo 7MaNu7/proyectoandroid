@@ -1,5 +1,7 @@
 package com.taesua.admeet.admeet;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -73,7 +75,9 @@ public class CrearEvento extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CrearEvento.this, Eventos.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -83,7 +87,9 @@ public class CrearEvento extends ActionBarActivity {
             public void onClick(View v) {
                 //Intent ji = new Intent(CrearEvento.this,Perfil.class);
                 Intent ji = new Intent(CrearEvento.this,EditarPerfil.class);
+                ji.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(ji);
+                finish();
             }
         });
 
@@ -116,7 +122,9 @@ public class CrearEvento extends ActionBarActivity {
 
                 PublicarEvento publicarEvento = (PublicarEvento) new PublicarEvento().execute();
                 Intent intent = new Intent(CrearEvento.this,Eventos.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -126,7 +134,9 @@ public class CrearEvento extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent ji = new Intent(CrearEvento.this, Eventos.class);
+                ji.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(ji);
+                finish();
             }
         });
 
@@ -136,7 +146,9 @@ public class CrearEvento extends ActionBarActivity {
             public void onClick(View v) {
                 //Intent ji = new Intent(CrearEvento.this, Perfil.class);
                 Intent ji = new Intent(CrearEvento.this, EditarPerfil.class);
+                ji.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(ji);
+                finish();
             }
         });
 
@@ -145,10 +157,29 @@ public class CrearEvento extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent ji = new Intent(CrearEvento.this, CrearEvento.class);
+                ji.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(ji);
+                finish();
             }
         });
 
+    }
+
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Cerrando AdMeet")
+                .setMessage("¿Estás seguro de que quieres cerrar la aplicación?")
+                .setPositiveButton("Sí", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .create().show();
     }
 
 

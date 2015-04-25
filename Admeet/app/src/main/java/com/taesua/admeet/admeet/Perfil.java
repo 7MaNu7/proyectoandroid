@@ -1,6 +1,8 @@
 package com.taesua.admeet.admeet;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -47,14 +49,16 @@ public class Perfil extends ActionBarActivity {
 
         //BOTON VOLVER A EVENTOS
         Button b = (Button) findViewById(R.id.buttonAnuncios);
-        b.setTypeface(null,Typeface.NORMAL);
+        b.setTypeface(null, Typeface.NORMAL);
 
         //Accion del boton
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Perfil.this, Eventos.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -64,10 +68,12 @@ public class Perfil extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Perfil.this, EditarPerfil.class);
-                intent.putExtra("nombre",nombre.getText().toString());
-                intent.putExtra("ciudad",ciudad.getText().toString());
-                intent.putExtra("tlf",tlf.getText().toString());
+                intent.putExtra("nombre", nombre.getText().toString());
+                intent.putExtra("ciudad", ciudad.getText().toString());
+                intent.putExtra("tlf", tlf.getText().toString());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
         });
         editar_perfil.setVisibility(View.INVISIBLE);
@@ -94,12 +100,31 @@ public class Perfil extends ActionBarActivity {
         findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Perfil.this,CrearEvento.class);
-                startActivity(ji);
+                Intent intent = new Intent(Perfil.this,CrearEvento.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
         GetPerfil getperfil = (GetPerfil) new GetPerfil().execute();
+    }
+
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Cerrando AdMeet")
+                .setMessage("¿Estás seguro de que quieres cerrar la aplicación?")
+                .setPositiveButton("Sí", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .create().show();
     }
 
     /**

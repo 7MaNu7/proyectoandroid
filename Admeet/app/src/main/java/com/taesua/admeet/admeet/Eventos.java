@@ -1,6 +1,8 @@
 package com.taesua.admeet.admeet;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -131,7 +133,9 @@ public class Eventos extends ActionBarActivity {
                 intent.putExtra("categorias", categorias);
                 intent.putExtra("websafeKey",evento.getWebsafeKey());
                 intent.putExtra("creador", evento.getOrganizerDisplayName());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -194,8 +198,10 @@ public class Eventos extends ActionBarActivity {
         findViewById(R.id.buttonFilters).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Eventos.this,Filtros.class);
-                startActivity(ji);
+                Intent intent = new Intent(Eventos.this,Filtros.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -204,8 +210,10 @@ public class Eventos extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //Intent ji = new Intent(Eventos.this, Perfil.class);
-                Intent ji = new Intent(Eventos.this, EditarPerfil.class);
-                startActivity(ji);
+                Intent intent = new Intent(Eventos.this, EditarPerfil.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -213,8 +221,10 @@ public class Eventos extends ActionBarActivity {
         findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Eventos.this,CrearEvento.class);
-                startActivity(ji);
+                Intent intent = new Intent(Eventos.this,CrearEvento.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -226,6 +236,23 @@ public class Eventos extends ActionBarActivity {
         editor.commit();
         credential.setSelectedAccountName(accountName);
         this.accountName = accountName;
+    }
+
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Cerrando AdMeet")
+                .setMessage("¿Estás seguro de que quieres cerrar la aplicación?")
+                .setPositiveButton("Sí", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .create().show();
     }
 
     /**

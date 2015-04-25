@@ -1,10 +1,13 @@
 package com.taesua.admeet.admeet;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
 import android.view.View;
@@ -59,7 +62,19 @@ public class EditarPerfil extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditarPerfil.this, Eventos.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        publicar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EditarPerfil.this, CrearEvento.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -80,9 +95,6 @@ public class EditarPerfil extends ActionBarActivity {
                 }
                 else {
                     GuardarPerfil guardarPerfil = (GuardarPerfil) new GuardarPerfil().execute();
-                    //Intent intent = new Intent(EditarPerfil.this, Perfil.class);
-                    //intent.putExtra("editado", true);
-                    //startActivity(intent);
                 }
             }
         });
@@ -105,6 +117,25 @@ public class EditarPerfil extends ActionBarActivity {
 
         GetPerfil getperfil = (GetPerfil) new GetPerfil().execute();
     }
+
+
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Cerrando AdMeet")
+                .setMessage("¿Estás seguro de que quieres cerrar la aplicación?")
+                .setPositiveButton("Sí", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .create().show();
+    }
+
 
     /**
      * Get datos de perfil
@@ -176,12 +207,15 @@ public class EditarPerfil extends ActionBarActivity {
      */
     private class GuardarPerfil extends AsyncTask<Void, Void,Profile>
     {
-
+        private ProgressDialog pd;
         public GuardarPerfil() { }
 
         @Override
         protected void onPreExecute(){
             super.onPreExecute();
+            pd = new ProgressDialog(EditarPerfil.this);
+            pd.setMessage("Guardando información de perfil...");
+            pd.show();
         }
         @Override
         protected Profile doInBackground(Void ... unused)
@@ -207,6 +241,7 @@ public class EditarPerfil extends ActionBarActivity {
         @Override
         protected void onPostExecute(Profile result)
         {
+            pd.dismiss();
             Toast.makeText(getBaseContext(), "Información de perfil guardada correctamente",
                     Toast.LENGTH_SHORT).show();
         }

@@ -51,9 +51,9 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Eventos.class);
-                //System.out.println("EL SCOPE ES " + credential.getScope());
-                //System.out.println("LA CUENTA SELECCIONADA ES " + credential.getSelectedAccountName());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -61,7 +61,9 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CrearEvento.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
 
         });
@@ -69,9 +71,10 @@ public class MainActivity extends ActionBarActivity {
         findViewById(R.id.buttonPerfil).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(MainActivity.this, Perfil.class);
                 Intent intent = new Intent(MainActivity.this, EditarPerfil.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                finish();
             }
 
         });

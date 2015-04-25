@@ -1,5 +1,7 @@
 package com.taesua.admeet.admeet;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -105,10 +107,16 @@ public class Filtros extends ActionBarActivity {
                         intent.putExtra("operator" + i,operators.get(i));
                         intent.putExtra("value" + i,values.get(i));
                     }
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
+                    finish();
                 }
-                else
-                    startActivity(new Intent(Filtros.this,Eventos.class));
+                else {
+                    Intent intent = new Intent(Filtros.this,Eventos.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
@@ -119,7 +127,10 @@ public class Filtros extends ActionBarActivity {
         findViewById(R.id.volver_sin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Filtros.this,Eventos.class));
+                Intent intent = new Intent(Filtros.this,Eventos.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -178,8 +189,10 @@ public class Filtros extends ActionBarActivity {
         findViewById(R.id.buttonAnuncios).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Filtros.this, Eventos.class);
-                startActivity(ji);
+                Intent intent = new Intent(Filtros.this, Eventos.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -188,8 +201,10 @@ public class Filtros extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //Intent ji = new Intent(Filtros.this, Perfil.class);
-                Intent ji = new Intent(Filtros.this, EditarPerfil.class);
-                startActivity(ji);
+                Intent intent = new Intent(Filtros.this, EditarPerfil.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -197,11 +212,30 @@ public class Filtros extends ActionBarActivity {
         findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Filtros.this, CrearEvento.class);
-                startActivity(ji);
+                Intent intent = new Intent(Filtros.this, CrearEvento.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
             }
         });
 
 
+    }
+
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Cerrando AdMeet")
+                .setMessage("¿Estás seguro de que quieres cerrar la aplicación?")
+                .setPositiveButton("Sí", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .create().show();
     }
 }
