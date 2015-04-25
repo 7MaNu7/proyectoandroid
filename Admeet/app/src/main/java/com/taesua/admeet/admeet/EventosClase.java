@@ -52,14 +52,14 @@ public class EventosClase {
 
     public void setImagenPorCategoria()
     {
-        System.out.println("ESTA ES LA CATEGORIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        System.out.println("::::::::::::::::::::::"+categoria+"::::::::::::::::::");
         if(categoria.equals("Deportes"))
-            this.drawableImageID = R.drawable.imagen1;
+            this.drawableImageID = R.drawable.deportes1;
         else if(categoria.equals("Fiesta"))
-            this.drawableImageID = R.drawable.imagen2;
+            this.drawableImageID = R.drawable.fiesta1;
+        else if(categoria.equals("Cultura"))
+            this.drawableImageID = R.drawable.cultura4;
         else
-            this.drawableImageID = R.drawable.imagen4;
+            this.drawableImageID = R.drawable.logo;
     }
 
 }

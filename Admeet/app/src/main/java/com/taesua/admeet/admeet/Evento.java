@@ -41,6 +41,13 @@ public class Evento extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento);
 
+        Button evento = (Button) findViewById(R.id.buttonEvento);
+        Button perfil = (Button) findViewById(R.id.buttonPerfil);
+        Button publicar = (Button) findViewById(R.id.buttonPublicar);
+ //       perfil.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+   //     evento.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
+     //   publicar.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+
         //PARA IR A PERFIL
         findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -37,6 +37,13 @@ public class CrearEvento extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crear_evento);
 
+        Button evento = (Button) findViewById(R.id.buttonAnuncios);
+        Button perfil = (Button) findViewById(R.id.buttonPerfil);
+        Button publicar = (Button) findViewById(R.id.buttonPublicar);
+//        perfil.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+  //      evento.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+    //    publicar.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
+
         titulo = (EditText)findViewById(R.id.editTextTitulo);
         categoria = (Spinner)findViewById(R.id.spinnerCategoria);
         lugar = (EditText)findViewById(R.id.editTextLugar);

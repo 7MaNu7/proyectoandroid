@@ -29,6 +29,12 @@ public class Filtros extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtros);
 
+        Button evento = (Button) findViewById(R.id.buttonAnuncios);
+        Button perfil = (Button) findViewById(R.id.buttonPerfil);
+        Button publicar = (Button) findViewById(R.id.buttonPublicar);
+  //      perfil.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+    //    evento.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
+      //  publicar.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
 
         final Spinner spinnerField = (Spinner) findViewById(R.id.field);
         final Spinner spinnerOperador = (Spinner) findViewById(R.id.operator);

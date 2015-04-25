@@ -39,7 +39,7 @@
             android:text="Perfil"
             android:id="@+id/buttonPerfil"
             android:textColor="#ffffffff"
-            android:background="#83b5dd"
+            android:background="@drawable/bordeazulseleccionado"
             android:layout_gravity="center_horizontal"
             android:singleLine="true"
             android:layout_weight="0.25"

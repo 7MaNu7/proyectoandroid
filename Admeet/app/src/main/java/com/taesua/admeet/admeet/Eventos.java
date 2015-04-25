@@ -59,6 +59,13 @@ public class Eventos extends ActionBarActivity {
         final Button botonasisto = (Button) findViewById(R.id.buttonasisto);
         eventos = (ListView)findViewById(R.id.listviewev);
 
+        Button evento = (Button) findViewById(R.id.buttonAnuncios);
+        Button perfil = (Button) findViewById(R.id.buttonPerfil);
+        Button publicar = (Button) findViewById(R.id.buttonPublicar);
+//        perfil.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+  //      evento.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
+    //    publicar.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+
         //Definimos los estilos guardandolos primero
         estiloselec = botontodos.getBackground();
         estilonoselec = botonasisto.getBackground();
@@ -196,7 +203,7 @@ public class Eventos extends ActionBarActivity {
         findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ji = new Intent(Eventos.this,EditarPerfil.class);
+                Intent ji = new Intent(Eventos.this, Perfil.class);
                 startActivity(ji);
             }
         });

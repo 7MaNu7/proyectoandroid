@@ -57,7 +57,7 @@
                 android:id="@+id/buttonPublicar"
                 android:layout_weight="0.21"
                 android:textColor="#ffffffff"
-                android:background="#83b5dd"
+                android:background="@drawable/bordeazulseleccionado"
                 android:singleLine="true"
                 android:longClickable="false"
                 android:textSize="20dp" />

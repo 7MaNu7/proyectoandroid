@@ -34,6 +34,13 @@ public class Perfil extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
+        Button evento = (Button) findViewById(R.id.buttonAnuncios);
+        Button perfil2 = (Button) findViewById(R.id.buttonPerfil);
+        Button publicar = (Button) findViewById(R.id.buttonPublicar);
+   //     perfil2.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
+     //   evento.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+       // publicar.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+
         //BOTON PERFIL, MARCARLO
         Button perfil = (Button)findViewById(R.id.buttonPerfil);
         perfil.setTypeface(null, Typeface.BOLD);
