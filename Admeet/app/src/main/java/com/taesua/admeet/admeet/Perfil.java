@@ -145,12 +145,12 @@ public class Perfil extends ActionBarActivity {
             {
                 nombre.setText("No especificado");
                 ciudad.setText("No especificado");
-                ciudad.setText("No especificado");
+                tlf.setText("No especificado");
             }
             else {
                 nombre.setText(result.getDisplayName());
                 ciudad.setText(result.getCiudad());
-                ciudad.setText(result.getTelefono());
+                tlf.setText(result.getTelefono());
                 id.setText(result.getMainEmail());
             }
             //Display success message to user
