@@ -24,13 +24,14 @@
         android:textSize="20dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="40dp" />
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="45dp"
+        android:gravity="center" />
 
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="280dp"
         android:id="@+id/tableLayout">
 
@@ -47,17 +48,17 @@
                 android:text="Nombre"
                 android:id="@+id/textViewNom"
                 android:textSize="15dp"
-                android:layout_marginLeft="65dp"
+                android:layout_marginLeft="45dp"
                 android:layout_marginTop="10dp" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editTextName"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_column="9"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:textSize="15dp" />
         </TableRow>
 
@@ -73,16 +74,16 @@
                 android:id="@+id/textViewCii"
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"
-                android:layout_marginLeft="65dp" />
+                android:layout_marginLeft="45dp" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editTextCity"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_column="9"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:textSize="15dp" />
         </TableRow>
 
@@ -99,16 +100,16 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"
                 android:textIsSelectable="true"
-                android:layout_marginLeft="65dp" />
+                android:layout_marginLeft="45dp" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/editTextPhone"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_column="9"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:textSize="15dp" />
         </TableRow>
 
@@ -157,7 +158,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/linearlayoutabajo"
-        android:layout_marginTop="200dp">
+        android:layout_marginTop="190dp">
 
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
@@ -186,20 +187,20 @@
             android:layout_alignTop="@+id/buttonSaveProf"
             android:layout_alignLeft="@+id/textViewNombreNick"
             android:layout_alignStart="@+id/textViewNombreNick"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="45dp"
             android:layout_marginStart="23dp"
             android:layout_marginBottom="10dp" />
 
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="210dp"
+            android:layout_height="240dp"
             android:id="@+id/listViewEv"
             android:layout_below="@+id/textViewRecientes"
             android:layout_alignLeft="@+id/textViewNombreNick"
             android:layout_alignStart="@+id/textViewNombreNick"
             android:layout_marginRight="30dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="30dp" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp" />
     </LinearLayout>
 
 </RelativeLayout>
