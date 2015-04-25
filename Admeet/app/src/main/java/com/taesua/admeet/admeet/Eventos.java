@@ -5,11 +5,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +41,8 @@ public class Eventos extends ActionBarActivity {
     private List<conference.model.Conference> listaeventos = new ArrayList();
     private Drawable estiloselec = null;
     private Drawable estilonoselec = null;
+    private DrawerLayout drawerLayout = null;
+    private ListView listView;
 
     SharedPreferences settings;
     GoogleAccountCredential credential;
@@ -53,20 +54,45 @@ public class Eventos extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventos);
 
-        final Button buttonPerfil = (Button) findViewById(R.id.buttonPerfil);
-        final Button buttonAnuncios = (Button) findViewById(R.id.buttonPerfil);
-        final Button buttonPublicar = (Button) findViewById(R.id.buttonPublicar);
+        listView = (ListView) findViewById(R.id.list_view);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final String[]  opciones = { "Eventos", "Filtros", "Publicar", "Perfil" };
+
+        MenuAdapter adapter = adapter = new MenuAdapter(Eventos.this, opciones);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView arg0, View arg1, int arg2,
+                                    long arg3) {
+                Intent intent = null;
+
+                if(opciones[arg2].equals("Eventos"))
+                    intent = new Intent(Eventos.this,Eventos.class);
+                else if(opciones[arg2].equals("Filtros"))
+                    intent = new Intent(Eventos.this,Filtros.class);
+                else if(opciones[arg2].equals("Publicar"))
+                    intent = new Intent(Eventos.this,CrearEvento.class);
+                else
+                    intent = new Intent(Eventos.this,EditarPerfil.class);
+
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        // Mostramos el botón en la barra de la aplicación
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         final Button botontodos = (Button) findViewById(R.id.buttontodos);
         final Button botonmios = (Button) findViewById(R.id.buttonmios);
         final Button botonasisto = (Button) findViewById(R.id.buttonasisto);
         eventos = (ListView)findViewById(R.id.listviewev);
-
-        Button evento = (Button) findViewById(R.id.buttonAnuncios);
-        Button perfil = (Button) findViewById(R.id.buttonPerfil);
-        Button publicar = (Button) findViewById(R.id.buttonPublicar);
-//        perfil.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
-  //      evento.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
-    //    publicar.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
 
         //Definimos los estilos guardandolos primero
         estiloselec = botontodos.getBackground();
@@ -75,25 +101,12 @@ public class Eventos extends ActionBarActivity {
         /**
          * Mostrar todos los eventos al iniciar esta activity
          */
-        botontodos.setTextColor( Color.parseColor("#000000"));
-        botonmios.setTextColor( Color.parseColor("#000000"));
-        botonasisto.setTextColor( Color.parseColor("#000000"));
         botontodos.setBackground(estiloselec);
         botonmios.setBackground(estilonoselec);
         botonasisto.setBackground(estilonoselec);
 
         GetEventos getEventos = new GetEventos();
         getEventos.execute();
-
-        botontodos.setTextColor( Color.parseColor("#000000"));
-        botonmios.setTextColor( Color.parseColor("#000000"));
-        botonasisto.setTextColor( Color.parseColor("#000000"));
-        botontodos.setBackground(estiloselec);
-        botonmios.setBackground(estilonoselec);
-        botonasisto.setBackground(estilonoselec);
-
-        GetEventos getEventos1 = new GetEventos();
-        getEventos1.execute();
 
         if(this.getIntent().getExtras()!=null)
         {
@@ -143,9 +156,6 @@ public class Eventos extends ActionBarActivity {
         botonmios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                botonmios.setTextColor( Color.parseColor("#000000"));
-                botontodos.setTextColor( Color.parseColor("#000000"));
-                botonasisto.setTextColor( Color.parseColor("#000000"));
                 botontodos.setBackground(estilonoselec);
                 botonmios.setBackground(estiloselec);
                 botonasisto.setBackground(estilonoselec);
@@ -159,9 +169,6 @@ public class Eventos extends ActionBarActivity {
         botonasisto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                botonasisto.setTextColor( Color.parseColor("#000000"));
-                botonmios.setTextColor( Color.parseColor("#000000"));
-                botontodos.setTextColor( Color.parseColor("#000000"));
                 botontodos.setBackground(estilonoselec);
                 botonmios.setBackground(estilonoselec);
                 botonasisto.setBackground(estiloselec);
@@ -175,56 +182,12 @@ public class Eventos extends ActionBarActivity {
         botontodos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                botontodos.setTextColor( Color.parseColor("#000000"));
-                botonmios.setTextColor( Color.parseColor("#000000"));
-                botonasisto.setTextColor( Color.parseColor("#000000"));
                 botontodos.setBackground(estiloselec);
                 botonmios.setBackground(estilonoselec);
                 botonasisto.setBackground(estilonoselec);
 
                 GetEventos getEventos = new GetEventos();
                 getEventos.execute();
-            }
-        });
-
-
-
-        //BOTON EVENTOS, MARCARLO
-        Button anuncios = (Button)findViewById(R.id.buttonAnuncios);
-        anuncios.setTypeface(null, Typeface.BOLD);
-
-
-        //PARA IR A FILTERS
-        findViewById(R.id.buttonFilters).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Eventos.this,Filtros.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        //PARA IR A PERFIL
-        findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent ji = new Intent(Eventos.this, Perfil.class);
-                Intent intent = new Intent(Eventos.this, EditarPerfil.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        //PARA IR A PUBLICAR
-        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Eventos.this,CrearEvento.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
             }
         });
     }
@@ -396,7 +359,7 @@ public class Eventos extends ActionBarActivity {
 
         ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
         TextView nombre = (TextView) findViewById(R.id.tvContent);
-        TextView numCelda = (TextView) findViewById(R.id.tvField);
+        TextView numCelda = (TextView) findViewById(R.id.textviewelitem);
         EventosAdapter adapter;
         // Inicializamos el adapter.
         adapter = new EventosAdapter(Eventos.this, nombres, categorias, asis, maxasis, fecha);
@@ -416,16 +379,18 @@ public class Eventos extends ActionBarActivity {
         return true;
     }
 
+    // Mostramos el botón en la barra de la aplicación
+    //getActionBar().setDisplayHomeAsUpEnabled(true);
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (drawerLayout.isDrawerOpen(listView)) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    drawerLayout.openDrawer(listView);
+                }
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

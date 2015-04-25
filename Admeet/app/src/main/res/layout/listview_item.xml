@@ -16,7 +16,7 @@
         android:src="@android:drawable/ic_dialog_info" />
 
     <TextView
-        android:id="@+id/tvField"
+        android:id="@+id/textviewelitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -49,9 +49,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="fecha"
-        android:layout_below="@+id/tvField"
-        android:layout_alignLeft="@+id/tvField"
-        android:layout_alignStart="@+id/tvField"
+        android:layout_below="@+id/textviewelitem"
+        android:layout_alignLeft="@+id/textviewelitem"
+        android:layout_alignStart="@+id/textviewelitem"
         android:layout_marginTop="7dp"
         android:textSize="12dp" />
 

@@ -20,13 +20,6 @@ import com.google.android.gms.common.AccountPicker;
 
 public class MainActivity extends ActionBarActivity {
 
-    /*
-    private static final int REQUEST_ACCOUNT_PICKER = 2;
-    private SharedPreferences settings;
-    private String accountName;
-    private GoogleAccountCredential credential;
-    */
-
     private static final String LOG_TAG = "MainActivity";
 
     /**

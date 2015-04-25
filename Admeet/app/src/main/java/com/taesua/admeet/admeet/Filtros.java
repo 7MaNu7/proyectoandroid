@@ -4,13 +4,17 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -26,17 +30,49 @@ public class Filtros extends ActionBarActivity {
     private ArrayList<String> operators = new ArrayList<String>();
     private ArrayList<String> values = new ArrayList<String>();
     private Button acabar;
+    private DrawerLayout drawerLayout = null;
+    private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtros);
 
-        Button evento = (Button) findViewById(R.id.buttonAnuncios);
-        Button perfil = (Button) findViewById(R.id.buttonPerfil);
-        Button publicar = (Button) findViewById(R.id.buttonPublicar);
-  //      perfil.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
-    //    evento.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
-      //  publicar.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+
+        listView = (ListView) findViewById(R.id.list_view);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final String[]  opciones = { "Eventos", "Filtros", "Publicar", "Perfil" };
+
+        MenuAdapter adapter = adapter = new MenuAdapter(Filtros.this, opciones);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView arg0, View arg1, int arg2,
+                                    long arg3) {
+                Intent intent = null;
+
+                if(opciones[arg2].equals("Eventos"))
+                    intent = new Intent(Filtros.this,Eventos.class);
+                else if(opciones[arg2].equals("Filtros"))
+                    intent = new Intent(Filtros.this,Filtros.class);
+                else if(opciones[arg2].equals("Publicar"))
+                    intent = new Intent(Filtros.this,CrearEvento.class);
+                else
+                    intent = new Intent(Filtros.this,EditarPerfil.class);
+
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        // Mostramos el botón en la barra de la aplicación
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         final Spinner spinnerField = (Spinner) findViewById(R.id.field);
         final Spinner spinnerOperador = (Spinner) findViewById(R.id.operator);
@@ -122,8 +158,6 @@ public class Filtros extends ActionBarActivity {
 
         acabar.setVisibility(View.INVISIBLE);
 
-
-
         findViewById(R.id.volver_sin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,42 +218,6 @@ public class Filtros extends ActionBarActivity {
             }
         });
 
-
-        //PARA IR A EVENTOS
-        findViewById(R.id.buttonAnuncios).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Filtros.this, Eventos.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        //PARA IR A PERFIL
-        findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent ji = new Intent(Filtros.this, Perfil.class);
-                Intent intent = new Intent(Filtros.this, EditarPerfil.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        //PARA IR A PUBLICAR
-        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Filtros.this, CrearEvento.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-
     }
 
     public void onBackPressed() {
@@ -238,4 +236,30 @@ public class Filtros extends ActionBarActivity {
                 .setNegativeButton("No", null)
                 .create().show();
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_eventos, menu);
+        return true;
+    }
+
+    // Mostramos el botón en la barra de la aplicación
+    //getActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (drawerLayout.isDrawerOpen(listView)) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    drawerLayout.openDrawer(listView);
+                }
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

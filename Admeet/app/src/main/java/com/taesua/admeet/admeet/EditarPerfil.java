@@ -4,13 +4,15 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.text.InputType;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,44 +42,50 @@ public class EditarPerfil extends ActionBarActivity {
     private ListView eventos;
     private List<conference.model.Conference> listaeventos = new ArrayList();
 
+    private DrawerLayout drawerLayout = null;
+    private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_perfil);
 
+        listView = (ListView) findViewById(R.id.list_view);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final String[]  opciones = { "Eventos", "Filtros", "Publicar", "Perfil" };
+
+        MenuAdapter adapter = adapter = new MenuAdapter(EditarPerfil.this, opciones);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView arg0, View arg1, int arg2,
+                                    long arg3) {
+
+                Intent intent = null;
+
+                if(opciones[arg2].equals("Eventos"))
+                    intent = new Intent(EditarPerfil.this,Eventos.class);
+                else if(opciones[arg2].equals("Filtros"))
+                    intent = new Intent(EditarPerfil.this,Filtros.class);
+                else if(opciones[arg2].equals("Publicar"))
+                    intent = new Intent(EditarPerfil.this,CrearEvento.class);
+                else
+                    intent = new Intent(EditarPerfil.this,EditarPerfil.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+
+                drawerLayout.closeDrawers();
+            }
+        });
+
+        // Mostramos el botón en la barra de la aplicación
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         eventos = (ListView)findViewById(R.id.listViewEv);
-
-        Button evento = (Button) findViewById(R.id.buttonAnuncios);
-        Button perfil = (Button) findViewById(R.id.buttonPerfil);
-        Button publicar = (Button) findViewById(R.id.buttonPublicar);
-//        perfil.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
-  //      evento.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
-    //    publicar.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
-
-        System.out.println("HA ENTRADO EN EDITARPERFIL!!!!!!!!!!!!!!!!!!!");
-        //BOTON VOLVER A EVENTOS
-        Button b = (Button) findViewById(R.id.buttonAnuncios);
-        //Accion del boton
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EditarPerfil.this, Eventos.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        publicar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EditarPerfil.this, CrearEvento.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
 
         GetEventosAtendidos getEventos1 = new GetEventosAtendidos();
         getEventos1.execute();
@@ -99,20 +107,11 @@ public class EditarPerfil extends ActionBarActivity {
             }
         });
 
-        Button p = (Button) findViewById(R.id.buttonPerfil);
-        p.setTextColor(Color.parseColor("#000000"));
-
         nombreNick = (TextView) findViewById(R.id.textViewNombreNick);
         nombre = (EditText) findViewById(R.id.editTextName);
         ciudad = (EditText) findViewById(R.id.editTextCity);
         tlf = (EditText) findViewById(R.id.editTextPhone);
 
-        /*
-//        nombreNick.setText(this.getIntent().getExtras().getString("nombre"));
-        nombre.setText(this.getIntent().getExtras().getString("nombre"));
-        ciudad.setText(this.getIntent().getExtras().getString("ciudad"));
-        tlf.setText(this.getIntent().getExtras().getString("tlf"));
-*/
         tlf.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         GetPerfil getperfil = (GetPerfil) new GetPerfil().execute();
@@ -191,14 +190,6 @@ public class EditarPerfil extends ActionBarActivity {
             //Display success message to user
             Toast.makeText(getBaseContext(), "Información de perfil cargada correctamente",
                     Toast.LENGTH_SHORT).show();
-
-            /*
-            nombre.setVisibility(View.VISIBLE);
-            textCiudad.setVisibility(View.VISIBLE);
-            textTlf.setVisibility(View.VISIBLE);
-            editar_perfil.setVisibility(View.VISIBLE);+
-            */
-
         }
     }
 
@@ -304,7 +295,7 @@ public class EditarPerfil extends ActionBarActivity {
 
         ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
         TextView nombre = (TextView) findViewById(R.id.tvContent);
-        TextView numCelda = (TextView) findViewById(R.id.tvField);
+        TextView numCelda = (TextView) findViewById(R.id.textviewelitem);
         EventosAdapter adapter;
         // Inicializamos el adapter.
         adapter = new EventosAdapter(EditarPerfil.this, nombres, categorias, asis, maxasis, fecha);
@@ -314,4 +305,29 @@ public class EditarPerfil extends ActionBarActivity {
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_eventos, menu);
+        return true;
+    }
+
+    // Mostramos el botón en la barra de la aplicación
+    //getActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (drawerLayout.isDrawerOpen(listView)) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    drawerLayout.openDrawer(listView);
+                }
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
+

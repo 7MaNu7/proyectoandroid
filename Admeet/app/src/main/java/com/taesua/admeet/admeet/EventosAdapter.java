@@ -70,7 +70,7 @@ public class EventosAdapter extends ArrayAdapter {
 
         // Recogemos el TextView para mostrar el número de celda y lo
         // establecemos.
-        TextView numCelda = (TextView) item.findViewById(R.id.tvField);
+        TextView numCelda = (TextView) item.findViewById(R.id.textviewelitem);
         numCelda.setText(datos.get(position).getNombre());//(String.valueOf(position));
 
         // Devolvemos la vista para que se muestre en el ListView.

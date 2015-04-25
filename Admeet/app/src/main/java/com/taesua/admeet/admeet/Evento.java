@@ -6,11 +6,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -38,51 +41,46 @@ public class Evento extends ActionBarActivity {
     private TextView t9;
     private TextView t10;
     private TextView t11;
+    private DrawerLayout drawerLayout = null;
+    private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento);
 
-        Button evento = (Button) findViewById(R.id.buttonEvento);
-        Button perfil = (Button) findViewById(R.id.buttonPerfil);
-        Button publicar = (Button) findViewById(R.id.buttonPublicar);
- //       perfil.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
-   //     evento.setBackground(getDrawable(R.drawable.bordeazulseleccionado));
-     //   publicar.setBackground(getDrawable(R.drawable.sinbordeazulseleccionado));
+        final String[]  opciones = { "Eventos", "Filtros", "Publicar", "Perfil" };
 
-        //PARA IR A PERFIL
-        findViewById(R.id.buttonPerfil).setOnClickListener(new View.OnClickListener() {
+        MenuAdapter adapter = adapter = new MenuAdapter(Evento.this, opciones);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                //Intent ji = new Intent(Evento.this,Perfil.class);
-                Intent intent = new Intent(Evento.this, EditarPerfil.class);
+            public void onItemClick(AdapterView arg0, View arg1, int arg2,
+                                    long arg3) {
+                Intent intent = null;
+
+                if(opciones[arg2].equals("Eventos"))
+                    intent = new Intent(Evento.this,Eventos.class);
+                else if(opciones[arg2].equals("Filtros"))
+                    intent = new Intent(Evento.this,Filtros.class);
+                else if(opciones[arg2].equals("Publicar"))
+                    intent = new Intent(Evento.this,CrearEvento.class);
+                else
+                    intent = new Intent(Evento.this,EditarPerfil.class);
+
+
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
+
+                drawerLayout.closeDrawers();
             }
         });
 
-        //PARA IR A PUBLICAR
-        findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Evento.this, CrearEvento.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
+        // Mostramos el botón en la barra de la aplicación
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //PARA IR A EVENTOS
-        findViewById(R.id.buttonEvento).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Evento.this,Eventos.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         t1 = (TextView)findViewById(R.id.textviewnombre);
         t1.setText(this.getIntent().getExtras().getString("name"));
@@ -139,23 +137,6 @@ public class Evento extends ActionBarActivity {
 
         Button b = (Button) findViewById(R.id.buttonApuntarse);
         b.setVisibility(View.INVISIBLE);
-
-
-        //Instanciar elemento
-        Button c = (Button) findViewById(R.id.buttonEvento);
-        //Accion del boton
-        c.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Evento.this, Eventos.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-
-
     }
 
     public void onBackPressed() {
@@ -174,34 +155,6 @@ public class Evento extends ActionBarActivity {
                 .setNegativeButton("No", null)
                 .create().show();
     }
-
-
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_evento, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
 
     private class Apuntarse extends AsyncTask<Void, Void,WrappedBoolean>
     {
@@ -270,8 +223,6 @@ public class Evento extends ActionBarActivity {
             System.out.println("EL BOOLEANO DE DESAPUNTARSE ES " + result.getResult());
         }
     }
-
-
 
     private class GetEventosAsisto extends AsyncTask<Void, Void, ConferenceCollection>
     {
@@ -370,8 +321,6 @@ public class Evento extends ActionBarActivity {
                         }
                     });
                 }
-
-
             }
 
             t1.setVisibility(View.VISIBLE);
@@ -389,6 +338,31 @@ public class Evento extends ActionBarActivity {
             dialog.dismiss();
 
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_eventos, menu);
+        return true;
+    }
+
+    // Mostramos el botón en la barra de la aplicación
+    //getActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                if (drawerLayout.isDrawerOpen(listView)) {
+                    drawerLayout.closeDrawers();
+                } else {
+                    drawerLayout.openDrawer(listView);
+                }
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

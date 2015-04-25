@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
@@ -8,69 +13,12 @@
         android:background="#ffffffff">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:id="@+id/linearLayout2"
-            android:layout_marginBottom="520dp"
-            android:layout_row="1"
-            android:layout_column="9"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
-            android:gravity="top"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
-            android:importantForAccessibility="yes">
-
-            <Button
-                style="@style/Base.Theme.AppCompat.Dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Eventos"
-                android:id="@+id/buttonAnuncios"
-                android:textColor="#ffffffff"
-                android:background="#83b5dd"
-                android:singleLine="true"
-                android:layout_weight="0.25"
-                android:textSize="20dp" />
-
-            <Button
-                style="@style/Base.Theme.AppCompat.Dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Perfil"
-                android:id="@+id/buttonPerfil"
-                android:textColor="#ffffffff"
-                android:background="#83b5dd"
-                android:layout_gravity="center_horizontal"
-                android:singleLine="true"
-                android:layout_weight="0.25"
-                android:textSize="20dp" />
-
-            <Button
-                style="@style/Base.Theme.AppCompat.Dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Publicar"
-                android:id="@+id/buttonPublicar"
-                android:layout_weight="0.21"
-                android:textColor="#ffffffff"
-                android:background="@drawable/bordeazulseleccionado"
-                android:singleLine="true"
-                android:longClickable="false"
-                android:textSize="20dp" />
-        </LinearLayout>
-
-        <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="50dp"
             android:gravity="top">
 
             <EditText
@@ -79,12 +27,12 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:hint="Título del anuncio"
                 android:id="@+id/editTextTitulo"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:inputType="text|textMultiLine"
                 android:textAlignment="center"
                 android:singleLine="false"
                 android:layout_marginLeft="100dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginRight="40dp"
                 android:gravity="center" />
 
             <Spinner
@@ -112,7 +60,7 @@
                 android:layout_marginTop="10dp" />
 
             <CalendarView
-                android:layout_width="340dp"
+                android:layout_width="310dp"
                 android:layout_height="300dp"
                 android:id="@+id/calendarView"
                 android:layout_marginLeft="20dp"
@@ -147,7 +95,7 @@
             <Button
                 style="@style/Base.Theme.AppCompat.Dialog"
                 android:layout_width="220dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:text="Añadir anuncio"
                 android:id="@+id/buttonAnadirAnuncio"
                 android:textColor="#ffffffff"
@@ -160,4 +108,16 @@
 
         </LinearLayout>
     </RelativeLayout>
+
 </ScrollView>
+<ListView
+    android:id="@+id/list_view"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="left"
+    android:background="#FFFFFF"
+    android:choiceMode="singleChoice"
+    android:divider="#33000000"
+    android:dividerHeight="2dp" />
+
+</android.support.v4.widget.DrawerLayout>
