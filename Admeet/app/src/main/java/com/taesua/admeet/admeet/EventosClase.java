@@ -58,8 +58,10 @@ public class EventosClase {
             this.drawableImageID = R.drawable.fiesta1;
         else if(categoria.equals("Cultura"))
             this.drawableImageID = R.drawable.cultura4;
+        else if(categoria.equals("Juegos de mesa"))
+            this.drawableImageID = R.drawable.juegosdemesa1;
         else
-            this.drawableImageID = R.drawable.logo;
+            this.drawableImageID = R.drawable.logo2;
     }
 
 }

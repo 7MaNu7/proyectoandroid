@@ -49,9 +49,11 @@ public class Evento extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento);
 
+        listView = (ListView) findViewById(R.id.list_view);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         final String[]  opciones = { "Eventos", "Filtros", "Publicar", "Perfil" };
 
-        MenuAdapter adapter = adapter = new MenuAdapter(Evento.this, opciones);
+        MenuAdapter adapter = new MenuAdapter(Evento.this, opciones);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
