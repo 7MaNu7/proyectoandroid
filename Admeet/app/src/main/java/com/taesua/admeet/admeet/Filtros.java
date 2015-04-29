@@ -52,26 +52,31 @@ public class Filtros extends ActionBarActivity {
                                     long arg3) {
                 Intent intent = null;
 
-                if(opciones[arg2].equals("Eventos"))
-                    intent = new Intent(Filtros.this,Eventos.class);
-                else if(opciones[arg2].equals("Filtros"))
-                    intent = new Intent(Filtros.this,Filtros.class);
-                else if(opciones[arg2].equals("Publicar"))
-                    intent = new Intent(Filtros.this,CrearEvento.class);
-                else
-                    intent = new Intent(Filtros.this,EditarPerfil.class);
 
-
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
+                if(!opciones[arg2].equals("Filtros")) {
+                    if (opciones[arg2].equals("Perfil"))
+                        intent = new Intent(Filtros.this, EditarPerfil.class);
+                    else if (opciones[arg2].equals("Eventos"))
+                        intent = new Intent(Filtros.this, Eventos.class);
+                    else
+                        intent = new Intent(Filtros.this, CrearEvento.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
 
                 drawerLayout.closeDrawers();
             }
         });
 
         // Mostramos el botón en la barra de la aplicación
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+
+
 
 
         final Spinner spinnerField = (Spinner) findViewById(R.id.field);

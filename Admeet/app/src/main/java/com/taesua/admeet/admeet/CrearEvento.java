@@ -58,26 +58,31 @@ public class CrearEvento extends ActionBarActivity {
 
                 Intent intent = null;
 
-                if(opciones[arg2].equals("Eventos"))
-                    intent = new Intent(CrearEvento.this,Eventos.class);
-                else if(opciones[arg2].equals("Filtros"))
-                    intent = new Intent(CrearEvento.this,Filtros.class);
-                else if(opciones[arg2].equals("Publicar")) {
-                    intent = new Intent(CrearEvento.this,CrearEvento.class);
-                }
-                else
-                    intent = new Intent(CrearEvento.this,EditarPerfil.class);
 
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
+                if(!opciones[arg2].equals("Publicar")) {
+                    if (opciones[arg2].equals("Filtros"))
+                        intent = new Intent(CrearEvento.this, Filtros.class);
+                    else if (opciones[arg2].equals("Perfil"))
+                        intent = new Intent(CrearEvento.this, EditarPerfil.class);
+                    else
+                        intent = new Intent(CrearEvento.this, Eventos.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
 
                 drawerLayout.closeDrawers();
             }
         });
 
         // Mostramos el botón en la barra de la aplicación
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+
+
 
 
         titulo = (EditText)findViewById(R.id.editTextTitulo);

@@ -81,7 +81,13 @@ public class Evento extends ActionBarActivity {
         });
 
         // Mostramos el botón en la barra de la aplicación
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+
+
 
 
         t1 = (TextView)findViewById(R.id.textviewnombre);

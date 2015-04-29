@@ -23,6 +23,8 @@ import android.widget.Toast;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import conference.Conference;
@@ -67,26 +69,29 @@ public class Eventos extends ActionBarActivity {
                                     long arg3) {
                 Intent intent = null;
 
-                if(opciones[arg2].equals("Eventos"))
-                    intent = new Intent(Eventos.this,Eventos.class);
-                else if(opciones[arg2].equals("Filtros"))
-                    intent = new Intent(Eventos.this,Filtros.class);
-                else if(opciones[arg2].equals("Publicar"))
-                    intent = new Intent(Eventos.this,CrearEvento.class);
-                else
-                    intent = new Intent(Eventos.this,EditarPerfil.class);
-
-
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
+                if(!opciones[arg2].equals("Eventos")) {
+                    if (opciones[arg2].equals("Filtros"))
+                        intent = new Intent(Eventos.this, Filtros.class);
+                    else if (opciones[arg2].equals("Publicar"))
+                        intent = new Intent(Eventos.this, CrearEvento.class);
+                    else
+                        intent = new Intent(Eventos.this, EditarPerfil.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
 
                 drawerLayout.closeDrawers();
             }
         });
 
         // Mostramos el botón en la barra de la aplicación
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+
 
 
         final Button botontodos = (Button) findViewById(R.id.buttontodos);
@@ -343,6 +348,15 @@ public class Eventos extends ActionBarActivity {
     }
 
     public void rellenaListView(List<conference.model.Conference> listaeventos, int tam)  {
+
+
+        //SE SUPONE QUE CON ESTO YA ESTA ORDENADO
+        Collections.sort(listaeventos, new Comparator<conference.model.Conference>() {
+            public int compare(conference.model.Conference c1, conference.model.Conference c2) {
+                return new Long(c2.getStartDate().getValue()).compareTo(new Long(c1.getStartDate().getValue()));
+            }
+        });
+
         String nombres[] = new String[tam];
         String categorias[] = new String[tam];
         String fecha[] = new String[tam];

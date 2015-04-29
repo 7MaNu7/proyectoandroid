@@ -64,25 +64,30 @@ public class EditarPerfil extends ActionBarActivity {
 
                 Intent intent = null;
 
-                if(opciones[arg2].equals("Eventos"))
-                    intent = new Intent(EditarPerfil.this,Eventos.class);
-                else if(opciones[arg2].equals("Filtros"))
-                    intent = new Intent(EditarPerfil.this,Filtros.class);
-                else if(opciones[arg2].equals("Publicar"))
-                    intent = new Intent(EditarPerfil.this,CrearEvento.class);
-                else
-                    intent = new Intent(EditarPerfil.this,EditarPerfil.class);
-
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
+                if(!opciones[arg2].equals("Perfil")) {
+                    if (opciones[arg2].equals("Filtros"))
+                        intent = new Intent(EditarPerfil.this, Filtros.class);
+                    else if (opciones[arg2].equals("Publicar"))
+                        intent = new Intent(EditarPerfil.this, CrearEvento.class);
+                    else
+                        intent = new Intent(EditarPerfil.this, Eventos.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
 
                 drawerLayout.closeDrawers();
             }
         });
 
         // Mostramos el botón en la barra de la aplicación
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+
+
 
 
         eventos = (ListView)findViewById(R.id.listViewEv);
