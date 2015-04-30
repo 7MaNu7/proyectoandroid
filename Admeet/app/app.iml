@@ -87,6 +87,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="google-oauth-client-1.18.0-rc" level="project" />
     <orderEntry type="library" exported="" name="jetty-6.1.26-sources" level="project" />
+    <orderEntry type="library" exported="" name="mysql-connector-java-3.0.17-ga-bin" level="project" />
     <orderEntry type="library" exported="" name="google-api-client-appengine-1.18.0-rc-sources" level="project" />
     <orderEntry type="library" exported="" name="transaction-api-1.1-sources" level="project" />
     <orderEntry type="library" exported="" name="play-services-6.5.87" level="project" />
