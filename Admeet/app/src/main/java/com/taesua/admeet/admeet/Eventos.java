@@ -90,7 +90,7 @@ public class Eventos extends ActionBarActivity {
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu48);
 
 
 
@@ -350,6 +350,21 @@ public class Eventos extends ActionBarActivity {
     public void rellenaListView(List<conference.model.Conference> listaeventos, int tam)  {
 
 
+        for(conference.model.Conference c: listaeventos)
+        {
+            //GUARRADA MONUMENTAL
+            //
+            //
+            if(c.getCity().contains("elche"))
+            {
+                listaeventos.remove(c);
+                tam--;
+                break;
+            }
+
+            //
+            //
+        }
         //SE SUPONE QUE CON ESTO YA ESTA ORDENADO
         Collections.sort(listaeventos, new Comparator<conference.model.Conference>() {
             public int compare(conference.model.Conference c1, conference.model.Conference c2) {
