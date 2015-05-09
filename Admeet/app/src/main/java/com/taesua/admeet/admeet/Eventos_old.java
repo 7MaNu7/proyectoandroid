@@ -33,7 +33,7 @@ import conference.model.ConferenceQueryForm;
 import conference.model.Filter;
 
 
-public class Eventos extends ActionBarActivity {
+public class Eventos_old extends ActionBarActivity {
 
     private String accountName;
     private static String PREF_ACCOUNT_NAME = "accountName";
@@ -54,13 +54,13 @@ public class Eventos extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_eventos);
+        setContentView(R.layout.activity_main);
 
         listView = (ListView) findViewById(R.id.list_view);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         final String[]  opciones = { "Eventos", "Filtros", "Publicar", "Perfil" };
 
-        MenuAdapter adapter = adapter = new MenuAdapter(Eventos.this, opciones);
+        MenuAdapter adapter = adapter = new MenuAdapter(Eventos_old.this, opciones);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -71,11 +71,11 @@ public class Eventos extends ActionBarActivity {
 
                 if(!opciones[arg2].equals("Eventos")) {
                     if (opciones[arg2].equals("Filtros"))
-                        intent = new Intent(Eventos.this, Filtros.class);
+                        intent = new Intent(Eventos_old.this, Filtros.class);
                     else if (opciones[arg2].equals("Publicar"))
-                        intent = new Intent(Eventos.this, CrearEvento.class);
+                        intent = new Intent(Eventos_old.this, CrearEvento.class);
                     else
-                        intent = new Intent(Eventos.this, EditarPerfil.class);
+                        intent = new Intent(Eventos_old.this, EditarPerfil.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
@@ -115,6 +115,7 @@ public class Eventos extends ActionBarActivity {
 
         if(this.getIntent().getExtras()!=null)
         {
+            System.out.println("TIENE UN INTENT AL EMPEZAR, SALSEO CONFIRMADO");
             ArrayList filtros = new ArrayList();
             int tam = this.getIntent().getExtras().size()/3;
             for(int i=0;i<tam;i++) {
@@ -136,7 +137,7 @@ public class Eventos extends ActionBarActivity {
                 conference.model.Conference evento;
                 evento = listaeventos.get(position);
                 Long idevento = evento.getId();
-                Intent intent = new Intent(Eventos.this, Evento.class);
+                Intent intent = new Intent(Eventos_old.this, Evento.class);
                 intent.putExtra("name", evento.getName());
                 intent.putExtra("city", evento.getCity());
                 intent.putExtra("description", evento.getDescription());
@@ -391,7 +392,7 @@ public class Eventos extends ActionBarActivity {
         TextView numCelda = (TextView) findViewById(R.id.textviewelitem);
         EventosAdapter adapter;
         // Inicializamos el adapter.
-        adapter = new EventosAdapter(Eventos.this, nombres, categorias, asis, maxasis, fecha);
+        adapter = new EventosAdapter(Eventos_old.this, nombres, categorias, asis, maxasis, fecha);
         // Asignamos el Adapter al ListView, en este punto hacemos que el
         // ListView muestre los datos que queremos.
         eventos.setAdapter(adapter);

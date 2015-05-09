@@ -52,8 +52,8 @@ public class EventosAdapter extends ArrayAdapter {
         // Recogemos el ImageView y le asignamos una foto.
         ImageView imagen = (ImageView) item.findViewById(R.id.imgAnimal);
         imagen.setImageResource(datos.get(position).getDrawableImageID());
-        System.out.println("ESTOS SON LOS ID DE LAS IMAGENES");
-        System.out.println(":::::::::::::::::"+datos.get(position).getDrawableImageID()+"::::::::::::::::::::::::");
+        //System.out.println("ESTOS SON LOS ID DE LAS IMAGENES");
+        //System.out.println(":::::::::::::::::"+datos.get(position).getDrawableImageID()+"::::::::::::::::::::::::");
 
         // Recogemos el TextView para mostrar el nombre y establecemos el nombre
         TextView nombre = (TextView) item.findViewById(R.id.tvContent);

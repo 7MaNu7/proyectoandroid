@@ -57,7 +57,7 @@ public class Filtros extends ActionBarActivity {
                     if (opciones[arg2].equals("Perfil"))
                         intent = new Intent(Filtros.this, EditarPerfil.class);
                     else if (opciones[arg2].equals("Eventos"))
-                        intent = new Intent(Filtros.this, Eventos.class);
+                        intent = new Intent(Filtros.this, MainActivity.class);
                     else
                         intent = new Intent(Filtros.this, CrearEvento.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -141,7 +141,7 @@ public class Filtros extends ActionBarActivity {
             {
                 if(fields.size()>0)
                 {
-                    Intent intent = new Intent(Filtros.this,Eventos.class);
+                    Intent intent = new Intent(Filtros.this,MainActivity.class);
 
                     for(int i=0;i<fields.size();i++) {
                         intent.putExtra("field" + i,fields.get(i));
@@ -153,7 +153,7 @@ public class Filtros extends ActionBarActivity {
                     finish();
                 }
                 else {
-                    Intent intent = new Intent(Filtros.this,Eventos.class);
+                    Intent intent = new Intent(Filtros.this,MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
@@ -166,7 +166,7 @@ public class Filtros extends ActionBarActivity {
         findViewById(R.id.volver_sin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Filtros.this,Eventos.class);
+                Intent intent = new Intent(Filtros.this,MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

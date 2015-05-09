@@ -30,7 +30,7 @@
         </activity>
 
         <activity
-            android:name=".Eventos"
+            android:name=".Eventos_old"
             android:label="@string/title_activity_eventos" >
         </activity>
         <activity
@@ -42,7 +42,7 @@
             android:label="@string/title_activity_filtros" >
         </activity>
         <activity
-            android:name=".Perfil"
+            android:name=".Perfil_old"
             android:label="@string/title_activity_perfil" >
         </activity>
         <activity

@@ -65,7 +65,7 @@ public class CrearEvento extends ActionBarActivity {
                     else if (opciones[arg2].equals("Perfil"))
                         intent = new Intent(CrearEvento.this, EditarPerfil.class);
                     else
-                        intent = new Intent(CrearEvento.this, Eventos.class);
+                        intent = new Intent(CrearEvento.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();
@@ -129,7 +129,7 @@ public class CrearEvento extends ActionBarActivity {
 
 
                 PublicarEvento publicarEvento = (PublicarEvento) new PublicarEvento().execute();
-                Intent intent = new Intent(CrearEvento.this,Eventos.class);
+                Intent intent = new Intent(CrearEvento.this,MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();

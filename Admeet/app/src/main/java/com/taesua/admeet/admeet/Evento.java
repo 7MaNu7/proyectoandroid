@@ -63,7 +63,7 @@ public class Evento extends ActionBarActivity {
                 Intent intent = null;
 
                 if(opciones[arg2].equals("Eventos"))
-                    intent = new Intent(Evento.this,Eventos.class);
+                    intent = new Intent(Evento.this,MainActivity.class);
                 else if(opciones[arg2].equals("Filtros"))
                     intent = new Intent(Evento.this,Filtros.class);
                 else if(opciones[arg2].equals("Publicar"))
@@ -275,7 +275,7 @@ public class Evento extends ActionBarActivity {
                         Apuntarse apuntarse = new Apuntarse();
                         apuntarse.execute();
 
-                        Intent intent = new Intent(Evento.this, Eventos.class);
+                        Intent intent = new Intent(Evento.this, MainActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         finish();
@@ -305,7 +305,7 @@ public class Evento extends ActionBarActivity {
                         public void onClick(View v) {
                             Desapuntarse desapuntarse = new Desapuntarse();
                             desapuntarse.execute();
-                            Intent intent = new Intent(Evento.this, Eventos.class);
+                            Intent intent = new Intent(Evento.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();
@@ -322,7 +322,7 @@ public class Evento extends ActionBarActivity {
                             Apuntarse apuntarse = new Apuntarse();
                             apuntarse.execute();
 
-                            Intent intent = new Intent(Evento.this, Eventos.class);
+                            Intent intent = new Intent(Evento.this, MainActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
                             finish();

@@ -70,7 +70,7 @@ public class EditarPerfil extends ActionBarActivity {
                     else if (opciones[arg2].equals("Publicar"))
                         intent = new Intent(EditarPerfil.this, CrearEvento.class);
                     else
-                        intent = new Intent(EditarPerfil.this, Eventos.class);
+                        intent = new Intent(EditarPerfil.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     finish();

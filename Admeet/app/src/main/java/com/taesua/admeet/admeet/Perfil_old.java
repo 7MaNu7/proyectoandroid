@@ -19,7 +19,7 @@ import conference.model.Profile;
 /**
  * Created by Hector on 14/04/2015.
  */
-public class Perfil extends ActionBarActivity {
+public class Perfil_old extends ActionBarActivity {
 
     private TextView nombre;
     private TextView ciudad;
@@ -50,7 +50,7 @@ public class Perfil extends ActionBarActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Perfil.this, Eventos.class);
+                Intent intent = new Intent(Perfil_old.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
@@ -62,7 +62,7 @@ public class Perfil extends ActionBarActivity {
         editar_perfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Perfil.this, EditarPerfil.class);
+                Intent intent = new Intent(Perfil_old.this, EditarPerfil.class);
                 intent.putExtra("nombre", nombre.getText().toString());
                 intent.putExtra("ciudad", ciudad.getText().toString());
                 intent.putExtra("tlf", tlf.getText().toString());
@@ -95,7 +95,7 @@ public class Perfil extends ActionBarActivity {
         findViewById(R.id.buttonPublicar).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Perfil.this,CrearEvento.class);
+                Intent intent = new Intent(Perfil_old.this,CrearEvento.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 finish();
@@ -134,7 +134,7 @@ public class Perfil extends ActionBarActivity {
         @Override
         protected void onPreExecute(){
             super.onPreExecute();
-            pd = new ProgressDialog(Perfil.this);
+            pd = new ProgressDialog(Perfil_old.this);
             pd.setMessage("Cargando información de perfil...");
             pd.show();
         }
