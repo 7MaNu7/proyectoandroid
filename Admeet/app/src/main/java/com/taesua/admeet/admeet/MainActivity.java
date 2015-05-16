@@ -33,10 +33,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import conference.Conference;
-import conference.model.ConferenceCollection;
-import conference.model.ConferenceQueryForm;
-import conference.model.Filter;
+import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.model.ConferenceCollection;
+import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
+import com.appspot.ad_meet.conference.model.Filter;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -44,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
     private static final String LOG_TAG = "MainActivity";
     private static final int ACTIVITY_RESULT_FROM_ACCOUNT_SELECTION = 2222;
     private ListView eventos;
-    private List<conference.model.Conference> listaeventos = new ArrayList();
+    private List<com.appspot.ad_meet.conference.model.Conference> listaeventos = new ArrayList();
     private Drawable estiloselec = null;
     private Drawable estilonoselec = null;
     private DrawerLayout drawerLayout = null;
@@ -140,7 +140,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView <?> parent, View view, int position,
                                     long id) {
-                conference.model.Conference evento;
+                com.appspot.ad_meet.conference.model.Conference evento;
                 evento = listaeventos.get(position);
                 Long idevento = evento.getId();
                 Intent intent = new Intent(MainActivity.this, Evento.class);
@@ -534,10 +534,10 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void rellenaListView(List<conference.model.Conference> listaeventos, int tam)  {
+    public void rellenaListView(List<com.appspot.ad_meet.conference.model.Conference> listaeventos, int tam)  {
 
 
-        for(conference.model.Conference c: listaeventos)
+        for(com.appspot.ad_meet.conference.model.Conference c: listaeventos)
         {
             //GUARRADA MONUMENTAL
             //
@@ -553,8 +553,8 @@ public class MainActivity extends ActionBarActivity {
             //
         }
         //SE SUPONE QUE CON ESTO YA ESTA ORDENADO
-        Collections.sort(listaeventos, new Comparator<conference.model.Conference>() {
-            public int compare(conference.model.Conference c1, conference.model.Conference c2) {
+        Collections.sort(listaeventos, new Comparator<com.appspot.ad_meet.conference.model.Conference>() {
+            public int compare(com.appspot.ad_meet.conference.model.Conference c1, com.appspot.ad_meet.conference.model.Conference c2) {
                 return new Long(c2.getStartDate().getValue()).compareTo(new Long(c1.getStartDate().getValue()));
             }
         });

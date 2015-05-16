@@ -107,6 +107,7 @@
     <orderEntry type="library" exported="" name="google-api-client-gson-1.18.0-rc-sources" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-jackson2-1.18.0-rc-sources" level="project" />
     <orderEntry type="library" exported="" name="google-api-client-android-1.18.0-rc" level="project" />
+    <orderEntry type="library" exported="" name="ad_meet_appspot_com-conference-v1-20150516013232-java-1.18.0-rc-sources" level="project" />
     <orderEntry type="library" exported="" name="google-oauth-client-servlet-1.18.0-rc-sources" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="google-oauth-client-appengine-1.18.0-rc-sources" level="project" />
@@ -120,8 +121,8 @@
     <orderEntry type="library" exported="" name="commons-codec-1.10" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="google-http-client-appengine-1.18.0-rc-sources" level="project" />
-    <orderEntry type="library" exported="" name="ad_meet_appspot_com-conference-v1-20150411223152-java-1.18.0-rc-sources" level="project" />
     <orderEntry type="library" exported="" name="google-oauth-client-java6-1.18.0-rc-sources" level="project" />
+    <orderEntry type="library" exported="" name="ad_meet_appspot_com-conference-v1-20150411223152-java-1.18.0-rc-sources" level="project" />
   </component>
 </module>
 

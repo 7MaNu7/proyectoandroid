@@ -24,11 +24,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import conference.Conference;
-import conference.model.ConferenceCollection;
-import conference.model.ConferenceQueryForm;
-import conference.model.Profile;
-import conference.model.ProfileForm;
+import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.model.ConferenceCollection;
+import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
+import com.appspot.ad_meet.conference.model.Profile;
+import com.appspot.ad_meet.conference.model.ProfileForm;
 
 /**
  * Created by Hector on 14/04/2015.
@@ -41,7 +41,7 @@ public class EditarPerfil extends ActionBarActivity {
     private EditText tlf;
 
     private ListView eventos;
-    private List<conference.model.Conference> listaeventos = new ArrayList();
+    private List<com.appspot.ad_meet.conference.model.Conference> listaeventos = new ArrayList();
 
     private DrawerLayout drawerLayout = null;
     private ListView listView;
@@ -277,7 +277,7 @@ public class EditarPerfil extends ActionBarActivity {
         }
     }
 
-    public void rellenaListView(List<conference.model.Conference> listaeventos, int tam)  {
+    public void rellenaListView(List<com.appspot.ad_meet.conference.model.Conference> listaeventos, int tam)  {
         String nombres[] = new String[tam];
         String categorias[] = new String[tam];
         String fecha[] = new String[tam];

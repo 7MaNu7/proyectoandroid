@@ -13,8 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import conference.Conference;
-import conference.model.Profile;
+import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.model.Profile;
 
 /**
  * Created by Hector on 14/04/2015.

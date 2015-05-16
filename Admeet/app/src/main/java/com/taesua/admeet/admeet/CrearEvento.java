@@ -19,14 +19,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.model.ConferenceForm;
 import com.google.api.client.util.DateTime;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import conference.Conference;
-import conference.model.ConferenceForm;
 
 
 public class CrearEvento extends ActionBarActivity {
@@ -150,7 +150,7 @@ public class CrearEvento extends ActionBarActivity {
     }
 
 
-    private class PublicarEvento extends AsyncTask<Void, Void,conference.model.Conference>
+    private class PublicarEvento extends AsyncTask<Void, Void,com.appspot.ad_meet.conference.model.Conference>
     {
 
         public PublicarEvento() { }
@@ -160,9 +160,9 @@ public class CrearEvento extends ActionBarActivity {
             super.onPreExecute();
         }
         @Override
-        protected conference.model.Conference doInBackground(Void ... unused)
+        protected com.appspot.ad_meet.conference.model.Conference doInBackground(Void ... unused)
         {
-            conference.model.Conference evento = null;
+            com.appspot.ad_meet.conference.model.Conference evento = null;
             try
             {
                 ConferenceForm form = new ConferenceForm();
@@ -195,7 +195,7 @@ public class CrearEvento extends ActionBarActivity {
         }
 
         @Override
-        protected void onPostExecute(conference.model.Conference result)
+        protected void onPostExecute(com.appspot.ad_meet.conference.model.Conference result)
         {
         }
     }

@@ -33,7 +33,7 @@ import com.google.api.client.util.DateTime;
 
 import java.util.Calendar;
 
-import conference.model.Conference;
+import com.appspot.ad_meet.conference.model.Conference;
 
 /**
  * A general utility class. All methods here are static and no state is maintained.

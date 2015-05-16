@@ -285,10 +285,12 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
-            <ListView
+
+            <com.taesua.admeet.admeet.ExpandableHeightListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listView2" />
+                android:id="@+id/listViewComentarios"
+                />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -297,7 +299,8 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="10dp"
-                android:text="Deja tu comentario" />
+                android:hint="¡Comenta algo!"
+                />
 
             <TableLayout
             android:layout_width="match_parent"

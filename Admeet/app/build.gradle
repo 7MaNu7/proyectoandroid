@@ -78,4 +78,5 @@ dependencies {
     compile files('libs/ad_meet_appspot_com-conference-v1-20150411223152-java-1.18.0-rc-sources.jar')
     compile files('libs/commons-codec-1.10.jar')
     compile files('libs/mysql-connector-java-3.0.17-ga-bin.jar')
+    compile files('libs/ad_meet_appspot_com-conference-v1-20150516013232-java-1.18.0-rc-sources.jar')
 }

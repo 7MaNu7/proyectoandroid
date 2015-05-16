@@ -16,15 +16,18 @@
 package com.taesua.admeet.admeet;
 
 import android.content.Context;
+
+import com.appspot.ad_meet.conference.model.CommentQueryForm;
+import com.appspot.ad_meet.conference.model.ProfileQueryForm;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 
 import java.io.IOException;
 
-import conference.Conference;
-import conference.model.ConferenceCollection;
-import conference.model.ConferenceForm;
-import conference.model.ConferenceQueryForm;
-import conference.model.ProfileForm;
+import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.model.ConferenceCollection;
+import com.appspot.ad_meet.conference.model.ConferenceForm;
+import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
+import com.appspot.ad_meet.conference.model.ProfileForm;
 
 
 /**
@@ -33,7 +36,7 @@ import conference.model.ProfileForm;
 public class ConferenceUtils {
 
     private final static String TAG = "ConferenceUtils";
-    private static conference.Conference sApiServiceHandler;
+    private static com.appspot.ad_meet.conference.Conference sApiServiceHandler;
 
     public static void build(Context context, String email) {
         sApiServiceHandler = buildServiceHandler(context, email);
@@ -81,6 +84,10 @@ public class ConferenceUtils {
 
     public static Conference.CreateConference crearEvento(ConferenceForm form) throws IOException {
         return sApiServiceHandler.createConference(form);
+    }
+
+    public static Conference.GetComments getComentarios(CommentQueryForm form) throws IOException {
+        return sApiServiceHandler.getComments(form);
     }
     /*
     public static List<DecoratedConference> getConferences()
@@ -188,7 +195,7 @@ public class ConferenceUtils {
     }
 */
     /**
-     * Build and returns an instance of {@link conference.Conference}
+     * Build and returns an instance of {@link com.appspot.ad_meet.conference.Conference}
      *
      * @param context
      * @param email
@@ -196,14 +203,14 @@ public class ConferenceUtils {
      */
 
 
-    public static conference.Conference buildServiceHandler(
+    public static com.appspot.ad_meet.conference.Conference buildServiceHandler(
             Context context, String email) {
         GoogleAccountCredential credential = GoogleAccountCredential.usingAudience(
                 context, Ids.AUDIENCE);
         credential.setSelectedAccountName(email);
 
-        conference.Conference.Builder builder
-                = new conference.Conference.Builder(
+        com.appspot.ad_meet.conference.Conference.Builder builder
+                = new com.appspot.ad_meet.conference.Conference.Builder(
                 Ids.HTTP_TRANSPORT,
                 Ids.JSON_FACTORY, credential);
         builder.setApplicationName("AdMeet");

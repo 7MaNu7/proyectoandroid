@@ -13,22 +13,31 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.model.Comment;
+import com.appspot.ad_meet.conference.model.CommentCollection;
+import com.appspot.ad_meet.conference.model.CommentQueryForm;
+import com.appspot.ad_meet.conference.model.ConferenceCollection;
+import com.appspot.ad_meet.conference.model.WrappedBoolean;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-
-import conference.Conference;
-import conference.model.ConferenceCollection;
-import conference.model.WrappedBoolean;
 
 
 public class Evento extends ActionBarActivity {
 
-    private List<conference.model.Conference> conferencias_atendidas = new ArrayList<conference.model.Conference>();
+    private List<com.appspot.ad_meet.conference.model.Conference> conferencias_atendidas = new ArrayList<com.appspot.ad_meet.conference.model.Conference>();
     private String websafeKey;
     private boolean asiste=false;
 
@@ -45,6 +54,9 @@ public class Evento extends ActionBarActivity {
     private TextView t11;
     private DrawerLayout drawerLayout = null;
     private ListView listView;
+    private ExpandableHeightListView listViewComentarios;
+
+    private List<com.appspot.ad_meet.conference.model.Comment> listacomments = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +93,10 @@ public class Evento extends ActionBarActivity {
                 drawerLayout.closeDrawers();
             }
         });
+
+        //LIST VIEW COMENTARIOS
+        listViewComentarios = (ExpandableHeightListView) findViewById(R.id.listViewComentarios);
+
 
         // Mostramos el botón en la barra de la aplicación
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -144,6 +160,9 @@ public class Evento extends ActionBarActivity {
         GetEventosAsisto get = new GetEventosAsisto();
         get.execute();
 
+        GetComentarios getComents = new GetComentarios();
+        getComents.execute();
+
 
         Button b = (Button) findViewById(R.id.buttonApuntarse);
         b.setVisibility(View.INVISIBLE);
@@ -160,6 +179,74 @@ public class Evento extends ActionBarActivity {
         finish();
     }
 
+
+    private class GetComentarios extends AsyncTask<Void, Void, CommentCollection>
+    {
+        public GetComentarios() { }
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+        }
+        @Override
+        protected CommentCollection doInBackground(Void ... unused)
+        {
+            CommentCollection messages = null;
+            try
+            {
+                CommentQueryForm form = new CommentQueryForm();
+                form.setSafeKey(websafeKey);
+                Conference.GetComments create = ConferenceUtils.getComentarios(form);
+                messages = create.execute();
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
+            return messages;
+        }
+
+        @Override
+        protected void onPostExecute(CommentCollection result)
+        {
+            int tam=0;
+
+            if(result!=null)
+                listacomments = result.getItems();
+            if(listacomments!=null)
+                tam = listacomments.size();
+
+            System.out.println("EL TAM ES " + tam);
+            rellenaListViewComentarios(listacomments, tam);
+
+        }
+    }
+
+    public void rellenaListViewComentarios(List<com.appspot.ad_meet.conference.model.Comment> listacomentarios,int tam)
+    {
+
+        //String textos[] = new String[tam];
+        ArrayList<String> textos = new ArrayList<>();
+
+        for(int i=0;i<tam;i++) {
+            textos.add(listacomentarios.get(i).getComment());
+        }
+
+        //GUARRADAS INCOMING
+
+        listViewComentarios.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 ,textos));
+        listViewComentarios.setExpanded(true);
+
+        /*
+        ComentariosAdapter adapter;
+        // Inicializamos el adapter.
+        adapter = new ComentariosAdapter(Evento.this,textos);
+        // Asignamos el Adapter al ListView, en este punto hacemos que el
+        // ListView muestre los datos que queremos.
+        listViewComentarios.setAdapter(adapter);
+        */
+    }
     private class Apuntarse extends AsyncTask<Void, Void,WrappedBoolean>
     {
 
@@ -281,7 +368,7 @@ public class Evento extends ActionBarActivity {
 
             else {
                 conferencias_atendidas = result.getItems();
-                for(conference.model.Conference c:conferencias_atendidas)
+                for(com.appspot.ad_meet.conference.model.Conference c:conferencias_atendidas)
                 {
                     System.out.println("LA C ES " + c.getWebsafeKey());
                     if(c.getWebsafeKey().equals(websafeKey)) //ya atiende a esta conferencia, puede desapuntarse
