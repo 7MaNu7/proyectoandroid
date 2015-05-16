@@ -42,7 +42,7 @@
             android:label="@string/title_activity_filtros" >
         </activity>
         <activity
-            android:name=".Perfil_old"
+            android:name=".PerfilPublico"
             android:label="@string/title_activity_perfil" >
         </activity>
         <activity
@@ -52,6 +52,10 @@
         <activity
             android:name=".CrearEvento"
             android:label="@string/title_activity_crear_evento" >
+        </activity>
+        <activity
+            android:name=".Comentarios"
+            android:label="@string/title_activity_comentarios" >
         </activity>
     </application>
 

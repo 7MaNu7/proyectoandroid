@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.content.Context;
 
-
-//ESTE LISTVIEW SOLO SE USARÁ PARA LISTVIEWS QUE ESTEN DENTRO DE SCROLLVIEWS
 public class ExpandableHeightListView extends ListView
 {
 

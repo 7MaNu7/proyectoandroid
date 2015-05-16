@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,8 +26,11 @@ import android.widget.Toast;
 import com.appspot.ad_meet.conference.Conference;
 import com.appspot.ad_meet.conference.model.Comment;
 import com.appspot.ad_meet.conference.model.CommentCollection;
+import com.appspot.ad_meet.conference.model.CommentForm;
 import com.appspot.ad_meet.conference.model.CommentQueryForm;
 import com.appspot.ad_meet.conference.model.ConferenceCollection;
+import com.appspot.ad_meet.conference.model.Profile;
+import com.appspot.ad_meet.conference.model.ProfileCollection;
 import com.appspot.ad_meet.conference.model.WrappedBoolean;
 
 import java.util.ArrayList;
@@ -54,9 +58,12 @@ public class Evento extends ActionBarActivity {
     private TextView t11;
     private DrawerLayout drawerLayout = null;
     private ListView listView;
-    private ExpandableHeightListView listViewComentarios;
+    Intent IntentExtras;
+    private ExpandableHeightListView listViewAsistentes;
+
 
     private List<com.appspot.ad_meet.conference.model.Comment> listacomments = new ArrayList();
+    private List<Profile> listaparticipantes = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,7 @@ public class Evento extends ActionBarActivity {
         setContentView(R.layout.activity_evento);
 
         listView = (ListView) findViewById(R.id.list_view);
+        listViewAsistentes = (ExpandableHeightListView) findViewById(R.id.listViewAsistentes);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         final String[]  opciones = { "Eventos", "Filtros", "Publicar", "Perfil" };
 
@@ -94,8 +102,33 @@ public class Evento extends ActionBarActivity {
             }
         });
 
+        listViewAsistentes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,long id)
+            {
+                Profile persona = listaparticipantes.get(position);
+
+                Intent intent = new Intent(Evento.this,PerfilPublico.class);
+                intent.putExtras(IntentExtras.getExtras());
+                intent.putExtra("userid",persona.getUserId());
+                intent.putExtra("nombre",persona.getDisplayName());
+                intent.putExtra("ciudad",persona.getCiudad());
+                intent.putExtra("telefono",persona.getTelefono());
+
+                List<String> l = persona.getConferenceKeysToAttend();
+                for(int i=0;i<l.size();i++) {
+                    intent.putExtra("evento" + i,l.get(i));
+                }
+                intent.putExtra("tam_keys",persona.getConferenceKeysToAttend().size());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         //LIST VIEW COMENTARIOS
-        listViewComentarios = (ExpandableHeightListView) findViewById(R.id.listViewComentarios);
+        //listViewComentarios = (ExpandableHeightListView) findViewById(R.id.listViewComentarios);
+        //listViewComentarios = (ExpandableListView) findViewById(R.id.listViewComentarios);
 
 
         // Mostramos el botón en la barra de la aplicación
@@ -107,6 +140,7 @@ public class Evento extends ActionBarActivity {
 
 
 
+        IntentExtras = this.getIntent();
 
         t1 = (TextView)findViewById(R.id.textviewnombre);
         t1.setText(this.getIntent().getExtras().getString("name"));
@@ -160,15 +194,32 @@ public class Evento extends ActionBarActivity {
         GetEventosAsisto get = new GetEventosAsisto();
         get.execute();
 
-        GetComentarios getComents = new GetComentarios();
-        getComents.execute();
-
-
         Button b = (Button) findViewById(R.id.buttonApuntarse);
         b.setVisibility(View.INVISIBLE);
 
+        Button c = (Button) findViewById(R.id.buttonComentar);
+        //COMENTAR
+        c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Evento.this,Comentarios.class);
+
+                //SE SUPONE QUE LE PASO TOOOODOS LOS EXTRAS
+                intent.putExtras(IntentExtras.getExtras());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         //para quitar el focus automatico al abrir la actividad
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
+
+        //GET PARTICIPANTES
+        GetParticipantes partici = new GetParticipantes();
+        partici.execute();
 
     }
 
@@ -180,73 +231,11 @@ public class Evento extends ActionBarActivity {
     }
 
 
-    private class GetComentarios extends AsyncTask<Void, Void, CommentCollection>
-    {
-        public GetComentarios() { }
 
-        @Override
-        protected void onPreExecute(){
-            super.onPreExecute();
-        }
-        @Override
-        protected CommentCollection doInBackground(Void ... unused)
-        {
-            CommentCollection messages = null;
-            try
-            {
-                CommentQueryForm form = new CommentQueryForm();
-                form.setSafeKey(websafeKey);
-                Conference.GetComments create = ConferenceUtils.getComentarios(form);
-                messages = create.execute();
-            }
-            catch (Exception e)
-            {
-                System.out.println(e.getMessage());
-            }
 
-            return messages;
-        }
 
-        @Override
-        protected void onPostExecute(CommentCollection result)
-        {
-            int tam=0;
 
-            if(result!=null)
-                listacomments = result.getItems();
-            if(listacomments!=null)
-                tam = listacomments.size();
 
-            System.out.println("EL TAM ES " + tam);
-            rellenaListViewComentarios(listacomments, tam);
-
-        }
-    }
-
-    public void rellenaListViewComentarios(List<com.appspot.ad_meet.conference.model.Comment> listacomentarios,int tam)
-    {
-
-        //String textos[] = new String[tam];
-        ArrayList<String> textos = new ArrayList<>();
-
-        for(int i=0;i<tam;i++) {
-            textos.add(listacomentarios.get(i).getComment());
-        }
-
-        //GUARRADAS INCOMING
-
-        listViewComentarios.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 ,textos));
-        listViewComentarios.setExpanded(true);
-
-        /*
-        ComentariosAdapter adapter;
-        // Inicializamos el adapter.
-        adapter = new ComentariosAdapter(Evento.this,textos);
-        // Asignamos el Adapter al ListView, en este punto hacemos que el
-        // ListView muestre los datos que queremos.
-        listViewComentarios.setAdapter(adapter);
-        */
-    }
     private class Apuntarse extends AsyncTask<Void, Void,WrappedBoolean>
     {
 
@@ -427,6 +416,68 @@ public class Evento extends ActionBarActivity {
             t11.setVisibility(View.VISIBLE);
             x.setVisibility(View.VISIBLE);
             dialog.dismiss();
+
+        }
+    }
+
+    private class GetParticipantes extends AsyncTask<Void, Void, ProfileCollection>
+    {
+        public GetParticipantes() { }
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+        }
+        @Override
+        protected ProfileCollection doInBackground(Void ... unused)
+        {
+            ProfileCollection messages = null;
+            try
+            {
+                //Conference.GetConferencesToAttend create = ConferenceUtils.getEventosAsisto();
+                //messages = create.execute();
+                CommentQueryForm form = new CommentQueryForm();
+                form.setSafeKey(websafeKey);
+                Conference.GetParticipants create = ConferenceUtils.getParticipantes(form);
+                messages = create.execute();
+
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
+            return messages;
+        }
+
+        @Override
+        protected void onPostExecute(ProfileCollection result)
+        {
+            int tam=0;
+
+            if(result!=null)
+                listaparticipantes = result.getItems();
+            if(listaparticipantes!=null)
+                tam = listaparticipantes.size();
+
+            System.out.println("EL TAM DE PARTICIPANTES ES " + tam);
+            //rellenaListViewComentarios(listacomments, tam);
+
+            String textos[] = new String[tam];
+
+            for(int i=0;i<tam;i++) {
+                textos[i]= listaparticipantes.get(i).getDisplayName();
+                System.out.println("PARTICIPANTE " + listaparticipantes.get(i).getDisplayName());
+            }
+
+            //listViewAsistentes.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 ,textos));
+            ArrayAdapter<String> adapter;
+            adapter = new ArrayAdapter<String>(Evento.this,
+                    android.R.layout.simple_list_item_1,textos);
+            listViewAsistentes.setAdapter(adapter);
+            listViewAsistentes.setExpanded(true);
+            //listViewComentarios.setExpanded(true);
+
 
         }
     }

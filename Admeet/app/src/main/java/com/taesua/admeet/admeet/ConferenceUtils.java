@@ -17,7 +17,9 @@ package com.taesua.admeet.admeet;
 
 import android.content.Context;
 
+import com.appspot.ad_meet.conference.model.CommentForm;
 import com.appspot.ad_meet.conference.model.CommentQueryForm;
+import com.appspot.ad_meet.conference.model.KickerForm;
 import com.appspot.ad_meet.conference.model.ProfileQueryForm;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 
@@ -88,6 +90,18 @@ public class ConferenceUtils {
 
     public static Conference.GetComments getComentarios(CommentQueryForm form) throws IOException {
         return sApiServiceHandler.getComments(form);
+    }
+
+    public static Conference.CreateComment crearComentario(CommentForm form) throws IOException {
+        return sApiServiceHandler.createComment(form);
+    }
+
+    public static Conference.GetParticipants getParticipantes(CommentQueryForm form) throws IOException {
+        return sApiServiceHandler.getParticipants(form);
+    }
+
+    public static Conference.KickFromConference echarDeConferencia(KickerForm form) throws IOException {
+        return sApiServiceHandler.kickFromConference(form);
     }
     /*
     public static List<DecoratedConference> getConferences()

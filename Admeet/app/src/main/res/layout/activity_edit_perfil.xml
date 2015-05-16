@@ -49,7 +49,8 @@
                 android:id="@+id/textViewNom"
                 android:textSize="15dp"
                 android:layout_marginLeft="45dp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:layout_width="180dp"
@@ -74,7 +75,8 @@
                 android:id="@+id/textViewCii"
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"
-                android:layout_marginLeft="45dp" />
+                android:layout_marginLeft="45dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:layout_width="180dp"
@@ -100,7 +102,8 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"
                 android:textIsSelectable="true"
-                android:layout_marginLeft="45dp" />
+                android:layout_marginLeft="45dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:layout_width="180dp"
@@ -189,7 +192,8 @@
             android:layout_alignStart="@+id/textViewNombreNick"
             android:layout_marginLeft="45dp"
             android:layout_marginStart="23dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            android:textStyle="bold" />
 
         <ListView
             android:layout_width="wrap_content"

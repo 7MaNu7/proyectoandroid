@@ -266,10 +266,12 @@
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
-            <ListView
+            <com.taesua.admeet.admeet.ExpandableHeightListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listView" />
+                android:id="@+id/listViewAsistentes">
+                </com.taesua.admeet.admeet.ExpandableHeightListView>
+             
 
             <TextView
                 android:layout_width="wrap_content"
@@ -286,22 +288,6 @@
                 android:textStyle="bold" />
 
 
-            <com.taesua.admeet.admeet.ExpandableHeightListView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/listViewComentarios"
-                />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="10dp"
-                android:hint="¡Comenta algo!"
-                />
-
             <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -314,7 +300,7 @@
                     android:layout_width="220dp"
                     android:layout_height="40dp"
                     android:text="Comentar"
-                    android:id="@+id/button2"
+                    android:id="@+id/buttonComentar"
                     android:textColor="#ffffffff"
                     android:background="@drawable/roundcornerblue"
                     android:singleLine="true"
