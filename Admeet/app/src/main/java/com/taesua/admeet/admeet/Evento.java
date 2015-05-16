@@ -11,8 +11,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -145,23 +147,17 @@ public class Evento extends ActionBarActivity {
 
         Button b = (Button) findViewById(R.id.buttonApuntarse);
         b.setVisibility(View.INVISIBLE);
+
+        //para quitar el focus automatico al abrir la actividad
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+
     }
 
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Cerrando AdMeet")
-                .setMessage("¿Estás seguro de que quieres cerrar la aplicación?")
-                .setPositiveButton("Sí", new DialogInterface.OnClickListener()
-                {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-
-                })
-                .setNegativeButton("No", null)
-                .create().show();
+        Intent intent = new Intent(Evento.this,MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     private class Apuntarse extends AsyncTask<Void, Void,WrappedBoolean>
