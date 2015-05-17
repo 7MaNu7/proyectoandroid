@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -29,6 +30,7 @@ import com.appspot.ad_meet.conference.model.CommentCollection;
 import com.appspot.ad_meet.conference.model.CommentForm;
 import com.appspot.ad_meet.conference.model.CommentQueryForm;
 import com.appspot.ad_meet.conference.model.ConferenceCollection;
+import com.appspot.ad_meet.conference.model.KickerForm;
 import com.appspot.ad_meet.conference.model.Profile;
 import com.appspot.ad_meet.conference.model.ProfileCollection;
 import com.appspot.ad_meet.conference.model.WrappedBoolean;
@@ -43,6 +45,7 @@ public class Evento extends ActionBarActivity {
 
     private List<com.appspot.ad_meet.conference.model.Conference> conferencias_atendidas = new ArrayList<com.appspot.ad_meet.conference.model.Conference>();
     private String websafeKey;
+    private Long eventoid;
     private boolean asiste=false;
 
     private TextView t1;
@@ -56,10 +59,13 @@ public class Evento extends ActionBarActivity {
     private TextView t9;
     private TextView t10;
     private TextView t11;
+    private TextView t12;
+    private Button buttonEditEvento;
     private DrawerLayout drawerLayout = null;
     private ListView listView;
     Intent IntentExtras;
     private ExpandableHeightListView listViewAsistentes;
+    private ParticipantesAdapter adapter;
 
 
     private List<com.appspot.ad_meet.conference.model.Comment> listacomments = new ArrayList();
@@ -69,6 +75,9 @@ public class Evento extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evento);
+
+        //ImageButton ja = (ImageButton) findViewById(R.id.ButtonEchar);
+        //ja.setFocusable(false);
 
         listView = (ListView) findViewById(R.id.list_view);
         listViewAsistentes = (ExpandableHeightListView) findViewById(R.id.listViewAsistentes);
@@ -181,14 +190,36 @@ public class Evento extends ActionBarActivity {
         t11 = (TextView)findViewById(R.id.textViewTituloNPersonas);
         t11.setVisibility(View.INVISIBLE);
 
-        TextView t12 = (TextView)findViewById(R.id.textViewCreador);
-        if(this.getIntent().getExtras().getString("creador").contains("@"))
-            t12.setText(this.getIntent().getExtras().getString("creador").split("T")[0]);
-        else
-            t12.setText(this.getIntent().getExtras().getString("creador"));
+        t12 = (TextView)findViewById(R.id.textViewCreador);
+        t12.setText(this.getIntent().getExtras().getString("creador"));
         t12.setVisibility(View.INVISIBLE);
 
+        buttonEditEvento = (Button) findViewById(R.id.buttonEditEvento);
+        buttonEditEvento.setVisibility(View.INVISIBLE);
+
+        GetPerfil getPerfil = new GetPerfil();
+        getPerfil.execute();
+
+        /*
+        if(t12.getText().toString().equals(midisplayname)) {
+            buttonEditEvento.setVisibility(View.VISIBLE);
+            buttonEditEvento.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Evento.this,EditEvento.class);
+
+                    //SE SUPONE QUE LE PASO TOOOODOS LOS EXTRAS
+                    intent.putExtras(IntentExtras.getExtras());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        }
+        */
+
         websafeKey = this.getIntent().getExtras().getString("websafeKey");
+        eventoid = this.getIntent().getExtras().getLong("eventoid");
         System.out.println("SU KEY ES " + websafeKey);
 
         GetEventosAsisto get = new GetEventosAsisto();
@@ -230,6 +261,63 @@ public class Evento extends ActionBarActivity {
         finish();
     }
 
+
+    /**
+     * Get datos de perfil
+     */
+    private class GetPerfil extends AsyncTask<Void, Void,Profile>
+    {
+
+        public GetPerfil() { }
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+        }
+        @Override
+        protected Profile doInBackground(Void ... unused)
+        {
+            Profile perfil = null;
+            try
+            {
+                Conference.GetProfile prof = ConferenceUtils.getProfile();
+                perfil = prof.execute();
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
+            return perfil;
+        }
+
+        @Override
+        protected void onPostExecute(Profile result)
+        {
+
+            if(result==null)
+            {
+            }
+            else {
+                if(t12.getText().toString().equals(result.getDisplayName())) {
+                    buttonEditEvento.setVisibility(View.VISIBLE);
+                    buttonEditEvento.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(Evento.this,EditEvento.class);
+
+                            //SE SUPONE QUE LE PASO TOOOODOS LOS EXTRAS
+                            intent.putExtras(IntentExtras.getExtras());
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
+
+                        }
+                    });
+                }
+            }
+        }
+    }
 
 
 
@@ -414,6 +502,7 @@ public class Evento extends ActionBarActivity {
             t9.setVisibility(View.VISIBLE);
             t10.setVisibility(View.VISIBLE);
             t11.setVisibility(View.VISIBLE);
+            t12.setVisibility(View.VISIBLE);
             x.setVisibility(View.VISIBLE);
             dialog.dismiss();
 
@@ -463,26 +552,73 @@ public class Evento extends ActionBarActivity {
             System.out.println("EL TAM DE PARTICIPANTES ES " + tam);
             //rellenaListViewComentarios(listacomments, tam);
 
-            String textos[] = new String[tam];
-
-            for(int i=0;i<tam;i++) {
-                textos[i]= listaparticipantes.get(i).getDisplayName();
-                System.out.println("PARTICIPANTE " + listaparticipantes.get(i).getDisplayName());
+            if(tam>0) {
+                adapter = new ParticipantesAdapter(Evento.this, R.layout.listviewparticipante_item, listaparticipantes);
+                listViewAsistentes.setAdapter(adapter);
+                listViewAsistentes.setExpanded(true);
             }
-
-            //listViewAsistentes.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 ,textos));
-            ArrayAdapter<String> adapter;
-            adapter = new ArrayAdapter<String>(Evento.this,
-                    android.R.layout.simple_list_item_1,textos);
-            listViewAsistentes.setAdapter(adapter);
-            listViewAsistentes.setExpanded(true);
-            //listViewComentarios.setExpanded(true);
-
 
         }
     }
 
+    //HANDLER PARA BOTON DE BORRAR PARTICIPANTE
+    public void echarHandler(View v) {
 
+        //FUNCIONALIDAD FUTURA, SOON TM
+        /*
+        Profile itemToRemove = (Profile)v.getTag();
+
+
+        EcharDeEvento echar = new EcharDeEvento(itemToRemove);
+        echar.execute();
+        adapter.remove(itemToRemove);
+        */
+    }
+
+
+
+    private class EcharDeEvento extends AsyncTask<Void, Void,WrappedBoolean>
+    {
+        private Profile parti;
+        public EcharDeEvento(Profile parti) {this.parti=parti;}
+
+        @Override
+        protected void onPreExecute(){
+            super.onPreExecute();
+        }
+        @Override
+        protected WrappedBoolean doInBackground(Void ... unused)
+        {
+            WrappedBoolean messages = null;
+            try
+            {
+                KickerForm form = new KickerForm();
+                form.setEventKey(websafeKey);
+                //form.setEventKey(eventoid.toString());
+                form.setUserKey(parti.getUserId());
+
+                System.out.println("EL WEBSAFEKEY DE ESTE EVENTO ES " + form.getEventKey());
+                //System.out.println("EL ID DE ESTE EVENTO ES " + form.getEventKey());
+                System.out.println("EL USERID AL QUE QUIERES ECHAR ES " + form.getUserKey());
+
+                Conference.KickFromConference create = ConferenceUtils.echarDeConferencia(form);
+                messages = create.execute();
+
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
+            return messages;
+        }
+
+        @Override
+        protected void onPostExecute(WrappedBoolean result)
+        {
+           System.out.println("EL BOOLEAN ES " + result.getResult());
+        }
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

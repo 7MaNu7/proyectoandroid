@@ -157,6 +157,7 @@ public class MainActivity extends ActionBarActivity {
                     categorias+=" " + evento.getTopics().get(i);
                 intent.putExtra("categorias", categorias);
                 intent.putExtra("websafeKey",evento.getWebsafeKey());
+                intent.putExtra("eventoid",evento.getId());
                 intent.putExtra("creador", evento.getOrganizerDisplayName());
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

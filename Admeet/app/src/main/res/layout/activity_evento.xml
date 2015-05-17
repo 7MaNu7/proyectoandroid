@@ -270,7 +270,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/listViewAsistentes">
-                </com.taesua.admeet.admeet.ExpandableHeightListView>
+            </com.taesua.admeet.admeet.ExpandableHeightListView>
              
 
             <TextView
@@ -329,7 +329,24 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp" />
 
-        </TableLayout>
+                <Button
+                    style="@android:style/Widget.Spinner"
+                    android:layout_width="220dp"
+                    android:layout_height="40dp"
+                    android:text="Editar evento"
+                    android:id="@+id/buttonEditEvento"
+                    android:textColor="#ffffffff"
+                    android:background="@drawable/roundcornerorange"
+                    android:singleLine="true"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="100dp"
+                    android:layout_marginLeft="100dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp" />
+
+            </TableLayout>
 
     </LinearLayout>
     </ScrollView>

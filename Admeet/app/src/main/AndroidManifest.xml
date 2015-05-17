@@ -57,6 +57,10 @@
             android:name=".Comentarios"
             android:label="@string/title_activity_comentarios" >
         </activity>
+        <activity
+            android:name=".EditEvento"
+            android:label="@string/title_activity_edit_evento" >
+        </activity>
     </application>
 
 

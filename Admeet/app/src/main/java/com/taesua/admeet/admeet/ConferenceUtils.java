@@ -103,6 +103,10 @@ public class ConferenceUtils {
     public static Conference.KickFromConference echarDeConferencia(KickerForm form) throws IOException {
         return sApiServiceHandler.kickFromConference(form);
     }
+
+    public static Conference.UpdateConference actualizarConferencia(String websafe,ConferenceForm form) throws IOException {
+        return sApiServiceHandler.updateConference(websafe,form);
+    }
     /*
     public static List<DecoratedConference> getConferences()
             throws ConferenceException, IOException {
