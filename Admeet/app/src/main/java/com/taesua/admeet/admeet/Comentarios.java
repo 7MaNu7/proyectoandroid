@@ -1,5 +1,6 @@
 package com.taesua.admeet.admeet;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -34,10 +34,15 @@ public class Comentarios extends ActionBarActivity {
     private List<Comment> listacomments = new ArrayList<Comment>();
     private ListView listViewComentarios;
 
+    private Context contexto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comentarios);
+
+        contexto = getApplicationContext();
+
         //para quitar el focus automatico al abrir la actividad
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
@@ -203,18 +208,18 @@ public class Comentarios extends ActionBarActivity {
     public void rellenaListViewComentarios(List<com.appspot.ad_meet.conference.model.Comment> listacomentarios,int tam)
     {
 
-        //String textos[] = new String[tam];
-        ArrayList<String> textos = new ArrayList<>();
+        String nombres[] = new String[tam];
+        String comentarios[] = new String[tam];
 
         for(int i=0;i<tam;i++) {
-            textos.add(listacomentarios.get(i).getComment());
-            System.out.println("COMENTARIO " + listacomentarios.get(i).getComment());
+            nombres[i]=(listacomentarios.get(i).getComment());
+            comentarios[i]=(listacomentarios.get(i).getComment());
+            System.out.println("----------Aqui tenemos el comentario::::::"+comentarios[i]);
         }
 
         //GUARRADAS INCOMING
-
-        listViewComentarios.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_list_item_1 ,textos));
-        //listViewComentarios.setExpanded(true);
+        ComentariosAdapter adapterc = new ComentariosAdapter(contexto, nombres, comentarios);
+        listViewComentarios.setAdapter(adapterc);
 
     }
 

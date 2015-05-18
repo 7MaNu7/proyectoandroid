@@ -1,10 +1,6 @@
 package com.taesua.admeet.admeet;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -14,16 +10,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appspot.ad_meet.conference.Conference;
 import com.appspot.ad_meet.conference.model.ConferenceCollection;
 import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
-import com.appspot.ad_meet.conference.model.Profile;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -206,7 +199,7 @@ public class PerfilPublico extends ActionBarActivity {
 
         ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
         TextView nombre = (TextView) findViewById(R.id.tvContent);
-        TextView numCelda = (TextView) findViewById(R.id.textviewelitem);
+        TextView numCelda = (TextView) findViewById(R.id.textviewNombre);
         EventosAdapter adapter;
         // Inicializamos el adapter.
         adapter = new EventosAdapter(PerfilPublico.this, nombres, categorias, asis, maxasis, fecha);

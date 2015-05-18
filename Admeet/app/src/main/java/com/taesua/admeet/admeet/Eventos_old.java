@@ -20,17 +20,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.model.ConferenceCollection;
+import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
+import com.appspot.ad_meet.conference.model.Filter;
 import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import com.appspot.ad_meet.conference.Conference;
-import com.appspot.ad_meet.conference.model.ConferenceCollection;
-import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
-import com.appspot.ad_meet.conference.model.Filter;
 
 
 public class Eventos_old extends ActionBarActivity {
@@ -389,7 +388,7 @@ public class Eventos_old extends ActionBarActivity {
 
         ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
         TextView nombre = (TextView) findViewById(R.id.tvContent);
-        TextView numCelda = (TextView) findViewById(R.id.textviewelitem);
+        TextView numCelda = (TextView) findViewById(R.id.textviewNombre);
         EventosAdapter adapter;
         // Inicializamos el adapter.
         adapter = new EventosAdapter(Eventos_old.this, nombres, categorias, asis, maxasis, fecha);

@@ -1,8 +1,6 @@
 package com.taesua.admeet.admeet;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -294,7 +292,7 @@ public class EditarPerfil extends ActionBarActivity {
 
         ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
         TextView nombre = (TextView) findViewById(R.id.tvContent);
-        TextView numCelda = (TextView) findViewById(R.id.textviewelitem);
+        TextView numCelda = (TextView) findViewById(R.id.textviewNombre);
         EventosAdapter adapter;
         // Inicializamos el adapter.
         adapter = new EventosAdapter(EditarPerfil.this, nombres, categorias, asis, maxasis, fecha);

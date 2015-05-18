@@ -2,10 +2,8 @@ package com.taesua.admeet.admeet;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,7 +14,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,19 +21,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appspot.ad_meet.conference.Conference;
+import com.appspot.ad_meet.conference.model.ConferenceCollection;
+import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
+import com.appspot.ad_meet.conference.model.Filter;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
-import com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import com.appspot.ad_meet.conference.Conference;
-import com.appspot.ad_meet.conference.model.ConferenceCollection;
-import com.appspot.ad_meet.conference.model.ConferenceQueryForm;
-import com.appspot.ad_meet.conference.model.Filter;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -578,7 +573,7 @@ public class MainActivity extends ActionBarActivity {
 
         ImageView imagen = (ImageView) findViewById(R.id.imgAnimal);
         TextView nombre = (TextView) findViewById(R.id.tvContent);
-        TextView numCelda = (TextView) findViewById(R.id.textviewelitem);
+        TextView numCelda = (TextView) findViewById(R.id.textviewNombre);
         EventosAdapter adapter;
         // Inicializamos el adapter.
         adapter = new EventosAdapter(MainActivity.this, nombres, categorias, asis, maxasis, fecha);

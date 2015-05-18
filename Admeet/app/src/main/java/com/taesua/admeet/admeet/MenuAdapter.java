@@ -32,7 +32,7 @@ public class MenuAdapter extends ArrayAdapter {
         View item = inflater.inflate(R.layout.listview_item_menu, null);
 
         // Recogemos el TextView para mostrar el nombre y establecemos el nombre
-        TextView nombre = (TextView) item.findViewById(R.id.textviewelitem);
+        TextView nombre = (TextView) item.findViewById(R.id.textviewNombre);
         nombre.setText(datos[position]);
 
         // Devolvemos la vista para que se muestre en el ListView.

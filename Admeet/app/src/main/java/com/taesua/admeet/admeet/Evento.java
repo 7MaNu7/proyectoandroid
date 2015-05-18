@@ -1,8 +1,6 @@
 package com.taesua.admeet.admeet;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,21 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ExpandableListView;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appspot.ad_meet.conference.Conference;
-import com.appspot.ad_meet.conference.model.Comment;
-import com.appspot.ad_meet.conference.model.CommentCollection;
-import com.appspot.ad_meet.conference.model.CommentForm;
 import com.appspot.ad_meet.conference.model.CommentQueryForm;
 import com.appspot.ad_meet.conference.model.ConferenceCollection;
 import com.appspot.ad_meet.conference.model.KickerForm;
@@ -36,8 +24,6 @@ import com.appspot.ad_meet.conference.model.ProfileCollection;
 import com.appspot.ad_meet.conference.model.WrappedBoolean;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 
@@ -56,8 +42,6 @@ public class Evento extends ActionBarActivity {
     private TextView t6;
     private TextView t7;
     private TextView t8;
-    private TextView t9;
-    private TextView t10;
     private TextView t11;
     private TextView t12;
     private Button buttonEditEvento;
@@ -180,12 +164,6 @@ public class Evento extends ActionBarActivity {
 
         t8 = (TextView)findViewById(R.id.textViewTituloCategoria);
         t8.setVisibility(View.INVISIBLE);
-
-        t9 = (TextView)findViewById(R.id.textViewTituloFecha);
-        t9.setVisibility(View.INVISIBLE);
-
-        t10 = (TextView)findViewById(R.id.textViewTituloLugar);
-        t10.setVisibility(View.INVISIBLE);
 
         t11 = (TextView)findViewById(R.id.textViewTituloNPersonas);
         t11.setVisibility(View.INVISIBLE);
@@ -499,8 +477,6 @@ public class Evento extends ActionBarActivity {
             t6.setVisibility(View.VISIBLE);
             t7.setVisibility(View.VISIBLE);
             t8.setVisibility(View.VISIBLE);
-            t9.setVisibility(View.VISIBLE);
-            t10.setVisibility(View.VISIBLE);
             t11.setVisibility(View.VISIBLE);
             t12.setVisibility(View.VISIBLE);
             x.setVisibility(View.VISIBLE);

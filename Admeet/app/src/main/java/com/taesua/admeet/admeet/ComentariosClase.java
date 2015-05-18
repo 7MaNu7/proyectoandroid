@@ -4,12 +4,16 @@ package com.taesua.admeet.admeet;
  * Created by Hector on 16/05/2015.
  */
 public class ComentariosClase {
-    private String texto;
+    private String nombre;
+    private String comentario;
 
-    public ComentariosClase(String texto) {
-        this.texto=texto;
+    public ComentariosClase(String nombre, String comentario) {
+
+        this.nombre = nombre;
+        this.comentario = comentario;
     }
 
-    public String getTexto() {return texto;}
+    public String getNombre() {return nombre;}
+    public String getComentario() {return comentario;}
 
 }

@@ -33,16 +33,17 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Partido de Futbol"
             android:id="@+id/textviewnombre"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:typeface="monospace"
             android:textStyle="bold"
             android:singleLine="false"
             android:textAlignment="center"
             android:gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:focusable="true"
-            android:focusableInTouchMode="true" />
+            android:focusableInTouchMode="true"
+            style="@style/Base.TextAppearance.AppCompat.Title"
+            android:layout_gravity="center_horizontal"
+            android:textSize="22dp" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -53,54 +54,30 @@
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:id="@+id/fila1">
+                android:id="@+id/fila1"
+                android:layout_gravity="center_horizontal">
 
                 <TextView
-                    android:layout_width="10dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Lugar:"
-                    android:id="@+id/textViewTituloLugar"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="5dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Almeria, Roquetas de Mar Polideportivo"
+                    android:text="Almeria"
                     android:id="@+id/textviewlugar"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="5dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:textSize="15sp"
-                    android:layout_column="19"
-                    android:layout_weight="20" />
+                    android:textSize="17sp"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:layout_weight="20"
+                    android:layout_marginLeft="70dp" />
             </TableRow>
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:id="@+id/fila2">
-
-                <TextView
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Fecha:"
-                    android:id="@+id/textViewTituloFecha"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+                android:id="@+id/fila2"
+                android:layout_gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="10dp"
@@ -108,13 +85,14 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="15/03/2015"
                     android:id="@+id/textviewfecha"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="5dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="15dp"
-                    android:layout_column="19"
-                    android:layout_weight="20" />
+                    android:layout_column="0"
+                    android:layout_weight="20"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="70dp" />
             </TableRow>
 
             <TableRow
@@ -134,7 +112,7 @@
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -147,7 +125,7 @@
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
                     android:layout_column="19"
                     android:layout_weight="20" />
             </TableRow>
@@ -168,20 +146,20 @@
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Deportes Futbol kkkkkkkkkkkkkkkkkkkkkkkkkk"
+                    android:text="Deportes"
                     android:id="@+id/textViewcategoria"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
                     android:layout_column="19"
                     android:layout_weight="20" />
             </TableRow>
@@ -202,7 +180,7 @@
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -215,7 +193,7 @@
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
-                    android:textSize="15dp"
+                    android:textSize="17dp"
                     android:layout_column="19"
                     android:layout_weight="20" />
             </TableRow>
@@ -233,20 +211,20 @@
             android:layout_marginRight="30dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
-            android:textSize="15dp"
+            android:textSize="17dp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Partido de Futbol sala con árbitro, comida y bebida gratis al terminar. Hora de inicio: 17.00 Y eso y lo otro y mira que descripción más detallada que pone la gente, bueno, está todo claro ya, bien, así de largo para el ejemplo. Mas ejemplo, mas ejemplo, mas ejemplo."
+            android:text="Y eso y lo otro y mira que descripción más detallada que pone la gente, bueno, está todo claro ya, bien, así de largo para el ejemplo. Mas ejemplo, mas ejemplo, mas ejemplo."
             android:id="@+id/textviewdescripcion"
             android:layout_marginTop="10dp"
             android:layout_marginRight="30dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
-            android:textSize="15dp"
+            android:textSize="17dp"
             android:layout_marginLeft="30dp"
             android:singleLine="false"
             android:phoneNumber="false"
@@ -263,29 +241,16 @@
                 android:layout_marginRight="30dp"
                 android:clickable="false"
                 android:focusableInTouchMode="false"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <com.taesua.admeet.admeet.ExpandableHeightListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/listViewAsistentes">
+                android:id="@+id/listViewAsistentes"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="5dp">
             </com.taesua.admeet.admeet.ExpandableHeightListView>
-             
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Comentarios:"
-                android:id="@+id/textView5"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="30dp"
-                android:clickable="false"
-                android:focusableInTouchMode="false"
-                android:textSize="15dp"
-                android:textStyle="bold" />
 
 
             <TableLayout
@@ -304,13 +269,12 @@
                     android:textColor="#ffffffff"
                     android:background="@drawable/roundcornerblue"
                     android:singleLine="true"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:layout_gravity="center"
-                    android:layout_marginRight="100dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="50dp"
                     android:gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="20dp" />
 
                 <Button
                 style="@android:style/Widget.Spinner"
@@ -323,11 +287,10 @@
                 android:singleLine="true"
                 android:textSize="20dp"
                 android:layout_gravity="center"
-                android:layout_marginRight="100dp"
-                android:layout_marginLeft="100dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
                 android:gravity="center"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp" />
 
                 <Button
                     style="@android:style/Widget.Spinner"
@@ -336,12 +299,12 @@
                     android:text="Editar evento"
                     android:id="@+id/buttonEditEvento"
                     android:textColor="#ffffffff"
-                    android:background="@drawable/roundcornerorange"
+                    android:background="@drawable/roundcornerblue"
                     android:singleLine="true"
                     android:textSize="20dp"
                     android:layout_gravity="center"
-                    android:layout_marginRight="100dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginLeft="50dp"
                     android:gravity="center"
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp" />
