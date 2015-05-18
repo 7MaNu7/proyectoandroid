@@ -303,24 +303,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-
-    /*
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-*/
-
     // Mostramos el botón en la barra de la aplicación
     //getActionBar().setDisplayHomeAsUpEnabled(true);
     @Override
@@ -528,27 +510,16 @@ public class MainActivity extends ActionBarActivity {
             if(listaeventos!=null)
                 tam = listaeventos.size();
 
-            rellenaListView(listaeventos, tam);
+                rellenaListView(listaeventos, tam);
         }
     }
 
     public void rellenaListView(List<com.appspot.ad_meet.conference.model.Conference> listaeventos, int tam)  {
 
-
-        for(com.appspot.ad_meet.conference.model.Conference c: listaeventos)
+        if(listaeventos==null)
         {
-            //GUARRADA MONUMENTAL
-            //
-            //
-            if(c.getCity().contains("elche"))
-            {
-                listaeventos.remove(c);
-                tam--;
-                break;
-            }
-
-            //
-            //
+            eventos.setAdapter(null);
+            return;
         }
         //SE SUPONE QUE CON ESTO YA ESTA ORDENADO
         Collections.sort(listaeventos, new Comparator<com.appspot.ad_meet.conference.model.Conference>() {
