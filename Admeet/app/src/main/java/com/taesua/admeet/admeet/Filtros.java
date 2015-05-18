@@ -89,16 +89,7 @@ public class Filtros extends ActionBarActivity {
         final TextView titulovalue = (TextView) findViewById(R.id.textViewValue);
         final Button aplicar = (Button) findViewById(R.id.buttonFilter);
 
-        //Rellenando categorias disponibles en sipnner
-        final List<String> listcat = new ArrayList<String>();
-        listcat.add("Cultura");
-        listcat.add("Deportes");
-        listcat.add("Fiesta");
-        listcat.add("Otros");
-
-        ArrayAdapter<String> dataAdaptercat = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listcat);
-        dataAdaptercat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerCategoria.setAdapter(dataAdaptercat);
+        
 
         spinnerField.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -114,8 +105,42 @@ public class Filtros extends ActionBarActivity {
                     value.setInputType(InputType.TYPE_CLASS_TEXT);
                 }
 
-                if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría"))
+                if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría") ||
+                        spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Mes"))
                 {
+                    //Rellenando categorias disponibles en sipnner
+                    final List<String> listcosas = new ArrayList<String>();
+                    if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría"))
+                    {
+                        listcosas.add("Cultura");
+                        listcosas.add("Deportes");
+                        listcosas.add("Fiesta");
+                        listcosas.add("Otros");
+                    }
+                    
+                    else
+                    {
+                        //Rellenando meses disponibles en spinner
+                        listcosas.add("1");
+                        listcosas.add("2");
+                        listcosas.add("3");
+                        listcosas.add("4");
+                        listcosas.add("5");
+                        listcosas.add("6");
+                        listcosas.add("7");
+                        listcosas.add("8");
+                        listcosas.add("9");
+                        listcosas.add("10");
+                        listcosas.add("11");
+                        listcosas.add("12");
+                    }
+
+
+
+                    ArrayAdapter<String> dataAdaptercosas = new ArrayAdapter<String>(Filtros.this, android.R.layout.simple_spinner_item, listcosas);
+                    dataAdaptercosas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerCategoria.setAdapter(dataAdaptercosas);
+
                     spinnerCategoria.setVisibility(View.VISIBLE);
                     titulovalue.setVisibility(View.INVISIBLE);
                     value.setVisibility(View.INVISIBLE);
@@ -220,7 +245,8 @@ public class Filtros extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 if (value.getText().toString().equals("") &&
-                        !(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría"))) //si esta vacio, validar
+                        !(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría")) &&
+                        !(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Mes"))) //si esta vacio, validar
                 {
                     value.setError("¡No se puede dejar vacío el campo de valor!");
                 }
@@ -273,7 +299,8 @@ public class Filtros extends ActionBarActivity {
 
 
 
-                    if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría"))
+                    if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría") ||
+                            spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Mes"))
                     {
                         String category = spinnerCategoria.getItemAtPosition(spinnerCategoria.getSelectedItemPosition()).toString();
                         values.add(category);
@@ -281,6 +308,7 @@ public class Filtros extends ActionBarActivity {
                                 " " + spinnerOperador.getSelectedItem().toString() +
                                 " " + category + "}\n");
                     }
+
                     else
                     {
                         values.add(value.getText().toString());
