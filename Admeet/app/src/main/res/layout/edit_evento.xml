@@ -115,9 +115,9 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:background="#FFFFFF"
+        android:background="#c8a766dd"
         android:choiceMode="singleChoice"
         android:divider="#33000000"
-        android:dividerHeight="2dp" />
+        android:dividerHeight="1dp" />
 
 </android.support.v4.widget.DrawerLayout>

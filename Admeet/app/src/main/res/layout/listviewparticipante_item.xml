@@ -12,11 +12,12 @@
         android:gravity="center_vertical"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textSize="17dp"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:theme="@style/TextoNormal" />
 
     <ImageView
         android:id="@+id/ButtonEchar"
-        android:layout_width="40dp"
+        android:layout_width="35dp"
         android:layout_height="fill_parent"
         android:contentDescription=" "
         android:onClick="echarHandler"

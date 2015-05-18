@@ -3,6 +3,74 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#83b5dd</item>
+        <!--<item name="colorPrimary">#83b5dd</item>-->
+        <item name="colorPrimary">#c8a766dd</item>
+
     </style>
+
+    <style name="UnDropDownMas1">
+        <item name="android:colorBackground">#c8a766dd</item>
+        <item name="android:color">#c8a766dd</item>
+        <item name="colorPrimary">#c8a766dd</item>
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="FondoPanel">
+        <!-- Customize your theme here. -->
+        <item name="android:colorBackground">#c8a766dd</item>
+    </style>
+
+    <style name="TextoTituloNegrita">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextoTitulo">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">22dp</item>
+    </style>
+
+    <style name="TextoNormalNegrita">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextoNormal">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextoPeque">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+
+    <style name="TextoPeque2">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">11dp</item>
+    </style>
+
+    <style name="TextoPequeNegrita">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">#ff000000</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:textSize">13dp</item>
+    </style>
+
 </resources>

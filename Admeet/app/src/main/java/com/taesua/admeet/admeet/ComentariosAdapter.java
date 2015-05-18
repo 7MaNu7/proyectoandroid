@@ -22,7 +22,6 @@ public class ComentariosAdapter extends ArrayAdapter {
 
         this.context = context;
         ArrayList<ComentariosClase> datos1 = new ArrayList<ComentariosClase>();
-        System.out.println("77777777777777777777777777777777777777777777777  "+nombres.length);
         for(int i=0;i<nombres.length;i++)
             datos1.add(i, new ComentariosClase(nombres[i], comentarios[i]));
 
@@ -31,7 +30,6 @@ public class ComentariosAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        System.out.println("33333333333333333333333333333333333333333333333");
         // En primer lugar "inflamos" una nueva vista, que será la que se
         // mostrará en la celda del ListView. Para ello primero creamos el
         // inflater, y después inflamos la vista.
@@ -40,8 +38,6 @@ public class ComentariosAdapter extends ArrayAdapter {
 
         // A partir de la vista, recogeremos los controles que contiene para
         // poder manipularlos.
-
-        System.out.println("-.-.-.-.-.-.--.-.-.-.-.-.-Mira este comentario:" + datos.get(position).getNombre());
 
         // Recogemos el TextView para mostrar el nombre y establecemos el nombre
         TextView nombre = (TextView) item.findViewById(R.id.textviewNombre);

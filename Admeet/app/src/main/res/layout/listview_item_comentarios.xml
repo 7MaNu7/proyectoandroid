@@ -12,20 +12,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:textSize="18dp"
         android:text="Nombre"
-        android:textColor="#ff000000" />
+        android:textColor="#ff000000"
+        android:theme="@style/TextoNormal" />
 
     <TextView
         android:id="@+id/textViewComentario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="17dp"
         android:text="Comentario por doquier Comentario por doquier Comentario por doquier Comentario por doquier Comentario por doquier Comentario por doquier Comentario por doquier omentario por doquier "
-        android:textColor="#ff000000"
         android:layout_below="@+id/textviewNombre"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp" />
+        android:theme="@style/TextoNormal"
+        android:layout_marginTop="5dp"
+        android:textColor="#c8a766dd" />
 
 </RelativeLayout>

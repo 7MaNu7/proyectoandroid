@@ -26,7 +26,8 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="45dp"
-            android:gravity="center" />
+            android:gravity="center"
+            android:theme="@style/TextoTitulo" />
 
         <TableLayout
             android:layout_width="fill_parent"
@@ -51,7 +52,8 @@
                     android:textSize="15dp"
                     android:layout_marginLeft="45dp"
                     android:layout_marginTop="0dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:theme="@style/TextoTituloNegrita" />
 
                 <TextView
                     android:layout_width="180dp"
@@ -61,7 +63,8 @@
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="20dp"
                     android:layout_column="9"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:theme="@style/TextoNormal" />
 
             </TableRow>
 
@@ -78,7 +81,8 @@
                     android:id="@+id/textViewCii"
                     android:textSize="15dp"
                     android:layout_marginLeft="45dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:theme="@style/TextoTituloNegrita" />
 
                 <TextView
                     android:layout_width="180dp"
@@ -88,7 +92,8 @@
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="20dp"
                     android:layout_column="9"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:theme="@style/TextoNormal" />
 
             </TableRow>
 
@@ -106,7 +111,8 @@
                     android:textSize="15dp"
                     android:textIsSelectable="true"
                     android:layout_marginLeft="45dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:theme="@style/TextoTituloNegrita" />
 
                 <TextView
                     android:layout_width="180dp"
@@ -116,7 +122,8 @@
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="20dp"
                     android:layout_column="9"
-                    android:textSize="15dp" />
+                    android:textSize="15dp"
+                    android:theme="@style/TextoNormal" />
 
             </TableRow>
 
@@ -182,7 +189,8 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginStart="23dp"
                 android:layout_marginBottom="10dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:theme="@style/TextoTituloNegrita" />
 
             <ListView
                 android:layout_width="wrap_content"
@@ -193,7 +201,9 @@
                 android:layout_alignStart="@+id/textViewNombreNick"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:divider="#c8a766dd"
+                android:dividerHeight="1dp" />
         </LinearLayout>
 
     </RelativeLayout>
@@ -206,6 +216,6 @@
         android:background="#FFFFFF"
         android:choiceMode="singleChoice"
         android:divider="#33000000"
-        android:dividerHeight="2dp" />
+        android:dividerHeight="1dp" />
 
 </android.support.v4.widget.DrawerLayout>
