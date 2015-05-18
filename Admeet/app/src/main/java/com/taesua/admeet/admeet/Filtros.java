@@ -167,14 +167,26 @@ public class Filtros extends ActionBarActivity {
 
                     for(int i=0;i<fields.size();i++) {
                         String filtro = "";
-                        if(spinnerField.getItemAtPosition(i).toString().equals("Categoría"))
+                        //NO HAY QUE COGER EL SPINNERFIELD,HAY QUE COGER EL FIELD
+                        System.out.println("EL FIELD ES ^" + fields.get(i) + "^");
+                        if(fields.get(i).toString().equals("TOPIC")) {
                             filtro = "TOPIC";
-                        else if(spinnerField.getItemAtPosition(i).toString().equals("Ciudad"))
+                            System.out.println(" HA ENTRADO AQUI,TOPIC");
+                        }
+                        else if(fields.get(i).toString().toString().equals("CITY")) {
                             filtro = "CITY";
-                        else if(spinnerField.getItemAtPosition(i).toString().equals("Máximo nº de asistentes"))
-                            filtro = "MAX_ATTENDES";
-                        else if(spinnerField.getItemAtPosition(i).toString().equals("Mes"))
+                            System.out.println(" HA ENTRADO AQUI,CITY");
+                        }
+                        else if(fields.get(i).toString().toString().equals("MAX_ATTENDEES")) {
+                            filtro = "MAX_ATTENDEES";
+                            System.out.println(" HA ENTRADO AQUI,MAX_ATTENDEES");
+                        }
+                        else if(fields.get(i).toString().toString().equals("MONTH")) {
+                            System.out.println(" HA ENTRADO AQUI,MONTH");
                             filtro = "MONTH";
+                        }
+
+                        System.out.println("EL VALUE ES " + values.get(i));
                         intent.putExtra("field" + i,filtro);
                         intent.putExtra("operator" + i,operators.get(i));
                         intent.putExtra("value" + i,values.get(i));
@@ -220,7 +232,7 @@ public class Filtros extends ActionBarActivity {
                     else if(spinnerField.getSelectedItem().toString().equals("Ciudad"))
                         filtro = "CITY";
                     else if(spinnerField.getSelectedItem().toString().equals("Máximo nº de asistentes"))
-                        filtro = "MAX_ATTENDES";
+                        filtro = "MAX_ATTENDEES";
                     else if(spinnerField.getSelectedItem().toString().equals("Mes"))
                         filtro = "MONTH";
                     fields.add(filtro);
@@ -255,7 +267,7 @@ public class Filtros extends ActionBarActivity {
                     else if(spinnerField.getSelectedItem().toString().equals("Ciudad"))
                         filtro = "CITY";
                     else if(spinnerField.getSelectedItem().toString().equals("Máximo nº de asistentes"))
-                        filtro = "MAX_ATTENDES";
+                        filtro = "MAX_ATTENDEES";
                     else if(spinnerField.getSelectedItem().toString().equals("Mes"))
                         filtro = "MONTH";
 

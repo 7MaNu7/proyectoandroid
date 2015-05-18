@@ -59,7 +59,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mEmailAccount = Utils.getEmailAccount(this);
-
+        query.clear();
         listView = (ListView) findViewById(R.id.list_view);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         final String[]  opciones = { "Eventos", "Filtros", "Publicar", "Perfil" };
@@ -124,6 +124,7 @@ public class MainActivity extends ActionBarActivity {
 
             ArrayList filtros = new ArrayList();
             int tam = this.getIntent().getExtras().size()/3;
+            System.out.println("HAY " + tam + " FILTROS PA APLICAR");
             for(int i=0;i<tam;i++) {
                 Filter filter = new Filter();
                 filter.setField(this.getIntent().getExtras().getString("field" + i));
@@ -453,7 +454,8 @@ public class MainActivity extends ActionBarActivity {
             if(listaeventos!=null)
                 tam = listaeventos.size();
 
-            rellenaListView(listaeventos, tam);
+            if(listaeventos!=null)
+                rellenaListView(listaeventos, tam);
             query.clear();
         }
     }
