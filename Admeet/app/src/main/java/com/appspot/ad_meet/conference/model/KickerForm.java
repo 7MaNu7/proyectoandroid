@@ -35,25 +35,25 @@ public final class KickerForm extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String eventKey;
+  private java.lang.String eventKey;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String userKey;
+  private java.lang.String userKey;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getEventKey() {
+  public java.lang.String getEventKey() {
     return eventKey;
   }
 
   /**
    * @param eventKey eventKey or {@code null} for none
    */
-  public KickerForm setEventKey(String eventKey) {
+  public KickerForm setEventKey(java.lang.String eventKey) {
     this.eventKey = eventKey;
     return this;
   }
@@ -61,14 +61,14 @@ public final class KickerForm extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getUserKey() {
+  public java.lang.String getUserKey() {
     return userKey;
   }
 
   /**
    * @param userKey userKey or {@code null} for none
    */
-  public KickerForm setUserKey(String userKey) {
+  public KickerForm setUserKey(java.lang.String userKey) {
     this.userKey = userKey;
     return this;
   }

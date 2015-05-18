@@ -1,8 +1,0 @@
-Poneis la carpeta con su contenido dentro de la carpeta app
-
-Cuando abrais el proyecto en android studio teneis que seleccionar cada una (no se si deja todas juntas) y darle al boton derecho, entonces en el menú le dais a "agregar como liberia" o "add as library"
-
-Así no hay errores
-
-Lo pongo de esta forma porque el bitbucket parece que no sube los archivos que son librerias
-y se necesitan para el proyecto

@@ -35,55 +35,55 @@ public final class Profile extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String ciudad;
+  private java.lang.String ciudad;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<String> conferenceKeysToAttend;
+  private java.util.List<java.lang.String> conferenceKeysToAttend;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String displayName;
+  private java.lang.String displayName;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String mainEmail;
+  private java.lang.String mainEmail;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String telefono;
+  private java.lang.String telefono;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String userId;
+  private java.lang.String userId;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String websafeKey;
+  private java.lang.String websafeKey;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getCiudad() {
+  public java.lang.String getCiudad() {
     return ciudad;
   }
 
   /**
    * @param ciudad ciudad or {@code null} for none
    */
-  public Profile setCiudad(String ciudad) {
+  public Profile setCiudad(java.lang.String ciudad) {
     this.ciudad = ciudad;
     return this;
   }
@@ -91,14 +91,14 @@ public final class Profile extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<String> getConferenceKeysToAttend() {
+  public java.util.List<java.lang.String> getConferenceKeysToAttend() {
     return conferenceKeysToAttend;
   }
 
   /**
    * @param conferenceKeysToAttend conferenceKeysToAttend or {@code null} for none
    */
-  public Profile setConferenceKeysToAttend(java.util.List<String> conferenceKeysToAttend) {
+  public Profile setConferenceKeysToAttend(java.util.List<java.lang.String> conferenceKeysToAttend) {
     this.conferenceKeysToAttend = conferenceKeysToAttend;
     return this;
   }
@@ -106,14 +106,14 @@ public final class Profile extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getDisplayName() {
+  public java.lang.String getDisplayName() {
     return displayName;
   }
 
   /**
    * @param displayName displayName or {@code null} for none
    */
-  public Profile setDisplayName(String displayName) {
+  public Profile setDisplayName(java.lang.String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -121,14 +121,14 @@ public final class Profile extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getMainEmail() {
+  public java.lang.String getMainEmail() {
     return mainEmail;
   }
 
   /**
    * @param mainEmail mainEmail or {@code null} for none
    */
-  public Profile setMainEmail(String mainEmail) {
+  public Profile setMainEmail(java.lang.String mainEmail) {
     this.mainEmail = mainEmail;
     return this;
   }
@@ -136,14 +136,14 @@ public final class Profile extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getTelefono() {
+  public java.lang.String getTelefono() {
     return telefono;
   }
 
   /**
    * @param telefono telefono or {@code null} for none
    */
-  public Profile setTelefono(String telefono) {
+  public Profile setTelefono(java.lang.String telefono) {
     this.telefono = telefono;
     return this;
   }
@@ -151,14 +151,14 @@ public final class Profile extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
   /**
    * @param userId userId or {@code null} for none
    */
-  public Profile setUserId(String userId) {
+  public Profile setUserId(java.lang.String userId) {
     this.userId = userId;
     return this;
   }
@@ -166,14 +166,14 @@ public final class Profile extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getWebsafeKey() {
+  public java.lang.String getWebsafeKey() {
     return websafeKey;
   }
 
   /**
    * @param websafeKey websafeKey or {@code null} for none
    */
-  public Profile setWebsafeKey(String websafeKey) {
+  public Profile setWebsafeKey(java.lang.String websafeKey) {
     this.websafeKey = websafeKey;
     return this;
   }

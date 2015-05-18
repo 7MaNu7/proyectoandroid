@@ -35,19 +35,19 @@ public final class WrappedBoolean extends com.google.api.client.json.GenericJson
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private Boolean result;
+  private java.lang.Boolean result;
 
   /**
    * @return value or {@code null} for none
    */
-  public Boolean getResult() {
+  public java.lang.Boolean getResult() {
     return result;
   }
 
   /**
    * @param result result or {@code null} for none
    */
-  public WrappedBoolean setResult(Boolean result) {
+  public WrappedBoolean setResult(java.lang.Boolean result) {
     this.result = result;
     return this;
   }

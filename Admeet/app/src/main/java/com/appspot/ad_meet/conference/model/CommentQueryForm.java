@@ -35,19 +35,19 @@ public final class CommentQueryForm extends com.google.api.client.json.GenericJs
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String safeKey;
+  private java.lang.String safeKey;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getSafeKey() {
+  public java.lang.String getSafeKey() {
     return safeKey;
   }
 
   /**
    * @param safeKey safeKey or {@code null} for none
    */
-  public CommentQueryForm setSafeKey(String safeKey) {
+  public CommentQueryForm setSafeKey(java.lang.String safeKey) {
     this.safeKey = safeKey;
     return this;
   }

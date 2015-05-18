@@ -24,124 +24,174 @@
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
     android:layout_alignParentEnd="false">
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/field"
-        android:layout_weight="0.11"
-        android:spinnerMode="dropdown"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginTop="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="false" />
 
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/operator"
-        android:layout_weight="0.11"
-        android:spinnerMode="dropdown"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:clickable="true" />
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/tabla">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Introduce un valor:"
-        android:id="@+id/textView2"
-        android:layout_weight="0.11"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="40dp" />
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textoValue"
-        android:layout_weight="0.11"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp" />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/field"
+                    android:layout_weight="0.11"
+                    android:spinnerMode="dropdown"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false" />
+            </TableRow>
 
-    <Button
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:text="Añadir filtro"
-        android:id="@+id/buttonFilter"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.11"
-        android:layout_marginTop="10dp"
-        style="@style/Base.Theme.AppCompat.Dialog"
-        android:singleLine="true"
-        android:background="@drawable/roundcornerblue"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:textColor="#FFFFFF" />
-</LinearLayout>
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/linearLayout5"
-        android:layout_row="1"
-        android:layout_column="9"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="false"
-        android:layout_marginTop="320dp"
-        android:gravity="bottom">
+                <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/operator"
+                android:layout_weight="0.11"
+                android:spinnerMode="dropdown"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="30dp"
+                android:clickable="true" />
+            </TableRow>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/textFiltros"
-            android:layout_below="@+id/linearLayout"
-            android:layout_alignRight="@+id/volver_sin"
-            android:layout_alignEnd="@+id/volver_sin"
-            android:layout_alignLeft="@+id/buttonAcabarFiltros"
-            android:layout_alignStart="@+id/buttonAcabarFiltros"
-            android:gravity="center"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="160dp" />
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
 
-        <Button
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:text="Aplicar todos los filtros"
-            android:id="@+id/buttonAcabarFiltros"
-            android:layout_above="@+id/volver_sin"
-            android:layout_centerHorizontal="true"
-            style="@style/Base.Theme.AppCompat.Dialog"
-            android:background="@drawable/roundcornerblue"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="40dp"
-            android:textColor="#FFFFFF" />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/categoria"
+                    android:layout_weight="0.11"
+                    android:spinnerMode="dropdown"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="30dp"
+                    android:clickable="true"
+                    android:visibility="invisible" />
+            </TableRow>
 
-        <Button
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:text="Volver a eventos sin aplicar"
-            android:id="@+id/volver_sin"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/buttonAcabarFiltros"
-            android:layout_alignStart="@+id/buttonAcabarFiltros"
-            style="@style/Base.Theme.AppCompat.Dialog"
-            android:background="@drawable/roundcornerblue"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:textColor="#FFFFFF" />
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
 
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Introduce un valor:"
+                android:id="@+id/textViewValue"
+                android:layout_weight="0.11"
+                android:layout_marginLeft="45dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="10dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textoValue"
+                android:layout_weight="0.11"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Añadir filtro"
+                android:id="@+id/buttonFilter"
+                    android:layout_weight="0.11"
+                    style="@style/Base.Theme.AppCompat.Dialog"
+                android:singleLine="true"
+                android:background="@drawable/roundcornerblue"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textFiltros"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_alignRight="@+id/volver_sin"
+                    android:layout_alignEnd="@+id/volver_sin"
+                    android:layout_alignLeft="@+id/buttonAcabarFiltros"
+                    android:layout_alignStart="@+id/buttonAcabarFiltros"
+                    android:gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="40dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <Button
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:text="Aplicar todos los filtros"
+                    android:id="@+id/buttonAcabarFiltros"
+                    android:layout_above="@+id/volver_sin"
+                    android:layout_centerHorizontal="true"
+                    style="@style/Base.Theme.AppCompat.Dialog"
+                    android:background="@drawable/roundcornerblue"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginTop="40dp"
+                    android:textColor="#FFFFFF" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Volver a eventos sin aplicar"
+                    android:id="@+id/volver_sin"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignLeft="@+id/buttonAcabarFiltros"
+                    android:layout_alignStart="@+id/buttonAcabarFiltros"
+                    style="@style/Base.Theme.AppCompat.Dialog"
+                    android:background="@drawable/roundcornerblue"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="50dp"
+                    android:textColor="#FFFFFF" />
+            </TableRow>
+
+        </TableLayout>
     </LinearLayout>
 
 </RelativeLayout>

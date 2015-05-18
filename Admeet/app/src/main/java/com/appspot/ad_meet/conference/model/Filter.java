@@ -35,31 +35,31 @@ public final class Filter extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String field;
+  private java.lang.String field;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String operator;
+  private java.lang.String operator;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String value;
+  private java.lang.String value;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getField() {
+  public java.lang.String getField() {
     return field;
   }
 
   /**
    * @param field field or {@code null} for none
    */
-  public Filter setField(String field) {
+  public Filter setField(java.lang.String field) {
     this.field = field;
     return this;
   }
@@ -67,14 +67,14 @@ public final class Filter extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getOperator() {
+  public java.lang.String getOperator() {
     return operator;
   }
 
   /**
    * @param operator operator or {@code null} for none
    */
-  public Filter setOperator(String operator) {
+  public Filter setOperator(java.lang.String operator) {
     this.operator = operator;
     return this;
   }
@@ -82,14 +82,14 @@ public final class Filter extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getValue() {
+  public java.lang.String getValue() {
     return value;
   }
 
   /**
    * @param value value or {@code null} for none
    */
-  public Filter setValue(String value) {
+  public Filter setValue(java.lang.String value) {
     this.value = value;
     return this;
   }

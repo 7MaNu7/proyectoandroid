@@ -35,61 +35,61 @@ public final class Conference extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String city;
+  private java.lang.String city;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<String> comments;
+  private java.util.List<java.lang.String> comments;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String description;
+  private java.lang.String description;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
-  private Long id;
+  private java.lang.Long id;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private Integer maxAttendees;
+  private java.lang.Integer maxAttendees;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private Integer month;
+  private java.lang.Integer month;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String name;
+  private java.lang.String name;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String organizerDisplayName;
+  private java.lang.String organizerDisplayName;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<String> participants;
+  private java.util.List<java.lang.String> participants;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private Integer seatsAvailable;
+  private java.lang.Integer seatsAvailable;
 
   /**
    * The value may be {@code null}.
@@ -101,25 +101,25 @@ public final class Conference extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<String> topics;
+  private java.util.List<java.lang.String> topics;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String websafeKey;
+  private java.lang.String websafeKey;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getCity() {
+  public java.lang.String getCity() {
     return city;
   }
 
   /**
    * @param city city or {@code null} for none
    */
-  public Conference setCity(String city) {
+  public Conference setCity(java.lang.String city) {
     this.city = city;
     return this;
   }
@@ -127,14 +127,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<String> getComments() {
+  public java.util.List<java.lang.String> getComments() {
     return comments;
   }
 
   /**
    * @param comments comments or {@code null} for none
    */
-  public Conference setComments(java.util.List<String> comments) {
+  public Conference setComments(java.util.List<java.lang.String> comments) {
     this.comments = comments;
     return this;
   }
@@ -142,14 +142,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
   /**
    * @param description description or {@code null} for none
    */
-  public Conference setDescription(String description) {
+  public Conference setDescription(java.lang.String description) {
     this.description = description;
     return this;
   }
@@ -157,14 +157,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public Long getId() {
+  public java.lang.Long getId() {
     return id;
   }
 
   /**
    * @param id id or {@code null} for none
    */
-  public Conference setId(Long id) {
+  public Conference setId(java.lang.Long id) {
     this.id = id;
     return this;
   }
@@ -172,14 +172,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public Integer getMaxAttendees() {
+  public java.lang.Integer getMaxAttendees() {
     return maxAttendees;
   }
 
   /**
    * @param maxAttendees maxAttendees or {@code null} for none
    */
-  public Conference setMaxAttendees(Integer maxAttendees) {
+  public Conference setMaxAttendees(java.lang.Integer maxAttendees) {
     this.maxAttendees = maxAttendees;
     return this;
   }
@@ -187,14 +187,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public Integer getMonth() {
+  public java.lang.Integer getMonth() {
     return month;
   }
 
   /**
    * @param month month or {@code null} for none
    */
-  public Conference setMonth(Integer month) {
+  public Conference setMonth(java.lang.Integer month) {
     this.month = month;
     return this;
   }
@@ -202,14 +202,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   /**
    * @param name name or {@code null} for none
    */
-  public Conference setName(String name) {
+  public Conference setName(java.lang.String name) {
     this.name = name;
     return this;
   }
@@ -217,14 +217,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getOrganizerDisplayName() {
+  public java.lang.String getOrganizerDisplayName() {
     return organizerDisplayName;
   }
 
   /**
    * @param organizerDisplayName organizerDisplayName or {@code null} for none
    */
-  public Conference setOrganizerDisplayName(String organizerDisplayName) {
+  public Conference setOrganizerDisplayName(java.lang.String organizerDisplayName) {
     this.organizerDisplayName = organizerDisplayName;
     return this;
   }
@@ -232,14 +232,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<String> getParticipants() {
+  public java.util.List<java.lang.String> getParticipants() {
     return participants;
   }
 
   /**
    * @param participants participants or {@code null} for none
    */
-  public Conference setParticipants(java.util.List<String> participants) {
+  public Conference setParticipants(java.util.List<java.lang.String> participants) {
     this.participants = participants;
     return this;
   }
@@ -247,14 +247,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public Integer getSeatsAvailable() {
+  public java.lang.Integer getSeatsAvailable() {
     return seatsAvailable;
   }
 
   /**
    * @param seatsAvailable seatsAvailable or {@code null} for none
    */
-  public Conference setSeatsAvailable(Integer seatsAvailable) {
+  public Conference setSeatsAvailable(java.lang.Integer seatsAvailable) {
     this.seatsAvailable = seatsAvailable;
     return this;
   }
@@ -277,14 +277,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<String> getTopics() {
+  public java.util.List<java.lang.String> getTopics() {
     return topics;
   }
 
   /**
    * @param topics topics or {@code null} for none
    */
-  public Conference setTopics(java.util.List<String> topics) {
+  public Conference setTopics(java.util.List<java.lang.String> topics) {
     this.topics = topics;
     return this;
   }
@@ -292,14 +292,14 @@ public final class Conference extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getWebsafeKey() {
+  public java.lang.String getWebsafeKey() {
     return websafeKey;
   }
 
   /**
    * @param websafeKey websafeKey or {@code null} for none
    */
-  public Conference setWebsafeKey(String websafeKey) {
+  public Conference setWebsafeKey(java.lang.String websafeKey) {
     this.websafeKey = websafeKey;
     return this;
   }

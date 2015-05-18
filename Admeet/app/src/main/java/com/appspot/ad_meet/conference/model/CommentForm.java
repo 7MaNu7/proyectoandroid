@@ -35,25 +35,25 @@ public final class CommentForm extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String comment;
+  private java.lang.String comment;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String webSafeKey;
+  private java.lang.String webSafeKey;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getComment() {
+  public java.lang.String getComment() {
     return comment;
   }
 
   /**
    * @param comment comment or {@code null} for none
    */
-  public CommentForm setComment(String comment) {
+  public CommentForm setComment(java.lang.String comment) {
     this.comment = comment;
     return this;
   }
@@ -61,14 +61,14 @@ public final class CommentForm extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getWebSafeKey() {
+  public java.lang.String getWebSafeKey() {
     return webSafeKey;
   }
 
   /**
    * @param webSafeKey webSafeKey or {@code null} for none
    */
-  public CommentForm setWebSafeKey(String webSafeKey) {
+  public CommentForm setWebSafeKey(java.lang.String webSafeKey) {
     this.webSafeKey = webSafeKey;
     return this;
   }

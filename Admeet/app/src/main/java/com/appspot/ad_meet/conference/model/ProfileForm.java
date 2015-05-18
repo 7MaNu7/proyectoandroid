@@ -35,31 +35,31 @@ public final class ProfileForm extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String ciudad;
+  private java.lang.String ciudad;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String displayName;
+  private java.lang.String displayName;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String telefono;
+  private java.lang.String telefono;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getCiudad() {
+  public java.lang.String getCiudad() {
     return ciudad;
   }
 
   /**
    * @param ciudad ciudad or {@code null} for none
    */
-  public ProfileForm setCiudad(String ciudad) {
+  public ProfileForm setCiudad(java.lang.String ciudad) {
     this.ciudad = ciudad;
     return this;
   }
@@ -67,14 +67,14 @@ public final class ProfileForm extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getDisplayName() {
+  public java.lang.String getDisplayName() {
     return displayName;
   }
 
   /**
    * @param displayName displayName or {@code null} for none
    */
-  public ProfileForm setDisplayName(String displayName) {
+  public ProfileForm setDisplayName(java.lang.String displayName) {
     this.displayName = displayName;
     return this;
   }
@@ -82,14 +82,14 @@ public final class ProfileForm extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getTelefono() {
+  public java.lang.String getTelefono() {
     return telefono;
   }
 
   /**
    * @param telefono telefono or {@code null} for none
    */
-  public ProfileForm setTelefono(String telefono) {
+  public ProfileForm setTelefono(java.lang.String telefono) {
     this.telefono = telefono;
     return this;
   }

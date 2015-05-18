@@ -35,25 +35,25 @@ public final class ConferenceForm extends com.google.api.client.json.GenericJson
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String city;
+  private java.lang.String city;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String description;
+  private java.lang.String description;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private Integer maxAttendees;
+  private java.lang.Integer maxAttendees;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String name;
+  private java.lang.String name;
 
   /**
    * The value may be {@code null}.
@@ -65,19 +65,19 @@ public final class ConferenceForm extends com.google.api.client.json.GenericJson
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private java.util.List<String> topics;
+  private java.util.List<java.lang.String> topics;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getCity() {
+  public java.lang.String getCity() {
     return city;
   }
 
   /**
    * @param city city or {@code null} for none
    */
-  public ConferenceForm setCity(String city) {
+  public ConferenceForm setCity(java.lang.String city) {
     this.city = city;
     return this;
   }
@@ -85,14 +85,14 @@ public final class ConferenceForm extends com.google.api.client.json.GenericJson
   /**
    * @return value or {@code null} for none
    */
-  public String getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
   /**
    * @param description description or {@code null} for none
    */
-  public ConferenceForm setDescription(String description) {
+  public ConferenceForm setDescription(java.lang.String description) {
     this.description = description;
     return this;
   }
@@ -100,14 +100,14 @@ public final class ConferenceForm extends com.google.api.client.json.GenericJson
   /**
    * @return value or {@code null} for none
    */
-  public Integer getMaxAttendees() {
+  public java.lang.Integer getMaxAttendees() {
     return maxAttendees;
   }
 
   /**
    * @param maxAttendees maxAttendees or {@code null} for none
    */
-  public ConferenceForm setMaxAttendees(Integer maxAttendees) {
+  public ConferenceForm setMaxAttendees(java.lang.Integer maxAttendees) {
     this.maxAttendees = maxAttendees;
     return this;
   }
@@ -115,14 +115,14 @@ public final class ConferenceForm extends com.google.api.client.json.GenericJson
   /**
    * @return value or {@code null} for none
    */
-  public String getName() {
+  public java.lang.String getName() {
     return name;
   }
 
   /**
    * @param name name or {@code null} for none
    */
-  public ConferenceForm setName(String name) {
+  public ConferenceForm setName(java.lang.String name) {
     this.name = name;
     return this;
   }
@@ -145,14 +145,14 @@ public final class ConferenceForm extends com.google.api.client.json.GenericJson
   /**
    * @return value or {@code null} for none
    */
-  public java.util.List<String> getTopics() {
+  public java.util.List<java.lang.String> getTopics() {
     return topics;
   }
 
   /**
    * @param topics topics or {@code null} for none
    */
-  public ConferenceForm setTopics(java.util.List<String> topics) {
+  public ConferenceForm setTopics(java.util.List<java.lang.String> topics) {
     this.topics = topics;
     return this;
   }

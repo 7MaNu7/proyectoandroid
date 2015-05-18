@@ -1,7 +1,6 @@
 package com.taesua.admeet.admeet;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -34,11 +33,14 @@ public class Filtros extends ActionBarActivity {
     private DrawerLayout drawerLayout = null;
     private ListView listView;
 
+    Activity activity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filtros);
 
+        activity = this.activity;
 
         listView = (ListView) findViewById(R.id.list_view);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -78,14 +80,25 @@ public class Filtros extends ActionBarActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu48);
 
 
-
-
         final Spinner spinnerField = (Spinner) findViewById(R.id.field);
         final Spinner spinnerOperador = (Spinner) findViewById(R.id.operator);
-        final TextView smalltext = (TextView) findViewById(R.id.textView2);
+        final Spinner spinnerCategoria = (Spinner) findViewById(R.id.categoria);
+        final TextView smalltext = (TextView) findViewById(R.id.textViewValue);
         final TextView filtrosStack = (TextView) findViewById(R.id.textFiltros);
         final EditText value = (EditText) findViewById(R.id.textoValue);
+        final TextView titulovalue = (TextView) findViewById(R.id.textViewValue);
         final Button aplicar = (Button) findViewById(R.id.buttonFilter);
+
+        //Rellenando categorias disponibles en sipnner
+        final List<String> listcat = new ArrayList<String>();
+        listcat.add("Cultura");
+        listcat.add("Deportes");
+        listcat.add("Fiesta");
+        listcat.add("Otros");
+
+        ArrayAdapter<String> dataAdaptercat = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listcat);
+        dataAdaptercat.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCategoria.setAdapter(dataAdaptercat);
 
         spinnerField.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -100,6 +113,13 @@ public class Filtros extends ActionBarActivity {
                 {
                     value.setInputType(InputType.TYPE_CLASS_TEXT);
                 }
+
+                if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría"))
+                {
+                    spinnerCategoria.setVisibility(View.VISIBLE);
+                    titulovalue.setVisibility(View.INVISIBLE);
+                    value.setVisibility(View.INVISIBLE);
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -107,15 +127,16 @@ public class Filtros extends ActionBarActivity {
             }
         });
 
+
         filtrosStack.setText("Has creado los siguientes filtros:\n");
 
         //final Spinner spinnerValue = (Spinner) findViewById(R.id.value);
         final List<String> listfield = new ArrayList<String>();
         //listfield.add("Select field");
-        listfield.add("CITY");
-        listfield.add("TOPIC");
-        listfield.add("MONTH");
-        listfield.add("MAX_ATTENDEES");
+        listfield.add("Ciudad");
+        listfield.add("Categoría");
+        listfield.add("Mes");
+        listfield.add("Máximo nº de asistentes");
         ArrayAdapter<String> dataAdapterfield = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, listfield);
         dataAdapterfield.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -145,7 +166,16 @@ public class Filtros extends ActionBarActivity {
                     Intent intent = new Intent(Filtros.this,MainActivity.class);
 
                     for(int i=0;i<fields.size();i++) {
-                        intent.putExtra("field" + i,fields.get(i));
+                        String filtro = "";
+                        if(spinnerField.getItemAtPosition(i).toString().equals("Categoría"))
+                            filtro = "TOPIC";
+                        else if(spinnerField.getItemAtPosition(i).toString().equals("Ciudad"))
+                            filtro = "CITY";
+                        else if(spinnerField.getItemAtPosition(i).toString().equals("Máximo nº de asistentes"))
+                            filtro = "MAX_ATTENDES";
+                        else if(spinnerField.getItemAtPosition(i).toString().equals("Mes"))
+                            filtro = "MONTH";
+                        intent.putExtra("field" + i,filtro);
                         intent.putExtra("operator" + i,operators.get(i));
                         intent.putExtra("value" + i,values.get(i));
                     }
@@ -177,13 +207,23 @@ public class Filtros extends ActionBarActivity {
         aplicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (value.getText().toString().equals("")) //si esta vacio, validar
+                if (value.getText().toString().equals("") &&
+                        !(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría"))) //si esta vacio, validar
                 {
                     value.setError("¡No se puede dejar vacío el campo de valor!");
                 }
                 else
                 {
-                    fields.add(spinnerField.getSelectedItem().toString());
+                    String filtro = "";
+                    if(spinnerField.getSelectedItem().toString().equals("Categoría"))
+                        filtro = "TOPIC";
+                    else if(spinnerField.getSelectedItem().toString().equals("Ciudad"))
+                        filtro = "CITY";
+                    else if(spinnerField.getSelectedItem().toString().equals("Máximo nº de asistentes"))
+                        filtro = "MAX_ATTENDES";
+                    else if(spinnerField.getSelectedItem().toString().equals("Mes"))
+                        filtro = "MONTH";
+                    fields.add(filtro);
                     String s = spinnerOperador.getSelectedItem().toString();
                     String res = "";
 
@@ -210,16 +250,47 @@ public class Filtros extends ActionBarActivity {
 
                     operators.add(res);
 
-                    values.add(value.getText().toString());
+                    if(spinnerField.getSelectedItem().toString().equals("Categoría"))
+                        filtro = "TOPIC";
+                    else if(spinnerField.getSelectedItem().toString().equals("Ciudad"))
+                        filtro = "CITY";
+                    else if(spinnerField.getSelectedItem().toString().equals("Máximo nº de asistentes"))
+                        filtro = "MAX_ATTENDES";
+                    else if(spinnerField.getSelectedItem().toString().equals("Mes"))
+                        filtro = "MONTH";
 
-                    filtrosStack.append("{" + spinnerField.getSelectedItem().toString() +
-                            " " + spinnerOperador.getSelectedItem().toString() +
-                            " " + value.getText().toString() + "}\n");
+
+
+                    if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría"))
+                    {
+                        String category = spinnerCategoria.getItemAtPosition(spinnerCategoria.getSelectedItemPosition()).toString();
+                        values.add(category);
+                        filtrosStack.append("{" + filtro +
+                                " " + spinnerOperador.getSelectedItem().toString() +
+                                " " + category + "}\n");
+                    }
+                    else
+                    {
+                        values.add(value.getText().toString());
+                        filtrosStack.append("{" + filtro +
+                                " " + spinnerOperador.getSelectedItem().toString() +
+                                " " + value.getText().toString() + "}\n");
+                    }
+
+
 
                     spinnerField.setSelection(0);
                     spinnerOperador.setSelection(0);
                     value.getText().clear();
                     acabar.setVisibility(View.VISIBLE);
+
+
+                   // InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(activity.INPUT_METHOD_SERVICE);
+                   // inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
+                    //Apariencia a como estaba
+                    spinnerCategoria.setVisibility(View.INVISIBLE);
+                    titulovalue.setVisibility(View.VISIBLE);
+                    value.setVisibility(View.VISIBLE);
                 }
             }
         });

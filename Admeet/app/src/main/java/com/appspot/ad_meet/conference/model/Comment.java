@@ -35,43 +35,43 @@ public final class Comment extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String comment;
+  private java.lang.String comment;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
-  private Long eventId;
+  private java.lang.Long eventId;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key @com.google.api.client.json.JsonString
-  private Long id;
+  private java.lang.Long id;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String userId;
+  private java.lang.String userId;
 
   /**
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String websafeKey;
+  private java.lang.String websafeKey;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getComment() {
+  public java.lang.String getComment() {
     return comment;
   }
 
   /**
    * @param comment comment or {@code null} for none
    */
-  public Comment setComment(String comment) {
+  public Comment setComment(java.lang.String comment) {
     this.comment = comment;
     return this;
   }
@@ -79,14 +79,14 @@ public final class Comment extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public Long getEventId() {
+  public java.lang.Long getEventId() {
     return eventId;
   }
 
   /**
    * @param eventId eventId or {@code null} for none
    */
-  public Comment setEventId(Long eventId) {
+  public Comment setEventId(java.lang.Long eventId) {
     this.eventId = eventId;
     return this;
   }
@@ -94,14 +94,14 @@ public final class Comment extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public Long getId() {
+  public java.lang.Long getId() {
     return id;
   }
 
   /**
    * @param id id or {@code null} for none
    */
-  public Comment setId(Long id) {
+  public Comment setId(java.lang.Long id) {
     this.id = id;
     return this;
   }
@@ -109,14 +109,14 @@ public final class Comment extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
   /**
    * @param userId userId or {@code null} for none
    */
-  public Comment setUserId(String userId) {
+  public Comment setUserId(java.lang.String userId) {
     this.userId = userId;
     return this;
   }
@@ -124,14 +124,14 @@ public final class Comment extends com.google.api.client.json.GenericJson {
   /**
    * @return value or {@code null} for none
    */
-  public String getWebsafeKey() {
+  public java.lang.String getWebsafeKey() {
     return websafeKey;
   }
 
   /**
    * @param websafeKey websafeKey or {@code null} for none
    */
-  public Comment setWebsafeKey(String websafeKey) {
+  public Comment setWebsafeKey(java.lang.String websafeKey) {
     this.websafeKey = websafeKey;
     return this;
   }

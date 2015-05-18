@@ -35,19 +35,19 @@ public final class Announcement extends com.google.api.client.json.GenericJson {
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String message;
+  private java.lang.String message;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getMessage() {
+  public java.lang.String getMessage() {
     return message;
   }
 
   /**
    * @param message message or {@code null} for none
    */
-  public Announcement setMessage(String message) {
+  public Announcement setMessage(java.lang.String message) {
     this.message = message;
     return this;
   }

@@ -35,19 +35,19 @@ public final class ProfileQueryForm extends com.google.api.client.json.GenericJs
    * The value may be {@code null}.
    */
   @com.google.api.client.util.Key
-  private String userId;
+  private java.lang.String userId;
 
   /**
    * @return value or {@code null} for none
    */
-  public String getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
   /**
    * @param userId userId or {@code null} for none
    */
-  public ProfileQueryForm setUserId(String userId) {
+  public ProfileQueryForm setUserId(java.lang.String userId) {
     this.userId = userId;
     return this;
   }

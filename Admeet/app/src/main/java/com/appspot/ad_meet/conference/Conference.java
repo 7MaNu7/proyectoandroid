@@ -18,14 +18,6 @@
 
 package com.appspot.ad_meet.conference;
 
-import com.appspot.ad_meet.conference.model.Announcement;
-import com.appspot.ad_meet.conference.model.Comment;
-import com.appspot.ad_meet.conference.model.CommentCollection;
-import com.appspot.ad_meet.conference.model.ConferenceCollection;
-import com.appspot.ad_meet.conference.model.Profile;
-import com.appspot.ad_meet.conference.model.ProfileCollection;
-import com.appspot.ad_meet.conference.model.WrappedBoolean;
-
 /**
  * Service definition for Conference (v1).
  *
@@ -139,7 +131,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class CreateComment extends ConferenceRequest<Comment> {
+  public class CreateComment extends ConferenceRequest<com.appspot.ad_meet.conference.model.Comment> {
 
     private static final String REST_PATH = "createcomment";
 
@@ -148,7 +140,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link CreateComment#execute()} method to invoke the remote
-     * operation. <p> {@link CreateComment# initialize(com.google.api.client.googleapis.services.Abstra
+     * operation. <p> {@link CreateComment#initialize(com.google.api.client.googleapis.services.Abstra
      * ctGoogleClientRequest)} must be called to initialize this instance immediately after invoking
      * the constructor. </p>
      *
@@ -156,41 +148,41 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @since 1.13
      */
     protected CreateComment(com.appspot.ad_meet.conference.model.CommentForm content) {
-      super(Conference.this, "POST", REST_PATH, content, Comment.class);
+      super(Conference.this, "POST", REST_PATH, content, com.appspot.ad_meet.conference.model.Comment.class);
     }
 
     @Override
-    public CreateComment setAlt(String alt) {
+    public CreateComment setAlt(java.lang.String alt) {
       return (CreateComment) super.setAlt(alt);
     }
 
     @Override
-    public CreateComment setFields(String fields) {
+    public CreateComment setFields(java.lang.String fields) {
       return (CreateComment) super.setFields(fields);
     }
 
     @Override
-    public CreateComment setKey(String key) {
+    public CreateComment setKey(java.lang.String key) {
       return (CreateComment) super.setKey(key);
     }
 
     @Override
-    public CreateComment setOauthToken(String oauthToken) {
+    public CreateComment setOauthToken(java.lang.String oauthToken) {
       return (CreateComment) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public CreateComment setPrettyPrint(Boolean prettyPrint) {
+    public CreateComment setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (CreateComment) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public CreateComment setQuotaUser(String quotaUser) {
+    public CreateComment setQuotaUser(java.lang.String quotaUser) {
       return (CreateComment) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public CreateComment setUserIp(String userIp) {
+    public CreateComment setUserIp(java.lang.String userIp) {
       return (CreateComment) super.setUserIp(userIp);
     }
 
@@ -224,7 +216,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link CreateConference#execute()} method to invoke the remote
-     * operation. <p> {@link CreateConference# initialize(com.google.api.client.googleapis.services.Abs
+     * operation. <p> {@link CreateConference#initialize(com.google.api.client.googleapis.services.Abs
      * tractGoogleClientRequest)} must be called to initialize this instance immediately after
      * invoking the constructor. </p>
      *
@@ -236,37 +228,37 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     }
 
     @Override
-    public CreateConference setAlt(String alt) {
+    public CreateConference setAlt(java.lang.String alt) {
       return (CreateConference) super.setAlt(alt);
     }
 
     @Override
-    public CreateConference setFields(String fields) {
+    public CreateConference setFields(java.lang.String fields) {
       return (CreateConference) super.setFields(fields);
     }
 
     @Override
-    public CreateConference setKey(String key) {
+    public CreateConference setKey(java.lang.String key) {
       return (CreateConference) super.setKey(key);
     }
 
     @Override
-    public CreateConference setOauthToken(String oauthToken) {
+    public CreateConference setOauthToken(java.lang.String oauthToken) {
       return (CreateConference) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public CreateConference setPrettyPrint(Boolean prettyPrint) {
+    public CreateConference setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (CreateConference) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public CreateConference setQuotaUser(String quotaUser) {
+    public CreateConference setQuotaUser(java.lang.String quotaUser) {
       return (CreateConference) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public CreateConference setUserIp(String userIp) {
+    public CreateConference setUserIp(java.lang.String userIp) {
       return (CreateConference) super.setUserIp(userIp);
     }
 
@@ -290,7 +282,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class GetAnnouncement extends ConferenceRequest<Announcement> {
+  public class GetAnnouncement extends ConferenceRequest<com.appspot.ad_meet.conference.model.Announcement> {
 
     private static final String REST_PATH = "announcement";
 
@@ -299,14 +291,14 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link GetAnnouncement#execute()} method to invoke the remote
-     * operation. <p> {@link GetAnnouncement# initialize(com.google.api.client.googleapis.services.Abst
+     * operation. <p> {@link GetAnnouncement#initialize(com.google.api.client.googleapis.services.Abst
      * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
      * the constructor. </p>
      *
      * @since 1.13
      */
     protected GetAnnouncement() {
-      super(Conference.this, "GET", REST_PATH, null, Announcement.class);
+      super(Conference.this, "GET", REST_PATH, null, com.appspot.ad_meet.conference.model.Announcement.class);
     }
 
     @Override
@@ -320,37 +312,37 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     }
 
     @Override
-    public GetAnnouncement setAlt(String alt) {
+    public GetAnnouncement setAlt(java.lang.String alt) {
       return (GetAnnouncement) super.setAlt(alt);
     }
 
     @Override
-    public GetAnnouncement setFields(String fields) {
+    public GetAnnouncement setFields(java.lang.String fields) {
       return (GetAnnouncement) super.setFields(fields);
     }
 
     @Override
-    public GetAnnouncement setKey(String key) {
+    public GetAnnouncement setKey(java.lang.String key) {
       return (GetAnnouncement) super.setKey(key);
     }
 
     @Override
-    public GetAnnouncement setOauthToken(String oauthToken) {
+    public GetAnnouncement setOauthToken(java.lang.String oauthToken) {
       return (GetAnnouncement) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public GetAnnouncement setPrettyPrint(Boolean prettyPrint) {
+    public GetAnnouncement setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (GetAnnouncement) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public GetAnnouncement setQuotaUser(String quotaUser) {
+    public GetAnnouncement setQuotaUser(java.lang.String quotaUser) {
       return (GetAnnouncement) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public GetAnnouncement setUserIp(String userIp) {
+    public GetAnnouncement setUserIp(java.lang.String userIp) {
       return (GetAnnouncement) super.setUserIp(userIp);
     }
 
@@ -375,7 +367,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class GetComments extends ConferenceRequest<CommentCollection> {
+  public class GetComments extends ConferenceRequest<com.appspot.ad_meet.conference.model.CommentCollection> {
 
     private static final String REST_PATH = "getComments";
 
@@ -392,41 +384,41 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @since 1.13
      */
     protected GetComments(com.appspot.ad_meet.conference.model.CommentQueryForm content) {
-      super(Conference.this, "POST", REST_PATH, content, CommentCollection.class);
+      super(Conference.this, "POST", REST_PATH, content, com.appspot.ad_meet.conference.model.CommentCollection.class);
     }
 
     @Override
-    public GetComments setAlt(String alt) {
+    public GetComments setAlt(java.lang.String alt) {
       return (GetComments) super.setAlt(alt);
     }
 
     @Override
-    public GetComments setFields(String fields) {
+    public GetComments setFields(java.lang.String fields) {
       return (GetComments) super.setFields(fields);
     }
 
     @Override
-    public GetComments setKey(String key) {
+    public GetComments setKey(java.lang.String key) {
       return (GetComments) super.setKey(key);
     }
 
     @Override
-    public GetComments setOauthToken(String oauthToken) {
+    public GetComments setOauthToken(java.lang.String oauthToken) {
       return (GetComments) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public GetComments setPrettyPrint(Boolean prettyPrint) {
+    public GetComments setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (GetComments) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public GetComments setQuotaUser(String quotaUser) {
+    public GetComments setQuotaUser(java.lang.String quotaUser) {
       return (GetComments) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public GetComments setUserIp(String userIp) {
+    public GetComments setUserIp(java.lang.String userIp) {
       return (GetComments) super.setUserIp(userIp);
     }
 
@@ -445,7 +437,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
    * @param websafeConferenceKey
    * @return the request
    */
-  public GetConference getConference(String websafeConferenceKey) throws java.io.IOException {
+  public GetConference getConference(java.lang.String websafeConferenceKey) throws java.io.IOException {
     GetConference result = new GetConference(websafeConferenceKey);
     initialize(result);
     return result;
@@ -460,14 +452,14 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link GetConference#execute()} method to invoke the remote
-     * operation. <p> {@link GetConference# initialize(com.google.api.client.googleapis.services.Abstra
+     * operation. <p> {@link GetConference#initialize(com.google.api.client.googleapis.services.Abstra
      * ctGoogleClientRequest)} must be called to initialize this instance immediately after invoking
      * the constructor. </p>
      *
      * @param websafeConferenceKey
      * @since 1.13
      */
-    protected GetConference(String websafeConferenceKey) {
+    protected GetConference(java.lang.String websafeConferenceKey) {
       super(Conference.this, "GET", REST_PATH, null, com.appspot.ad_meet.conference.model.Conference.class);
       this.websafeConferenceKey = com.google.api.client.util.Preconditions.checkNotNull(websafeConferenceKey, "Required parameter websafeConferenceKey must be specified.");
     }
@@ -483,51 +475,51 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     }
 
     @Override
-    public GetConference setAlt(String alt) {
+    public GetConference setAlt(java.lang.String alt) {
       return (GetConference) super.setAlt(alt);
     }
 
     @Override
-    public GetConference setFields(String fields) {
+    public GetConference setFields(java.lang.String fields) {
       return (GetConference) super.setFields(fields);
     }
 
     @Override
-    public GetConference setKey(String key) {
+    public GetConference setKey(java.lang.String key) {
       return (GetConference) super.setKey(key);
     }
 
     @Override
-    public GetConference setOauthToken(String oauthToken) {
+    public GetConference setOauthToken(java.lang.String oauthToken) {
       return (GetConference) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public GetConference setPrettyPrint(Boolean prettyPrint) {
+    public GetConference setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (GetConference) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public GetConference setQuotaUser(String quotaUser) {
+    public GetConference setQuotaUser(java.lang.String quotaUser) {
       return (GetConference) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public GetConference setUserIp(String userIp) {
+    public GetConference setUserIp(java.lang.String userIp) {
       return (GetConference) super.setUserIp(userIp);
     }
 
     @com.google.api.client.util.Key
-    private String websafeConferenceKey;
+    private java.lang.String websafeConferenceKey;
 
     /**
 
      */
-    public String getWebsafeConferenceKey() {
+    public java.lang.String getWebsafeConferenceKey() {
       return websafeConferenceKey;
     }
 
-    public GetConference setWebsafeConferenceKey(String websafeConferenceKey) {
+    public GetConference setWebsafeConferenceKey(java.lang.String websafeConferenceKey) {
       this.websafeConferenceKey = websafeConferenceKey;
       return this;
     }
@@ -553,7 +545,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class GetConferencesCreated extends ConferenceRequest<ConferenceCollection> {
+  public class GetConferencesCreated extends ConferenceRequest<com.appspot.ad_meet.conference.model.ConferenceCollection> {
 
     private static final String REST_PATH = "getConferencesCreated";
 
@@ -562,48 +554,48 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link GetConferencesCreated#execute()} method to invoke the
-     * remote operation. <p> {@link GetConferencesCreated# initialize(com.google.api.client.googleapis.
+     * remote operation. <p> {@link GetConferencesCreated#initialize(com.google.api.client.googleapis.
      * services.AbstractGoogleClientRequest)} must be called to initialize this instance immediately
      * after invoking the constructor. </p>
      *
      * @since 1.13
      */
     protected GetConferencesCreated() {
-      super(Conference.this, "POST", REST_PATH, null, ConferenceCollection.class);
+      super(Conference.this, "POST", REST_PATH, null, com.appspot.ad_meet.conference.model.ConferenceCollection.class);
     }
 
     @Override
-    public GetConferencesCreated setAlt(String alt) {
+    public GetConferencesCreated setAlt(java.lang.String alt) {
       return (GetConferencesCreated) super.setAlt(alt);
     }
 
     @Override
-    public GetConferencesCreated setFields(String fields) {
+    public GetConferencesCreated setFields(java.lang.String fields) {
       return (GetConferencesCreated) super.setFields(fields);
     }
 
     @Override
-    public GetConferencesCreated setKey(String key) {
+    public GetConferencesCreated setKey(java.lang.String key) {
       return (GetConferencesCreated) super.setKey(key);
     }
 
     @Override
-    public GetConferencesCreated setOauthToken(String oauthToken) {
+    public GetConferencesCreated setOauthToken(java.lang.String oauthToken) {
       return (GetConferencesCreated) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public GetConferencesCreated setPrettyPrint(Boolean prettyPrint) {
+    public GetConferencesCreated setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (GetConferencesCreated) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public GetConferencesCreated setQuotaUser(String quotaUser) {
+    public GetConferencesCreated setQuotaUser(java.lang.String quotaUser) {
       return (GetConferencesCreated) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public GetConferencesCreated setUserIp(String userIp) {
+    public GetConferencesCreated setUserIp(java.lang.String userIp) {
       return (GetConferencesCreated) super.setUserIp(userIp);
     }
 
@@ -628,7 +620,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class GetConferencesToAttend extends ConferenceRequest<ConferenceCollection> {
+  public class GetConferencesToAttend extends ConferenceRequest<com.appspot.ad_meet.conference.model.ConferenceCollection> {
 
     private static final String REST_PATH = "getConferencesToAttend";
 
@@ -637,14 +629,14 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link GetConferencesToAttend#execute()} method to invoke the
-     * remote operation. <p> {@link GetConferencesToAttend# initialize(com.google.api.client.googleapis
+     * remote operation. <p> {@link GetConferencesToAttend#initialize(com.google.api.client.googleapis
      * .services.AbstractGoogleClientRequest)} must be called to initialize this instance immediately
      * after invoking the constructor. </p>
      *
      * @since 1.13
      */
     protected GetConferencesToAttend() {
-      super(Conference.this, "GET", REST_PATH, null, ConferenceCollection.class);
+      super(Conference.this, "GET", REST_PATH, null, com.appspot.ad_meet.conference.model.ConferenceCollection.class);
     }
 
     @Override
@@ -658,37 +650,37 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     }
 
     @Override
-    public GetConferencesToAttend setAlt(String alt) {
+    public GetConferencesToAttend setAlt(java.lang.String alt) {
       return (GetConferencesToAttend) super.setAlt(alt);
     }
 
     @Override
-    public GetConferencesToAttend setFields(String fields) {
+    public GetConferencesToAttend setFields(java.lang.String fields) {
       return (GetConferencesToAttend) super.setFields(fields);
     }
 
     @Override
-    public GetConferencesToAttend setKey(String key) {
+    public GetConferencesToAttend setKey(java.lang.String key) {
       return (GetConferencesToAttend) super.setKey(key);
     }
 
     @Override
-    public GetConferencesToAttend setOauthToken(String oauthToken) {
+    public GetConferencesToAttend setOauthToken(java.lang.String oauthToken) {
       return (GetConferencesToAttend) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public GetConferencesToAttend setPrettyPrint(Boolean prettyPrint) {
+    public GetConferencesToAttend setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (GetConferencesToAttend) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public GetConferencesToAttend setQuotaUser(String quotaUser) {
+    public GetConferencesToAttend setQuotaUser(java.lang.String quotaUser) {
       return (GetConferencesToAttend) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public GetConferencesToAttend setUserIp(String userIp) {
+    public GetConferencesToAttend setUserIp(java.lang.String userIp) {
       return (GetConferencesToAttend) super.setUserIp(userIp);
     }
 
@@ -713,7 +705,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class GetParticipants extends ConferenceRequest<ProfileCollection> {
+  public class GetParticipants extends ConferenceRequest<com.appspot.ad_meet.conference.model.ProfileCollection> {
 
     private static final String REST_PATH = "getParticipants";
 
@@ -722,7 +714,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link GetParticipants#execute()} method to invoke the remote
-     * operation. <p> {@link GetParticipants# initialize(com.google.api.client.googleapis.services.Abst
+     * operation. <p> {@link GetParticipants#initialize(com.google.api.client.googleapis.services.Abst
      * ractGoogleClientRequest)} must be called to initialize this instance immediately after invoking
      * the constructor. </p>
      *
@@ -730,41 +722,41 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @since 1.13
      */
     protected GetParticipants(com.appspot.ad_meet.conference.model.CommentQueryForm content) {
-      super(Conference.this, "POST", REST_PATH, content, ProfileCollection.class);
+      super(Conference.this, "POST", REST_PATH, content, com.appspot.ad_meet.conference.model.ProfileCollection.class);
     }
 
     @Override
-    public GetParticipants setAlt(String alt) {
+    public GetParticipants setAlt(java.lang.String alt) {
       return (GetParticipants) super.setAlt(alt);
     }
 
     @Override
-    public GetParticipants setFields(String fields) {
+    public GetParticipants setFields(java.lang.String fields) {
       return (GetParticipants) super.setFields(fields);
     }
 
     @Override
-    public GetParticipants setKey(String key) {
+    public GetParticipants setKey(java.lang.String key) {
       return (GetParticipants) super.setKey(key);
     }
 
     @Override
-    public GetParticipants setOauthToken(String oauthToken) {
+    public GetParticipants setOauthToken(java.lang.String oauthToken) {
       return (GetParticipants) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public GetParticipants setPrettyPrint(Boolean prettyPrint) {
+    public GetParticipants setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (GetParticipants) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public GetParticipants setQuotaUser(String quotaUser) {
+    public GetParticipants setQuotaUser(java.lang.String quotaUser) {
       return (GetParticipants) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public GetParticipants setUserIp(String userIp) {
+    public GetParticipants setUserIp(java.lang.String userIp) {
       return (GetParticipants) super.setUserIp(userIp);
     }
 
@@ -788,7 +780,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class GetProfile extends ConferenceRequest<Profile> {
+  public class GetProfile extends ConferenceRequest<com.appspot.ad_meet.conference.model.Profile> {
 
     private static final String REST_PATH = "profile";
 
@@ -804,7 +796,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @since 1.13
      */
     protected GetProfile() {
-      super(Conference.this, "GET", REST_PATH, null, Profile.class);
+      super(Conference.this, "GET", REST_PATH, null, com.appspot.ad_meet.conference.model.Profile.class);
     }
 
     @Override
@@ -818,37 +810,37 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     }
 
     @Override
-    public GetProfile setAlt(String alt) {
+    public GetProfile setAlt(java.lang.String alt) {
       return (GetProfile) super.setAlt(alt);
     }
 
     @Override
-    public GetProfile setFields(String fields) {
+    public GetProfile setFields(java.lang.String fields) {
       return (GetProfile) super.setFields(fields);
     }
 
     @Override
-    public GetProfile setKey(String key) {
+    public GetProfile setKey(java.lang.String key) {
       return (GetProfile) super.setKey(key);
     }
 
     @Override
-    public GetProfile setOauthToken(String oauthToken) {
+    public GetProfile setOauthToken(java.lang.String oauthToken) {
       return (GetProfile) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public GetProfile setPrettyPrint(Boolean prettyPrint) {
+    public GetProfile setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (GetProfile) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public GetProfile setQuotaUser(String quotaUser) {
+    public GetProfile setQuotaUser(java.lang.String quotaUser) {
       return (GetProfile) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public GetProfile setUserIp(String userIp) {
+    public GetProfile setUserIp(java.lang.String userIp) {
       return (GetProfile) super.setUserIp(userIp);
     }
 
@@ -873,7 +865,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class GetProfileFromId extends ConferenceRequest<Profile> {
+  public class GetProfileFromId extends ConferenceRequest<com.appspot.ad_meet.conference.model.Profile> {
 
     private static final String REST_PATH = "getProfileFromId";
 
@@ -882,7 +874,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link GetProfileFromId#execute()} method to invoke the remote
-     * operation. <p> {@link GetProfileFromId# initialize(com.google.api.client.googleapis.services.Abs
+     * operation. <p> {@link GetProfileFromId#initialize(com.google.api.client.googleapis.services.Abs
      * tractGoogleClientRequest)} must be called to initialize this instance immediately after
      * invoking the constructor. </p>
      *
@@ -890,41 +882,41 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @since 1.13
      */
     protected GetProfileFromId(com.appspot.ad_meet.conference.model.ProfileQueryForm content) {
-      super(Conference.this, "POST", REST_PATH, content, Profile.class);
+      super(Conference.this, "POST", REST_PATH, content, com.appspot.ad_meet.conference.model.Profile.class);
     }
 
     @Override
-    public GetProfileFromId setAlt(String alt) {
+    public GetProfileFromId setAlt(java.lang.String alt) {
       return (GetProfileFromId) super.setAlt(alt);
     }
 
     @Override
-    public GetProfileFromId setFields(String fields) {
+    public GetProfileFromId setFields(java.lang.String fields) {
       return (GetProfileFromId) super.setFields(fields);
     }
 
     @Override
-    public GetProfileFromId setKey(String key) {
+    public GetProfileFromId setKey(java.lang.String key) {
       return (GetProfileFromId) super.setKey(key);
     }
 
     @Override
-    public GetProfileFromId setOauthToken(String oauthToken) {
+    public GetProfileFromId setOauthToken(java.lang.String oauthToken) {
       return (GetProfileFromId) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public GetProfileFromId setPrettyPrint(Boolean prettyPrint) {
+    public GetProfileFromId setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (GetProfileFromId) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public GetProfileFromId setQuotaUser(String quotaUser) {
+    public GetProfileFromId setQuotaUser(java.lang.String quotaUser) {
       return (GetProfileFromId) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public GetProfileFromId setUserIp(String userIp) {
+    public GetProfileFromId setUserIp(java.lang.String userIp) {
       return (GetProfileFromId) super.setUserIp(userIp);
     }
 
@@ -949,7 +941,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class KickFromConference extends ConferenceRequest<WrappedBoolean> {
+  public class KickFromConference extends ConferenceRequest<com.appspot.ad_meet.conference.model.WrappedBoolean> {
 
     private static final String REST_PATH = "kickFromConference";
 
@@ -958,7 +950,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link KickFromConference#execute()} method to invoke the remote
-     * operation. <p> {@link KickFromConference# initialize(com.google.api.client.googleapis.services.A
+     * operation. <p> {@link KickFromConference#initialize(com.google.api.client.googleapis.services.A
      * bstractGoogleClientRequest)} must be called to initialize this instance immediately after
      * invoking the constructor. </p>
      *
@@ -966,41 +958,41 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @since 1.13
      */
     protected KickFromConference(com.appspot.ad_meet.conference.model.KickerForm content) {
-      super(Conference.this, "POST", REST_PATH, content, WrappedBoolean.class);
+      super(Conference.this, "POST", REST_PATH, content, com.appspot.ad_meet.conference.model.WrappedBoolean.class);
     }
 
     @Override
-    public KickFromConference setAlt(String alt) {
+    public KickFromConference setAlt(java.lang.String alt) {
       return (KickFromConference) super.setAlt(alt);
     }
 
     @Override
-    public KickFromConference setFields(String fields) {
+    public KickFromConference setFields(java.lang.String fields) {
       return (KickFromConference) super.setFields(fields);
     }
 
     @Override
-    public KickFromConference setKey(String key) {
+    public KickFromConference setKey(java.lang.String key) {
       return (KickFromConference) super.setKey(key);
     }
 
     @Override
-    public KickFromConference setOauthToken(String oauthToken) {
+    public KickFromConference setOauthToken(java.lang.String oauthToken) {
       return (KickFromConference) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public KickFromConference setPrettyPrint(Boolean prettyPrint) {
+    public KickFromConference setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (KickFromConference) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public KickFromConference setQuotaUser(String quotaUser) {
+    public KickFromConference setQuotaUser(java.lang.String quotaUser) {
       return (KickFromConference) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public KickFromConference setUserIp(String userIp) {
+    public KickFromConference setUserIp(java.lang.String userIp) {
       return (KickFromConference) super.setUserIp(userIp);
     }
 
@@ -1025,7 +1017,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class QueryConferences extends ConferenceRequest<ConferenceCollection> {
+  public class QueryConferences extends ConferenceRequest<com.appspot.ad_meet.conference.model.ConferenceCollection> {
 
     private static final String REST_PATH = "queryConferences";
 
@@ -1034,7 +1026,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link QueryConferences#execute()} method to invoke the remote
-     * operation. <p> {@link QueryConferences# initialize(com.google.api.client.googleapis.services.Abs
+     * operation. <p> {@link QueryConferences#initialize(com.google.api.client.googleapis.services.Abs
      * tractGoogleClientRequest)} must be called to initialize this instance immediately after
      * invoking the constructor. </p>
      *
@@ -1042,41 +1034,41 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @since 1.13
      */
     protected QueryConferences(com.appspot.ad_meet.conference.model.ConferenceQueryForm content) {
-      super(Conference.this, "POST", REST_PATH, content, ConferenceCollection.class);
+      super(Conference.this, "POST", REST_PATH, content, com.appspot.ad_meet.conference.model.ConferenceCollection.class);
     }
 
     @Override
-    public QueryConferences setAlt(String alt) {
+    public QueryConferences setAlt(java.lang.String alt) {
       return (QueryConferences) super.setAlt(alt);
     }
 
     @Override
-    public QueryConferences setFields(String fields) {
+    public QueryConferences setFields(java.lang.String fields) {
       return (QueryConferences) super.setFields(fields);
     }
 
     @Override
-    public QueryConferences setKey(String key) {
+    public QueryConferences setKey(java.lang.String key) {
       return (QueryConferences) super.setKey(key);
     }
 
     @Override
-    public QueryConferences setOauthToken(String oauthToken) {
+    public QueryConferences setOauthToken(java.lang.String oauthToken) {
       return (QueryConferences) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public QueryConferences setPrettyPrint(Boolean prettyPrint) {
+    public QueryConferences setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (QueryConferences) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public QueryConferences setQuotaUser(String quotaUser) {
+    public QueryConferences setQuotaUser(java.lang.String quotaUser) {
       return (QueryConferences) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public QueryConferences setUserIp(String userIp) {
+    public QueryConferences setUserIp(java.lang.String userIp) {
       return (QueryConferences) super.setUserIp(userIp);
     }
 
@@ -1096,13 +1088,13 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
    * @param websafeConferenceKey
    * @return the request
    */
-  public RegisterForConference registerForConference(String websafeConferenceKey) throws java.io.IOException {
+  public RegisterForConference registerForConference(java.lang.String websafeConferenceKey) throws java.io.IOException {
     RegisterForConference result = new RegisterForConference(websafeConferenceKey);
     initialize(result);
     return result;
   }
 
-  public class RegisterForConference extends ConferenceRequest<WrappedBoolean> {
+  public class RegisterForConference extends ConferenceRequest<com.appspot.ad_meet.conference.model.WrappedBoolean> {
 
     private static final String REST_PATH = "conference/{websafeConferenceKey}/registration";
 
@@ -1111,64 +1103,64 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link RegisterForConference#execute()} method to invoke the
-     * remote operation. <p> {@link RegisterForConference# initialize(com.google.api.client.googleapis.
+     * remote operation. <p> {@link RegisterForConference#initialize(com.google.api.client.googleapis.
      * services.AbstractGoogleClientRequest)} must be called to initialize this instance immediately
      * after invoking the constructor. </p>
      *
      * @param websafeConferenceKey
      * @since 1.13
      */
-    protected RegisterForConference(String websafeConferenceKey) {
-      super(Conference.this, "POST", REST_PATH, null, WrappedBoolean.class);
+    protected RegisterForConference(java.lang.String websafeConferenceKey) {
+      super(Conference.this, "POST", REST_PATH, null, com.appspot.ad_meet.conference.model.WrappedBoolean.class);
       this.websafeConferenceKey = com.google.api.client.util.Preconditions.checkNotNull(websafeConferenceKey, "Required parameter websafeConferenceKey must be specified.");
     }
 
     @Override
-    public RegisterForConference setAlt(String alt) {
+    public RegisterForConference setAlt(java.lang.String alt) {
       return (RegisterForConference) super.setAlt(alt);
     }
 
     @Override
-    public RegisterForConference setFields(String fields) {
+    public RegisterForConference setFields(java.lang.String fields) {
       return (RegisterForConference) super.setFields(fields);
     }
 
     @Override
-    public RegisterForConference setKey(String key) {
+    public RegisterForConference setKey(java.lang.String key) {
       return (RegisterForConference) super.setKey(key);
     }
 
     @Override
-    public RegisterForConference setOauthToken(String oauthToken) {
+    public RegisterForConference setOauthToken(java.lang.String oauthToken) {
       return (RegisterForConference) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public RegisterForConference setPrettyPrint(Boolean prettyPrint) {
+    public RegisterForConference setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (RegisterForConference) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public RegisterForConference setQuotaUser(String quotaUser) {
+    public RegisterForConference setQuotaUser(java.lang.String quotaUser) {
       return (RegisterForConference) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public RegisterForConference setUserIp(String userIp) {
+    public RegisterForConference setUserIp(java.lang.String userIp) {
       return (RegisterForConference) super.setUserIp(userIp);
     }
 
     @com.google.api.client.util.Key
-    private String websafeConferenceKey;
+    private java.lang.String websafeConferenceKey;
 
     /**
 
      */
-    public String getWebsafeConferenceKey() {
+    public java.lang.String getWebsafeConferenceKey() {
       return websafeConferenceKey;
     }
 
-    public RegisterForConference setWebsafeConferenceKey(String websafeConferenceKey) {
+    public RegisterForConference setWebsafeConferenceKey(java.lang.String websafeConferenceKey) {
       this.websafeConferenceKey = websafeConferenceKey;
       return this;
     }
@@ -1194,7 +1186,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
     return result;
   }
 
-  public class SaveProfile extends ConferenceRequest<Profile> {
+  public class SaveProfile extends ConferenceRequest<com.appspot.ad_meet.conference.model.Profile> {
 
     private static final String REST_PATH = "profile";
 
@@ -1211,41 +1203,41 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @since 1.13
      */
     protected SaveProfile(com.appspot.ad_meet.conference.model.ProfileForm content) {
-      super(Conference.this, "POST", REST_PATH, content, Profile.class);
+      super(Conference.this, "POST", REST_PATH, content, com.appspot.ad_meet.conference.model.Profile.class);
     }
 
     @Override
-    public SaveProfile setAlt(String alt) {
+    public SaveProfile setAlt(java.lang.String alt) {
       return (SaveProfile) super.setAlt(alt);
     }
 
     @Override
-    public SaveProfile setFields(String fields) {
+    public SaveProfile setFields(java.lang.String fields) {
       return (SaveProfile) super.setFields(fields);
     }
 
     @Override
-    public SaveProfile setKey(String key) {
+    public SaveProfile setKey(java.lang.String key) {
       return (SaveProfile) super.setKey(key);
     }
 
     @Override
-    public SaveProfile setOauthToken(String oauthToken) {
+    public SaveProfile setOauthToken(java.lang.String oauthToken) {
       return (SaveProfile) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public SaveProfile setPrettyPrint(Boolean prettyPrint) {
+    public SaveProfile setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (SaveProfile) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public SaveProfile setQuotaUser(String quotaUser) {
+    public SaveProfile setQuotaUser(java.lang.String quotaUser) {
       return (SaveProfile) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public SaveProfile setUserIp(String userIp) {
+    public SaveProfile setUserIp(java.lang.String userIp) {
       return (SaveProfile) super.setUserIp(userIp);
     }
 
@@ -1265,13 +1257,13 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
    * @param websafeConferenceKey
    * @return the request
    */
-  public UnregisterFromConference unregisterFromConference(String websafeConferenceKey) throws java.io.IOException {
+  public UnregisterFromConference unregisterFromConference(java.lang.String websafeConferenceKey) throws java.io.IOException {
     UnregisterFromConference result = new UnregisterFromConference(websafeConferenceKey);
     initialize(result);
     return result;
   }
 
-  public class UnregisterFromConference extends ConferenceRequest<WrappedBoolean> {
+  public class UnregisterFromConference extends ConferenceRequest<com.appspot.ad_meet.conference.model.WrappedBoolean> {
 
     private static final String REST_PATH = "conference/{websafeConferenceKey}/registration";
 
@@ -1280,64 +1272,64 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link UnregisterFromConference#execute()} method to invoke the
-     * remote operation. <p> {@link UnregisterFromConference# initialize(com.google.api.client.googleap
+     * remote operation. <p> {@link UnregisterFromConference#initialize(com.google.api.client.googleap
      * is.services.AbstractGoogleClientRequest)} must be called to initialize this instance
      * immediately after invoking the constructor. </p>
      *
      * @param websafeConferenceKey
      * @since 1.13
      */
-    protected UnregisterFromConference(String websafeConferenceKey) {
-      super(Conference.this, "DELETE", REST_PATH, null, WrappedBoolean.class);
+    protected UnregisterFromConference(java.lang.String websafeConferenceKey) {
+      super(Conference.this, "DELETE", REST_PATH, null, com.appspot.ad_meet.conference.model.WrappedBoolean.class);
       this.websafeConferenceKey = com.google.api.client.util.Preconditions.checkNotNull(websafeConferenceKey, "Required parameter websafeConferenceKey must be specified.");
     }
 
     @Override
-    public UnregisterFromConference setAlt(String alt) {
+    public UnregisterFromConference setAlt(java.lang.String alt) {
       return (UnregisterFromConference) super.setAlt(alt);
     }
 
     @Override
-    public UnregisterFromConference setFields(String fields) {
+    public UnregisterFromConference setFields(java.lang.String fields) {
       return (UnregisterFromConference) super.setFields(fields);
     }
 
     @Override
-    public UnregisterFromConference setKey(String key) {
+    public UnregisterFromConference setKey(java.lang.String key) {
       return (UnregisterFromConference) super.setKey(key);
     }
 
     @Override
-    public UnregisterFromConference setOauthToken(String oauthToken) {
+    public UnregisterFromConference setOauthToken(java.lang.String oauthToken) {
       return (UnregisterFromConference) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public UnregisterFromConference setPrettyPrint(Boolean prettyPrint) {
+    public UnregisterFromConference setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (UnregisterFromConference) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public UnregisterFromConference setQuotaUser(String quotaUser) {
+    public UnregisterFromConference setQuotaUser(java.lang.String quotaUser) {
       return (UnregisterFromConference) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public UnregisterFromConference setUserIp(String userIp) {
+    public UnregisterFromConference setUserIp(java.lang.String userIp) {
       return (UnregisterFromConference) super.setUserIp(userIp);
     }
 
     @com.google.api.client.util.Key
-    private String websafeConferenceKey;
+    private java.lang.String websafeConferenceKey;
 
     /**
 
      */
-    public String getWebsafeConferenceKey() {
+    public java.lang.String getWebsafeConferenceKey() {
       return websafeConferenceKey;
     }
 
-    public UnregisterFromConference setWebsafeConferenceKey(String websafeConferenceKey) {
+    public UnregisterFromConference setWebsafeConferenceKey(java.lang.String websafeConferenceKey) {
       this.websafeConferenceKey = websafeConferenceKey;
       return this;
     }
@@ -1358,7 +1350,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
    * @param content the {@link com.appspot.ad_meet.conference.model.ConferenceForm}
    * @return the request
    */
-  public UpdateConference updateConference(String websafeConferenceKey, com.appspot.ad_meet.conference.model.ConferenceForm content) throws java.io.IOException {
+  public UpdateConference updateConference(java.lang.String websafeConferenceKey, com.appspot.ad_meet.conference.model.ConferenceForm content) throws java.io.IOException {
     UpdateConference result = new UpdateConference(websafeConferenceKey, content);
     initialize(result);
     return result;
@@ -1373,7 +1365,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      *
      * This request holds the parameters needed by the the conference server.  After setting any
      * optional parameters, call the {@link UpdateConference#execute()} method to invoke the remote
-     * operation. <p> {@link UpdateConference# initialize(com.google.api.client.googleapis.services.Abs
+     * operation. <p> {@link UpdateConference#initialize(com.google.api.client.googleapis.services.Abs
      * tractGoogleClientRequest)} must be called to initialize this instance immediately after
      * invoking the constructor. </p>
      *
@@ -1381,57 +1373,57 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
      * @param content the {@link com.appspot.ad_meet.conference.model.ConferenceForm}
      * @since 1.13
      */
-    protected UpdateConference(String websafeConferenceKey, com.appspot.ad_meet.conference.model.ConferenceForm content) {
+    protected UpdateConference(java.lang.String websafeConferenceKey, com.appspot.ad_meet.conference.model.ConferenceForm content) {
       super(Conference.this, "PUT", REST_PATH, content, com.appspot.ad_meet.conference.model.Conference.class);
       this.websafeConferenceKey = com.google.api.client.util.Preconditions.checkNotNull(websafeConferenceKey, "Required parameter websafeConferenceKey must be specified.");
     }
 
     @Override
-    public UpdateConference setAlt(String alt) {
+    public UpdateConference setAlt(java.lang.String alt) {
       return (UpdateConference) super.setAlt(alt);
     }
 
     @Override
-    public UpdateConference setFields(String fields) {
+    public UpdateConference setFields(java.lang.String fields) {
       return (UpdateConference) super.setFields(fields);
     }
 
     @Override
-    public UpdateConference setKey(String key) {
+    public UpdateConference setKey(java.lang.String key) {
       return (UpdateConference) super.setKey(key);
     }
 
     @Override
-    public UpdateConference setOauthToken(String oauthToken) {
+    public UpdateConference setOauthToken(java.lang.String oauthToken) {
       return (UpdateConference) super.setOauthToken(oauthToken);
     }
 
     @Override
-    public UpdateConference setPrettyPrint(Boolean prettyPrint) {
+    public UpdateConference setPrettyPrint(java.lang.Boolean prettyPrint) {
       return (UpdateConference) super.setPrettyPrint(prettyPrint);
     }
 
     @Override
-    public UpdateConference setQuotaUser(String quotaUser) {
+    public UpdateConference setQuotaUser(java.lang.String quotaUser) {
       return (UpdateConference) super.setQuotaUser(quotaUser);
     }
 
     @Override
-    public UpdateConference setUserIp(String userIp) {
+    public UpdateConference setUserIp(java.lang.String userIp) {
       return (UpdateConference) super.setUserIp(userIp);
     }
 
     @com.google.api.client.util.Key
-    private String websafeConferenceKey;
+    private java.lang.String websafeConferenceKey;
 
     /**
 
      */
-    public String getWebsafeConferenceKey() {
+    public java.lang.String getWebsafeConferenceKey() {
       return websafeConferenceKey;
     }
 
-    public UpdateConference setWebsafeConferenceKey(String websafeConferenceKey) {
+    public UpdateConference setWebsafeConferenceKey(java.lang.String websafeConferenceKey) {
       this.websafeConferenceKey = websafeConferenceKey;
       return this;
     }
@@ -1443,7 +1435,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
   }
 
   /**
-   * Builder for {@link com.appspot.ad_meet.conference.Conference}.
+   * Builder for {@link Conference}.
    *
    * <p>
    * Implementation is not thread-safe.
@@ -1486,7 +1478,7 @@ public class Conference extends com.google.api.client.googleapis.services.json.A
           false);
     }
 
-    /** Builds a new instance of {@link com.appspot.ad_meet.conference.Conference}. */
+    /** Builds a new instance of {@link Conference}. */
     @Override
     public Conference build() {
       return new Conference(this);
