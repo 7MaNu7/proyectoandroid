@@ -206,11 +206,13 @@ public class EditarPerfil extends ActionBarActivity {
             if(result==null)
             {
                 nombre.setText("No especificado");
+                nombreNick.setText("No especificado");
                 ciudad.setText("No especificado");
                 tlf.setText("No especificado");
             }
             else {
                 nombre.setText(result.getDisplayName());
+                nombreNick.setText(result.getDisplayName());
                 ciudad.setText(result.getCiudad());
                 tlf.setText(result.getTelefono());
                 //id.setText(result.getMainEmail());
@@ -248,6 +250,10 @@ public class EditarPerfil extends ActionBarActivity {
                 form.setTelefono(tlf.getText().toString());
                 Conference.SaveProfile prof = ConferenceUtils.saveProfile(form);
                 perfil = prof.execute();
+
+                TextView nombre1 = (EditText) findViewById(R.id.editTextName);
+                TextView nombreNick = (TextView) findViewById(R.id.textViewNombreNick);
+                nombreNick.setText(nombre1.getText().toString());
             }
             catch (Exception e)
             {

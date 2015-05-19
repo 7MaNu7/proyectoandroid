@@ -46,63 +46,44 @@
             android:textStyle="bold"
             android:fontFamily="sans-serif-light" />
 
-        <TableLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Almeria"
+                android:id="@+id/textviewlugar"
+                android:layout_marginTop="5dp"
+                android:clickable="false"
+                android:focusableInTouchMode="false"
+                android:textSize="17sp"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:layout_weight="20"
+                android:fontFamily="sans-serif-light"
+                android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="15/03/2015"
+                android:id="@+id/textviewfecha"
+                android:layout_marginTop="5dp"
+                android:clickable="false"
+                android:focusableInTouchMode="false"
+                android:textSize="15dp"
+                android:layout_column="0"
+                android:layout_weight="20"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="sans-serif-light"
+                android:theme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tabla1"
-            android:layout_marginTop="10dp">
+            android:id="@+id/tabla1">
 
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/fila1"
-                android:layout_gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Almeria"
-                    android:id="@+id/textviewlugar"
-                    android:layout_marginTop="5dp"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false"
-                    android:textSize="17sp"
-                    android:layout_gravity="center_horizontal"
-                    android:textAlignment="center"
-                    android:layout_weight="20"
-                    android:fontFamily="sans-serif-light"
-                    android:theme="@style/ThemeOverlay.AppCompat.Light"
-                    android:layout_span="50"
-                    android:layout_marginLeft="20dp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/fila2"
-                android:layout_gravity="center_horizontal">
-
-                <TextView
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="15/03/2015"
-                    android:id="@+id/textviewfecha"
-                    android:layout_marginTop="5dp"
-                    android:clickable="false"
-                    android:focusableInTouchMode="false"
-                    android:textSize="15dp"
-                    android:layout_column="0"
-                    android:layout_weight="20"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="sans-serif-light"
-                    android:theme="@style/ThemeOverlay.AppCompat.Light"
-                    android:layout_span="50"
-                    android:layout_marginLeft="20dp" />
-            </TableRow>
-
-            <TableRow
+                <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical"
@@ -130,7 +111,7 @@
                     android:text="3/20"
                     android:id="@+id/textViewNPersonas"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
@@ -167,7 +148,7 @@
                     android:text="Deportes"
                     android:id="@+id/textViewcategoria"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
@@ -204,7 +185,7 @@
                     android:text="Un creador"
                     android:id="@+id/textViewCreador"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
@@ -238,16 +219,17 @@
             android:text="Y eso y lo otro y mira que descripción más detallada que pone la gente, bueno, está todo claro ya, bien, así de largo para el ejemplo. Mas ejemplo, mas ejemplo, mas ejemplo."
             android:id="@+id/textviewdescripcion"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginRight="30dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
-            android:textSize="16dp"
+            android:textSize="15dp"
             android:layout_marginLeft="50dp"
             android:singleLine="false"
             android:phoneNumber="false"
             android:password="false"
             android:fontFamily="sans-serif-light"
-            android:theme="@style/TextoNormal" />
+            android:theme="@style/TextoNormal"
+            android:textAlignment="inherit" />
 
             <TextView
                 android:layout_width="wrap_content"

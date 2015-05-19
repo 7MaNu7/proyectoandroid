@@ -1,4 +1,5 @@
 package com.taesua.admeet.admeet;
+
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.AlertDialog;
@@ -47,6 +48,8 @@ public class MainActivity extends ActionBarActivity {
     ConferenceQueryForm query = new ConferenceQueryForm();
     private AuthorizationCheckTask mAuthTask;
     private String mEmailAccount;
+
+    boolean vienedefiltros = false;
 
 
     @Override
@@ -111,11 +114,9 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-        //GetEventos getEventos = new GetEventos();
-        //getEventos.execute();
-
         if(this.getIntent().getExtras()!=null)
         {
+            vienedefiltros = true;
 
             ArrayList filtros = new ArrayList();
             int tam = this.getIntent().getExtras().size()/3;
@@ -400,8 +401,11 @@ public class MainActivity extends ActionBarActivity {
             super.onPreExecute();
             //Display success message to user
             if(query.getFilters()!=null) {
-                Toast.makeText(getBaseContext(), "Se han aplicado correctamente los filtros.",
-                        Toast.LENGTH_SHORT).show();
+                if(vienedefiltros==true) {
+                    Toast.makeText(getBaseContext(), "Se han aplicado correctamente los filtros.",
+                            Toast.LENGTH_SHORT).show();
+                    vienedefiltros  = false;
+                }
             }
         }
         @Override

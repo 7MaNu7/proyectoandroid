@@ -72,10 +72,12 @@ public class PerfilPublico extends ActionBarActivity {
         });
 
         TextView nombre = (TextView) findViewById(R.id.textViewNombre);
+        TextView nombreNick = (TextView) findViewById(R.id.textViewNombreNick);
         TextView ciudad = (TextView) findViewById(R.id.textViewCiudad);
         TextView tlf = (TextView) findViewById(R.id.textViewTlf);
 
         nombre.setText(getIntent().getExtras().getString("nombre"));
+        nombreNick.setText(getIntent().getExtras().getString("nombre"));
         ciudad.setText(getIntent().getExtras().getString("ciudad"));
         tlf.setText(getIntent().getExtras().getString("telefono"));
 
