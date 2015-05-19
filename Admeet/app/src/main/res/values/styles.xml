@@ -10,7 +10,7 @@
 
     <style name="FondoPanel">
         <!-- Customize your theme here. -->
-        <item name="android:background">#c968ff</item>
+        <item name="android:background">#ffdaa7ff</item>
         <item name="android:divider">#FFFFFF</item><!--#76/33000000-->
         <item name="android:dividerHeight">1dp</item>
     </style>
@@ -70,7 +70,7 @@
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
     </style>
 
     <!--NADA va xD-->

@@ -94,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:text="Nº de personas:"
                     android:id="@+id/textViewTituloNPersonas"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginLeft="65dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
@@ -110,7 +110,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="3/20"
                     android:id="@+id/textViewNPersonas"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
@@ -118,8 +118,7 @@
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal"
-                    android:layout_marginLeft="-10dp" />
+                    android:theme="@style/TextoNormal" />
             </TableRow>
 
             <TableRow
@@ -133,7 +132,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Categoria:"
                     android:id="@+id/textViewTituloCategoria"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginLeft="65dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
@@ -148,7 +147,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Deportes"
                     android:id="@+id/textViewcategoria"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
@@ -156,8 +155,7 @@
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal"
-                    android:layout_marginLeft="-10dp" />
+                    android:theme="@style/TextoNormal" />
             </TableRow>
 
             <TableRow
@@ -171,7 +169,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Creador:"
                     android:id="@+id/textView4"
-                    android:layout_marginLeft="70dp"
+                    android:layout_marginLeft="65dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
@@ -186,7 +184,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Un creador"
                     android:id="@+id/textViewCreador"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
@@ -194,8 +192,7 @@
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal"
-                    android:layout_marginLeft="-10dp" />
+                    android:theme="@style/TextoNormal" />
             </TableRow>
 
         </TableLayout>
@@ -326,8 +323,6 @@
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:choiceMode="singleChoice"
-    android:divider="#33000000"
-    android:dividerHeight="1dp"
     style="@style/FondoPanel" />
 
 </android.support.v4.widget.DrawerLayout>
