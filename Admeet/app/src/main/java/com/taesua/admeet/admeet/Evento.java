@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,7 @@ import com.appspot.ad_meet.conference.model.Profile;
 import com.appspot.ad_meet.conference.model.ProfileCollection;
 import com.appspot.ad_meet.conference.model.WrappedBoolean;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +33,7 @@ public class Evento extends ActionBarActivity {
 
     private List<com.appspot.ad_meet.conference.model.Conference> conferencias_atendidas = new ArrayList<com.appspot.ad_meet.conference.model.Conference>();
     private String websafeKey;
-    private Long eventoid;
+    private String id_seleccionado="";
     private boolean asiste=false;
 
     private TextView t1;
@@ -197,7 +199,7 @@ public class Evento extends ActionBarActivity {
         */
 
         websafeKey = this.getIntent().getExtras().getString("websafeKey");
-        eventoid = this.getIntent().getExtras().getLong("eventoid");
+        //eventoid = this.getIntent().getExtras().getLong("eventoid");
         System.out.println("SU KEY ES " + websafeKey);
 
         GetEventosAsisto get = new GetEventosAsisto();
@@ -537,64 +539,46 @@ public class Evento extends ActionBarActivity {
         }
     }
 
-    //HANDLER PARA BOTON DE BORRAR PARTICIPANTE
-    public void echarHandler(View v) {
-
-        //FUNCIONALIDAD FUTURA, SOON TM
-        /*
-        Profile itemToRemove = (Profile)v.getTag();
-
-
-        EcharDeEvento echar = new EcharDeEvento(itemToRemove);
-        echar.execute();
-        adapter.remove(itemToRemove);
-        */
-    }
-
-
-
-    private class EcharDeEvento extends AsyncTask<Void, Void,WrappedBoolean>
+    private class Kick extends AsyncTask<Void, Void,Void>
     {
-        private Profile parti;
-        public EcharDeEvento(Profile parti) {this.parti=parti;}
+        public Kick() { }
 
         @Override
-        protected void onPreExecute(){
-            super.onPreExecute();
-        }
-        @Override
-        protected WrappedBoolean doInBackground(Void ... unused)
+        protected Void doInBackground(Void ... unused)
         {
-            WrappedBoolean messages = null;
             try
             {
                 KickerForm form = new KickerForm();
+                form.setUserKey(id_seleccionado);
                 form.setEventKey(websafeKey);
-                //form.setEventKey(eventoid.toString());
-                form.setUserKey(parti.getUserId());
-
-                System.out.println("EL WEBSAFEKEY DE ESTE EVENTO ES " + form.getEventKey());
-                //System.out.println("EL ID DE ESTE EVENTO ES " + form.getEventKey());
-                System.out.println("EL USERID AL QUE QUIERES ECHAR ES " + form.getUserKey());
-
-                Conference.KickFromConference create = ConferenceUtils.echarDeConferencia(form);
-                messages = create.execute();
-
+                System.out.println("USERID: " + form.getUserKey());
+                System.out.println("WEBSAFEKEY: " + form.getEventKey());
+                Conference.KickFromConference kick = ConferenceUtils.echarDeConferencia(form);
+                kick.execute();
             }
             catch (Exception e)
             {
-                System.out.println(e.getMessage());
+                //System.out.println(e.getMessage());
+                //e.printStackTrace();
+                Log.e("Error: ", e.getMessage());
             }
 
-            return messages;
-        }
-
-        @Override
-        protected void onPostExecute(WrappedBoolean result)
-        {
-           System.out.println("EL BOOLEAN ES " + result.getResult());
+            return null;
         }
     }
+
+    //HANDLER PARA BOTON DE BORRAR PARTICIPANTE
+    public void echarHandler(View v) {
+        Profile itemToRemove = (Profile)v.getTag();
+        System.out.println("CLICK AL BOTON DE " + itemToRemove.getUserId());
+
+        id_seleccionado=itemToRemove.getUserId();
+        //la websafe ya esta
+        Kick echar = new Kick();
+        echar.execute();
+        //adapter.remove(itemToRemove);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

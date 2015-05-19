@@ -212,7 +212,7 @@ public class Comentarios extends ActionBarActivity {
         String comentarios[] = new String[tam];
 
         for(int i=0;i<tam;i++) {
-            nombres[i]=("Nombre");
+            nombres[i]=(listacomentarios.get(i).getDisplayName());
             comentarios[i]=(listacomentarios.get(i).getComment());
             System.out.println("----------Aqui tenemos el comentario::::::"+comentarios[i]);
         }
