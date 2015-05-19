@@ -569,6 +569,8 @@ public class Evento extends ActionBarActivity {
 
     //HANDLER PARA BOTON DE BORRAR PARTICIPANTE
     public void echarHandler(View v) {
+
+        /*ERROR 503 BACKEND NULLPOINTER EXCEPTION
         Profile itemToRemove = (Profile)v.getTag();
         System.out.println("CLICK AL BOTON DE " + itemToRemove.getUserId());
 
@@ -577,6 +579,7 @@ public class Evento extends ActionBarActivity {
         Kick echar = new Kick();
         echar.execute();
         //adapter.remove(itemToRemove);
+        */
     }
 
     @Override
