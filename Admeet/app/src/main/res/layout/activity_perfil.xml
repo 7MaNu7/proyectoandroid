@@ -27,12 +27,13 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="45dp"
             android:gravity="center"
-            android:theme="@style/TextoTitulo" />
+            android:theme="@style/TextoTitulo"
+            android:textColor="#c8a766dd" />
 
         <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="280dp"
             android:id="@+id/tableLayout">
 
@@ -52,8 +53,8 @@
                     android:textSize="15dp"
                     android:layout_marginLeft="45dp"
                     android:layout_marginTop="0dp"
-                    android:textStyle="bold"
-                    android:theme="@style/TextoTituloNegrita" />
+                    android:theme="@style/TextoTitulo"
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="180dp"
@@ -64,14 +65,15 @@
                     android:layout_marginRight="20dp"
                     android:layout_column="9"
                     android:textSize="15dp"
-                    android:theme="@style/TextoNormal" />
+                    android:theme="@style/TextoNormal"
+                    android:textColor="#73000000" />
 
             </TableRow>
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="25dp">
+                android:layout_marginTop="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -81,8 +83,8 @@
                     android:id="@+id/textViewCii"
                     android:textSize="15dp"
                     android:layout_marginLeft="45dp"
-                    android:textStyle="bold"
-                    android:theme="@style/TextoTituloNegrita" />
+                    android:theme="@style/TextoTitulo"
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="180dp"
@@ -93,14 +95,15 @@
                     android:layout_marginRight="20dp"
                     android:layout_column="9"
                     android:textSize="15dp"
-                    android:theme="@style/TextoNormal" />
+                    android:theme="@style/TextoNormal"
+                    android:textColor="#73000000" />
 
             </TableRow>
 
             <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="25dp">
+                android:layout_marginTop="15dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -111,8 +114,8 @@
                     android:textSize="15dp"
                     android:textIsSelectable="true"
                     android:layout_marginLeft="45dp"
-                    android:textStyle="bold"
-                    android:theme="@style/TextoTituloNegrita" />
+                    android:theme="@style/TextoTitulo"
+                    android:textColor="#000000" />
 
                 <TextView
                     android:layout_width="180dp"
@@ -123,45 +126,8 @@
                     android:layout_marginRight="20dp"
                     android:layout_column="9"
                     android:textSize="15dp"
-                    android:theme="@style/TextoNormal" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></TableRow>
-
-            <TableRow
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
+                    android:theme="@style/TextoNormal"
+                    android:textColor="#73000000" />
 
             </TableRow>
 
@@ -172,7 +138,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@+id/linearlayoutabajo"
-            android:layout_marginTop="190dp">
+            android:layout_marginTop="170dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -180,7 +146,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Eventos recientes:"
                 android:id="@+id/textViewRecientes"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:textSize="15dp"
                 android:textIsSelectable="true"
                 android:layout_alignTop="@+id/buttonSaveProf"
@@ -189,8 +155,8 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginStart="23dp"
                 android:layout_marginBottom="10dp"
-                android:textStyle="bold"
-                android:theme="@style/TextoTituloNegrita" />
+                android:theme="@style/TextoTitulo"
+                android:textColor="#000000" />
 
             <ListView
                 android:layout_width="wrap_content"
@@ -199,9 +165,8 @@
                 android:layout_below="@+id/textViewRecientes"
                 android:layout_alignLeft="@+id/textViewNombreNick"
                 android:layout_alignStart="@+id/textViewNombreNick"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
                 android:divider="#c8a766dd"
                 android:dividerHeight="1dp" />
         </LinearLayout>
@@ -213,9 +178,9 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:background="#FFFFFF"
         android:choiceMode="singleChoice"
         android:divider="#33000000"
-        android:dividerHeight="1dp" />
+        android:dividerHeight="1dp"
+        style="@style/FondoPanel" />
 
 </android.support.v4.widget.DrawerLayout>

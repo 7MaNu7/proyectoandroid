@@ -19,30 +19,32 @@
 
     <style name="FondoPanel">
         <!-- Customize your theme here. -->
-        <item name="android:colorBackground">#c8a766dd</item>
+        <item name="android:background">#76c968ff</item>
+        <item name="android:divider">#FFFFFF</item><!--#33000000-->
+        <item name="android:dividerHeight">1dp</item>
     </style>
 
     <style name="TextoTituloNegrita">
         <!-- Customize your theme here. -->
-        <item name="android:textColor">#ff000000</item>
+        <item name="android:textColor">#c8a766dd</item>
         <item name="android:fontFamily">sans-serif-light</item>
-        <item name="android:textSize">22dp</item>
+        <item name="android:textSize">27dp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextoTitulo">
         <!-- Customize your theme here. -->
-        <item name="android:textColor">#ff000000</item>
+        <item name="android:textColor">#c8a766dd</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textSize">22dp</item>
     </style>
 
     <style name="TextoNormalNegrita">
         <!-- Customize your theme here. -->
-        <item name="android:textColor">#ff000000</item>
+        <item name="android:textColor">#c8a766dd</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textSize">16dp</item>
-        <item name="android:textStyle">bold</item>
+        <!--<item name="android:textStyle">bold</item>-->
     </style>
 
     <style name="TextoNormal">

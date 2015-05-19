@@ -131,7 +131,7 @@
                     android:layout_weight="0.11"
                     style="@style/Base.Theme.AppCompat.Dialog"
                 android:singleLine="true"
-                android:background="@drawable/roundcornerblue"
+                android:background="@drawable/roundcornerbluesombra"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="40dp"
@@ -173,7 +173,7 @@
                     android:layout_alignLeft="@+id/buttonAcabarFiltros"
                     android:layout_alignStart="@+id/buttonAcabarFiltros"
                     style="@style/Base.Theme.AppCompat.Dialog"
-                    android:background="@drawable/roundcornermorado"
+                    android:background="@drawable/roundcornermoradosombra"
                     android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:layout_marginLeft="40dp"
@@ -189,7 +189,7 @@
                     android:layout_above="@+id/volver_sin"
                     android:layout_centerHorizontal="true"
                     style="@style/Base.Theme.AppCompat.Dialog"
-                    android:background="@drawable/roundcornerblue"
+                    android:background="@drawable/roundcornerbluesombra"
                     android:layout_marginBottom="20dp"
                     android:gravity="center"
                     android:layout_marginLeft="40dp"
@@ -209,9 +209,7 @@
     android:layout_width="300dp"
     android:layout_height="match_parent"
     android:layout_gravity="left"
-    android:background="#c8a766dd"
     android:choiceMode="singleChoice"
-    android:divider="#33000000"
-    android:dividerHeight="1dp" />
+    style="@style/FondoPanel" />
 
 </android.support.v4.widget.DrawerLayout>

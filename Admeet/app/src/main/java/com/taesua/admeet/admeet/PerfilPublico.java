@@ -90,6 +90,37 @@ public class PerfilPublico extends ActionBarActivity {
 
         GetEventos getEventos = new GetEventos();
         getEventos.execute();
+
+
+        //Clicar en un evento
+        eventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView <?> parent, View view, int position,
+                                    long id) {
+                com.appspot.ad_meet.conference.model.Conference evento;
+                evento = listaeventos.get(position);
+                Long idevento = evento.getId();
+                Intent intent = new Intent(PerfilPublico.this, Evento.class);
+                intent.putExtra("name", evento.getName());
+                intent.putExtra("city", evento.getCity());
+                intent.putExtra("description", evento.getDescription());
+                //intent.putExtra("fecha", evento.getStartDate());
+                String t = evento.getStartDate().toString();
+                String[] trozos = t.split("T");
+                intent.putExtra("fecha",trozos[0]);
+                intent.putExtra("asientos", evento.getSeatsAvailable()+"/"+evento.getMaxAttendees());
+                String categorias="";
+                for(int i=0;i<evento.getTopics().size();i++)
+                    categorias+=" " + evento.getTopics().get(i);
+                intent.putExtra("categorias", categorias);
+                intent.putExtra("websafeKey",evento.getWebsafeKey());
+                intent.putExtra("eventoid",evento.getId());
+                intent.putExtra("creador", evento.getOrganizerDisplayName());
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     /**

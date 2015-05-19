@@ -26,7 +26,10 @@
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp" />
+            android:layout_marginRight="30dp"
+            android:textColorHighlight="#c8a766dd"
+            android:shadowColor="#c8a766dd"
+            android:textColorLink="#c8a766dd" />
 
         <Button
             style="@android:style/Widget.Spinner"
@@ -35,14 +38,14 @@
             android:text="Comentar"
             android:id="@+id/buttonComentar"
             android:textColor="#ffffffff"
-            android:background="@drawable/roundcornerblue"
+            android:background="@drawable/roundcornerbluesombra"
             android:singleLine="true"
             android:textSize="18dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="20dp" />
 
         <ListView
             android:layout_width="wrap_content"
@@ -59,7 +62,8 @@
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:divider="#83b5dd" />
+            android:divider="#c8a766dd"
+            android:dividerHeight="1dp" />
 
     </RelativeLayout>
 
@@ -68,9 +72,8 @@
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:background="#c8a766dd"
         android:choiceMode="singleChoice"
-        android:divider="#33000000"
-        android:dividerHeight="1dp" />
+        style="@style/FondoPanel"
+        android:drawSelectorOnTop="false" />
 
 </android.support.v4.widget.DrawerLayout>

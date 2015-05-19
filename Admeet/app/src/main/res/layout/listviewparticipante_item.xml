@@ -11,9 +11,11 @@
         android:layout_weight="2"
         android:gravity="center_vertical"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textSize="17dp"
+        android:textSize="16dp"
         android:textColor="#000000"
-        android:theme="@style/TextoNormal" />
+        android:theme="@style/TextoNormal"
+        android:text="Name"
+        android:fontFamily="sans-serif-light" />
 
     <ImageView
         android:id="@+id/ButtonEchar"

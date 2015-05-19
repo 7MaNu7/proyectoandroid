@@ -13,8 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:text="Nombre"
-        android:textColor="#ff000000"
-        android:theme="@style/TextoNormal" />
+        android:theme="@style/TextoNormal"
+        android:textSize="17dp"
+        android:textColor="#73000000" />
 
     <TextView
         android:id="@+id/textViewComentario"
@@ -26,6 +27,8 @@
         android:layout_alignParentStart="true"
         android:theme="@style/TextoNormal"
         android:layout_marginTop="5dp"
-        android:textColor="#c8a766dd" />
+        android:textColor="#c8a766dd"
+        android:textSize="16dp"
+        android:layout_marginLeft="5dp" />
 
 </RelativeLayout>

@@ -27,7 +27,8 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="45dp"
         android:gravity="center"
-        android:theme="@style/TextoTitulo" />
+        android:theme="@style/TextoTitulo"
+        android:textColor="#c8a766dd" />
 
     <TableLayout
         android:layout_width="fill_parent"
@@ -51,8 +52,7 @@
                 android:textSize="15dp"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:theme="@style/TextoNormalNegrita" />
+                android:theme="@style/TextoNormal" />
 
             <EditText
                 android:layout_width="180dp"
@@ -63,7 +63,12 @@
                 android:layout_column="9"
                 android:layout_marginTop="5dp"
                 android:textSize="15dp"
-                android:theme="@style/Widget.AppCompat.Light.AutoCompleteTextView" />
+                android:theme="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+                android:text="Prueba"
+                android:textColor="#73000000"
+                android:textColorLink="#c8a766dd"
+                android:textColorHint="#c8a766dd"
+                android:textColorHighlight="#c8a766dd" />
         </TableRow>
 
         <TableRow
@@ -79,8 +84,7 @@
                 android:layout_marginTop="10dp"
                 android:textSize="15dp"
                 android:layout_marginLeft="45dp"
-                android:textStyle="bold"
-                android:theme="@style/TextoNormalNegrita" />
+                android:theme="@style/TextoNormal" />
 
             <EditText
                 android:layout_width="180dp"
@@ -91,7 +95,9 @@
                 android:layout_column="9"
                 android:layout_marginTop="5dp"
                 android:textSize="15dp"
-                android:theme="@style/Widget.AppCompat.Light.AutoCompleteTextView" />
+                android:theme="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+                android:text="Prueba"
+                android:textColor="#73000000" />
         </TableRow>
 
         <TableRow
@@ -108,8 +114,7 @@
                 android:textSize="15dp"
                 android:textIsSelectable="true"
                 android:layout_marginLeft="45dp"
-                android:textStyle="bold"
-                android:theme="@style/TextoNormalNegrita" />
+                android:theme="@style/TextoNormal" />
 
             <EditText
                 android:layout_width="180dp"
@@ -120,7 +125,9 @@
                 android:layout_column="9"
                 android:layout_marginTop="5dp"
                 android:textSize="15dp"
-                android:theme="@style/Widget.AppCompat.Light.AutoCompleteTextView" />
+                android:theme="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+                android:text="Prueba"
+                android:textColor="#73000000" />
         </TableRow>
 
         <TableRow
@@ -173,17 +180,18 @@
         <Button
             style="@style/Base.Theme.AppCompat.Dialog"
             android:layout_width="230dp"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:text="Guardar cambios"
             android:id="@+id/buttonSaveProf"
-            android:background="@drawable/roundcornerblue"
+            android:background="@drawable/roundcornerbluesombra"
             android:textColor="#ffffffff"
             android:layout_alignWithParentIfMissing="false"
             android:textSize="17dp"
             android:layout_column="9"
             android:layout_alignTop="@+id/tableLayout"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="65dp" />
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -200,8 +208,7 @@
             android:layout_marginLeft="45dp"
             android:layout_marginStart="23dp"
             android:layout_marginBottom="10dp"
-            android:textStyle="bold"
-            android:theme="@style/TextoNormalNegrita" />
+            android:theme="@style/TextoNormal" />
 
         <ListView
             android:layout_width="wrap_content"
@@ -224,9 +231,7 @@ android:id="@+id/list_view"
 android:layout_width="300dp"
 android:layout_height="match_parent"
 android:layout_gravity="left"
-android:background="#c8a766dd"
-android:choiceMode="singleChoice"
-android:divider="#33000000"
-android:dividerHeight="1dp" />
+    android:choiceMode="singleChoice"
+    style="@style/FondoPanel" />
 
 </android.support.v4.widget.DrawerLayout>

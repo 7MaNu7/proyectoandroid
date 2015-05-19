@@ -3,7 +3,8 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    style="@style/FondoPanel">
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -40,9 +41,10 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:layout_gravity="center_horizontal"
-            android:theme="@style/TextoNormal"
-            android:textSize="22dp"
-            android:textColor="#c8a766dd" />
+            android:textSize="27dp"
+            android:textColor="#c8a766dd"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-light" />
 
         <TableLayout
             android:layout_width="match_parent"
@@ -69,9 +71,10 @@
                     android:layout_gravity="center_horizontal"
                     android:textAlignment="center"
                     android:layout_weight="20"
-                    android:layout_marginLeft="70dp"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/ThemeOverlay.AppCompat.Light" />
+                    android:theme="@style/ThemeOverlay.AppCompat.Light"
+                    android:layout_span="50"
+                    android:layout_marginLeft="20dp" />
             </TableRow>
 
             <TableRow
@@ -93,9 +96,10 @@
                     android:layout_column="0"
                     android:layout_weight="20"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="70dp"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/ThemeOverlay.AppCompat.Light" />
+                    android:theme="@style/ThemeOverlay.AppCompat.Light"
+                    android:layout_span="50"
+                    android:layout_marginLeft="20dp" />
             </TableRow>
 
             <TableRow
@@ -107,17 +111,17 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Número de personas:"
+                    android:text="Nº de personas:"
                     android:id="@+id/textViewTituloNPersonas"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="17dp"
-                    android:theme="@style/TextoNormalNegrita"
-                    android:textStyle="bold"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:theme="@style/TextoNormal"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#c8a766dd" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -126,15 +130,14 @@
                     android:text="3/20"
                     android:id="@+id/textViewNPersonas"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal"
-                    android:layout_marginLeft="45dp" />
+                    android:theme="@style/TextoNormal" />
             </TableRow>
 
             <TableRow
@@ -148,14 +151,14 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Categoria:"
                     android:id="@+id/textViewTituloCategoria"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="17dp"
-                    android:textStyle="bold"
-                    android:theme="@style/TextoNormalNegrita" />
+                    android:theme="@style/TextoNormal"
+                    android:textColor="#c8a766dd" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -164,15 +167,14 @@
                     android:text="Deportes"
                     android:id="@+id/textViewcategoria"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal"
-                    android:layout_marginLeft="45dp" />
+                    android:theme="@style/TextoNormal" />
             </TableRow>
 
             <TableRow
@@ -186,14 +188,14 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Creador:"
                     android:id="@+id/textView4"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="70dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="30dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="17dp"
-                    android:textStyle="bold"
-                    android:theme="@style/TextoNormalNegrita" />
+                    android:theme="@style/TextoNormal"
+                    android:textColor="#c8a766dd" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -202,15 +204,14 @@
                     android:text="Un creador"
                     android:id="@+id/textViewCreador"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal"
-                    android:layout_marginLeft="45dp" />
+                    android:theme="@style/TextoNormal" />
             </TableRow>
 
         </TableLayout>
@@ -222,13 +223,13 @@
             android:text="Descripción"
             android:id="@+id/textview2"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
             android:textSize="17dp"
-            android:textStyle="bold"
-                android:theme="@style/TextoNormalNegrita" />
+                android:theme="@style/TextoNormal"
+                android:textColor="#c8a766dd" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -237,17 +238,16 @@
             android:text="Y eso y lo otro y mira que descripción más detallada que pone la gente, bueno, está todo claro ya, bien, así de largo para el ejemplo. Mas ejemplo, mas ejemplo, mas ejemplo."
             android:id="@+id/textviewdescripcion"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="40dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
             android:textSize="16dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="50dp"
             android:singleLine="false"
             android:phoneNumber="false"
             android:password="false"
             android:fontFamily="sans-serif-light"
-            android:theme="@style/TextoNormal"
-            android:textStyle="bold" />
+            android:theme="@style/TextoNormal" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -256,19 +256,19 @@
                 android:text="Asistentes:"
                 android:id="@+id/textView3"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
                 android:clickable="false"
                 android:focusableInTouchMode="false"
                 android:textSize="17dp"
-                android:textStyle="bold"
-                android:theme="@style/TextoNormalNegrita" />
+                android:theme="@style/TextoNormal"
+                android:textColor="#c8a766dd" />
 
             <com.taesua.admeet.admeet.ExpandableHeightListView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/listViewAsistentes"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="5dp">
             </com.taesua.admeet.admeet.ExpandableHeightListView>
 
@@ -287,7 +287,7 @@
                     android:text="Comentar"
                     android:id="@+id/buttonComentar"
                     android:textColor="#ffffffff"
-                    android:background="@drawable/roundcornerblue"
+                    android:background="@drawable/roundcornerbluesombra"
                     android:singleLine="true"
                     android:textSize="18dp"
                     android:layout_gravity="center"
@@ -303,7 +303,7 @@
                 android:text="Apuntarse +"
                 android:id="@+id/buttonApuntarse"
                 android:textColor="#ffffffff"
-                android:background="@drawable/roundcornermorado"
+                android:background="@drawable/roundcornermoradosombra"
                 android:singleLine="true"
                 android:textSize="18dp"
                 android:layout_gravity="center"
@@ -319,14 +319,14 @@
                     android:text="Editar evento"
                     android:id="@+id/buttonEditEvento"
                     android:textColor="#ffffffff"
-                    android:background="@drawable/roundcornerblue"
+                    android:background="@drawable/roundcornerbluesombra"
                     android:singleLine="true"
                     android:textSize="18dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="50dp"
                     android:layout_marginLeft="50dp"
                     android:gravity="center"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginTop="10dp" />
 
             </TableLayout>
@@ -344,6 +344,6 @@
     android:choiceMode="singleChoice"
     android:divider="#33000000"
     android:dividerHeight="1dp"
-    android:background="#c8a766dd" />
+    style="@style/FondoPanel" />
 
 </android.support.v4.widget.DrawerLayout>

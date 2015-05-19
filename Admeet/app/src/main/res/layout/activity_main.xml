@@ -82,10 +82,7 @@ android:layout_height="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="left"
     android:choiceMode="singleChoice"
-    android:divider="#FFFFFF"
-    android:dividerHeight="1dp"
     android:drawSelectorOnTop="false"
-    style="@style/FondoPanel"
-    android:background="#c8a766dd" />
+    style="@style/FondoPanel" />
 
 </android.support.v4.widget.DrawerLayout>

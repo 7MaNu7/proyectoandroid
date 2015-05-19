@@ -33,7 +33,12 @@
                 android:singleLine="false"
                 android:layout_marginLeft="90dp"
                 android:layout_marginRight="40dp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textColor="#c8a766dd"
+                android:shadowColor="#c8a766dd"
+                android:textColorHighlight="#c8a766dd"
+                android:textColorHint="#c8a766dd"
+                android:textColorLink="#c8a766dd" />
 
             <Spinner
                 android:layout_width="170dp"
@@ -44,7 +49,7 @@
                 android:nestedScrollingEnabled="false"
                 android:spinnerMode="dropdown"
                 android:gravity="left"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="25dp"
                 android:layout_marginRight="30dp" />
 
             <EditText
@@ -57,7 +62,8 @@
                 android:layout_marginRight="30dp"
                 android:textSize="15dp"
                 android:gravity="left"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:text="Lugar evento" />
 
             <CalendarView
                 android:layout_width="310dp"
@@ -78,7 +84,8 @@
                 android:layout_marginRight="30dp"
                 android:textSize="15dp"
                 android:layout_marginLeft="30dp"
-                android:gravity="left" />
+                android:gravity="left"
+                android:text="Nº personas" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -90,20 +97,21 @@
                 android:layout_marginRight="30dp"
                 android:textSize="15dp"
                 android:inputType="textMultiLine"
-                android:gravity="left" />
+                android:gravity="left"
+                android:text="Descripción" />
 
             <Button
                 style="@style/Base.Theme.AppCompat.Dialog"
                 android:layout_width="220dp"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:text="Añadir anuncio"
                 android:id="@+id/buttonAnadirAnuncio"
                 android:textColor="#ffffffff"
-                android:background="@drawable/roundcornerblue"
+                android:background="@drawable/roundcornerbluesombra"
                 android:singleLine="true"
                 android:textSize="18dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp" />
 
         </LinearLayout>
@@ -115,9 +123,7 @@
     android:layout_width="300dp"
     android:layout_height="match_parent"
     android:layout_gravity="left"
-    android:background="#c8a766dd"
     android:choiceMode="singleChoice"
-    android:divider="#33000000"
-    android:dividerHeight="1dp" />
+    style="@style/FondoPanel" />
 
 </android.support.v4.widget.DrawerLayout>

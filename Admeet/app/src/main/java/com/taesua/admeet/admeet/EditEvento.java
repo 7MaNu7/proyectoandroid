@@ -65,18 +65,17 @@ public class EditEvento extends ActionBarActivity {
 
                 Intent intent = null;
 
-
-                if(!opciones[arg2].equals("Publicar")) {
-                    if (opciones[arg2].equals("Filtros"))
-                        intent = new Intent(EditEvento.this, Filtros.class);
-                    else if (opciones[arg2].equals("Perfil"))
-                        intent = new Intent(EditEvento.this, EditarPerfil.class);
-                    else
-                        intent = new Intent(EditEvento.this, MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
-                    finish();
-                }
+                if (opciones[arg2].equals("Filtros"))
+                    intent = new Intent(EditEvento.this, Filtros.class);
+                else if (opciones[arg2].equals("Perfil"))
+                    intent = new Intent(EditEvento.this, EditarPerfil.class);
+                else if (opciones[arg2].equals("Publicar"))
+                    intent = new Intent(EditEvento.this, CrearEvento.class);
+                else
+                    intent = new Intent(EditEvento.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
 
                 drawerLayout.closeDrawers();
             }
