@@ -9,4 +9,6 @@
     android:textSize="16dp"
     android:text="Hola"
     android:background="#FFFFFF"
-    style="@style/TextoDropDown" />
+    style="@style/TextoDropDown"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dp" />

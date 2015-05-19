@@ -40,14 +40,14 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/field"
                     android:layout_weight="0.11"
-                    android:layout_marginLeft="45dp"
                     android:layout_marginTop="30dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:focusableInTouchMode="false"
                     android:touchscreenBlocksFocus="false"
                     android:transitionGroup="false"
-                    android:layout_marginRight="40dp" />
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="35dp" />
             </TableRow>
 
             <TableRow
@@ -62,7 +62,7 @@
                 android:layout_weight="0.11"
                 android:spinnerMode="dropdown"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="45dp"
+                android:layout_marginLeft="35dp"
                     android:clickable="true"
                     android:theme="@style/dropdown_1" />
             </TableRow>
@@ -79,7 +79,7 @@
                     android:layout_weight="0.11"
                     android:spinnerMode="dropdown"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="45dp"
+                    android:layout_marginLeft="35dp"
                     android:clickable="true"
                     android:visibility="invisible" />
             </TableRow>

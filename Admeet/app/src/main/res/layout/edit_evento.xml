@@ -50,7 +50,7 @@
                     android:nestedScrollingEnabled="false"
                     android:spinnerMode="dropdown"
                     android:gravity="left"
-                    android:layout_marginLeft="35dp"
+                    android:layout_marginLeft="25dp"
                     android:layout_marginRight="30dp" />
 
                 <EditText
