@@ -110,15 +110,16 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="3/20"
                     android:id="@+id/textViewNPersonas"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal" />
+                    android:theme="@style/TextoNormal"
+                    android:layout_marginLeft="-10dp" />
             </TableRow>
 
             <TableRow
@@ -147,15 +148,16 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Deportes"
                     android:id="@+id/textViewcategoria"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal" />
+                    android:theme="@style/TextoNormal"
+                    android:layout_marginLeft="-10dp" />
             </TableRow>
 
             <TableRow
@@ -184,15 +186,16 @@
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Un creador"
                     android:id="@+id/textViewCreador"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="40dp"
                     android:clickable="false"
                     android:focusableInTouchMode="false"
                     android:textSize="16dp"
                     android:layout_column="19"
                     android:layout_weight="20"
                     android:fontFamily="sans-serif-light"
-                    android:theme="@style/TextoNormal" />
+                    android:theme="@style/TextoNormal"
+                    android:layout_marginLeft="-10dp" />
             </TableRow>
 
         </TableLayout>
@@ -219,7 +222,7 @@
             android:text="Y eso y lo otro y mira que descripción más detallada que pone la gente, bueno, está todo claro ya, bien, así de largo para el ejemplo. Mas ejemplo, mas ejemplo, mas ejemplo."
             android:id="@+id/textviewdescripcion"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="40dp"
             android:clickable="false"
             android:focusableInTouchMode="false"
             android:textSize="15dp"

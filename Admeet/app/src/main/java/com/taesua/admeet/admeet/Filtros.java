@@ -105,6 +105,19 @@ public class Filtros extends ActionBarActivity {
                     value.setInputType(InputType.TYPE_CLASS_TEXT);
                 }
 
+                if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría"))
+                {
+                    spinnerCategoria.setVisibility(View.VISIBLE);
+                    titulovalue.setVisibility(View.INVISIBLE);
+                    value.setVisibility(View.INVISIBLE);
+                }
+                else
+                {
+                    spinnerCategoria.setVisibility(View.INVISIBLE);
+                    titulovalue.setVisibility(View.VISIBLE);
+                    value.setVisibility(View.VISIBLE);
+                }
+
                 if(spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Categoría") ||
                         spinnerField.getItemAtPosition(spinnerField.getSelectedItemPosition()).toString().equals("Mes"))
                 {
@@ -137,13 +150,10 @@ public class Filtros extends ActionBarActivity {
 
 
 
-                    ArrayAdapter<String> dataAdaptercosas = new ArrayAdapter<String>(Filtros.this, android.R.layout.simple_spinner_item, listcosas);
-                    dataAdaptercosas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    spinnerCategoria.setAdapter(dataAdaptercosas);
+                    ArrayAdapter<String> dataAdaptercosas = new ArrayAdapter<String>(Filtros.this, R.layout.text_spinner1, listcosas);
+                    dataAdaptercosas.setDropDownViewResource(R.layout.text_spinner1);
 
-                    spinnerCategoria.setVisibility(View.VISIBLE);
-                    titulovalue.setVisibility(View.INVISIBLE);
-                    value.setVisibility(View.INVISIBLE);
+                    spinnerCategoria.setAdapter(dataAdaptercosas);
                 }
             }
             @Override
@@ -163,8 +173,8 @@ public class Filtros extends ActionBarActivity {
         listfield.add("Mes");
         listfield.add("Máximo nº de asistentes");
         ArrayAdapter<String> dataAdapterfield = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, listfield);
-        dataAdapterfield.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.layout.text_spinner1, listfield);
+        dataAdapterfield.setDropDownViewResource(R.layout.text_spinner1);
         spinnerField.setAdapter(dataAdapterfield);
 
         List<String> listoperator = new ArrayList<String>();
@@ -176,8 +186,8 @@ public class Filtros extends ActionBarActivity {
         listoperator.add(">="); //GTEQ
         listoperator.add("!="); //NE
         ArrayAdapter<String> dataAdapterOp = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, listoperator);
-        dataAdapterOp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.layout.text_spinner1, listoperator);
+        dataAdapterOp.setDropDownViewResource(R.layout.text_spinner1);
         spinnerOperador.setAdapter(dataAdapterOp);
 
 

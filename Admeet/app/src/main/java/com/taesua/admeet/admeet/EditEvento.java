@@ -108,8 +108,8 @@ public class EditEvento extends ActionBarActivity {
         n_personas.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         ArrayAdapter<String> dataAdapterfield = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, listcategorias);
-        dataAdapterfield.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.layout.text_spinner2, listcategorias);
+        dataAdapterfield.setDropDownViewResource(R.layout.text_spinner2);
         categoria.setAdapter(dataAdapterfield);
 
         titulo.setText(getIntent().getExtras().getString("name"));

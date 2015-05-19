@@ -44,16 +44,16 @@
                 android:layout_width="170dp"
                 android:layout_height="40dp"
                 android:id="@+id/spinnerCategoria"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:longClickable="false"
                 android:nestedScrollingEnabled="false"
                 android:spinnerMode="dropdown"
                 android:gravity="left"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="35dp"
                 android:layout_marginRight="30dp" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:hint="Lugar del evento"
