@@ -154,6 +154,11 @@ public class Filtros extends ActionBarActivity {
                     dataAdaptercosas.setDropDownViewResource(R.layout.text_spinner1);
 
                     spinnerCategoria.setAdapter(dataAdaptercosas);
+
+                    spinnerCategoria.setVisibility(View.VISIBLE);
+                    titulovalue.setVisibility(View.INVISIBLE);
+                    value.setVisibility(View.INVISIBLE);
+
                 }
             }
             @Override
@@ -321,10 +326,10 @@ public class Filtros extends ActionBarActivity {
 
                     else
                     {
-                        values.add(value.getText().toString());
+                        values.add(value.getText().toString().toLowerCase());
                         filtrosStack.append("{" + filtro +
                                 " " + spinnerOperador.getSelectedItem().toString() +
-                                " " + value.getText().toString() + "}\n");
+                                " " + value.getText().toString().toLowerCase() + "}\n");
                     }
 
 

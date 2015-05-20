@@ -26,5 +26,6 @@
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:src="@android:drawable/ic_menu_delete"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:visibility="gone" />
 </LinearLayout>
